@@ -56,7 +56,6 @@ void AMonsterBase::TakeDamage(float DamageAmount)
 
 	if (CurrentHP <= 0.0f)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Character has died."));
 		Die();
 	}
 }

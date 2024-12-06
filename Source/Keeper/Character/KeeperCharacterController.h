@@ -32,4 +32,16 @@ protected:
 	void OnLeftClickReleased();
 	void UseSkill(int SkillIndex);
 	virtual void PlayerTick(float DeltaTime) override;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> TabMenuWidgetClass;
+
+	UPROPERTY()
+	UUserWidget* CurrentTabMenuWidget;
+
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	void OnTabPressed();
+
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	void OnTabReleased();
 };

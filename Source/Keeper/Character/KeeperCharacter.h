@@ -34,7 +34,7 @@ public:
 private:
 	ACharacter* CurrentTarget;
 
-	void ApplyAreaDamage(const FVector& DamageCenter, float DamageAmount, float _DamageRadius);
+	//void ApplyAreaDamage(const FVector& DamageCenter, float DamageAmount, float _DamageRadius);
 	
 	// ----------공격 애니메이션-----------
 public:

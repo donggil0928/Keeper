@@ -126,37 +126,13 @@ void AKeeperCharacter::CreateDamageField()
 	}
 }
 
-// 범위 데미지를 처리하는 함수 추가
-void AKeeperCharacter::ApplyAreaDamage(const FVector& DamageCenter, float DamageAmount, float _DamageRadius)
-{
-	if (DamageField)
-	{
-		DamageField->SetActorLocation(DamageCenter);
-        
-		TArray<AActor*> OverlappingActors;
-		DamageField->GetHitSphereComponent()->GetOverlappingActors(OverlappingActors, AMonsterBase::StaticClass());
-
-		for (AActor* Actor : OverlappingActors)
-		{
-			AMonsterBase* Monster = Cast<AMonsterBase>(Actor);
-			if (Monster)
-			{
-				DealDamage(Monster, DamageAmount);
-			}
-		}
-	}
-	// 디버깅 용
-	//DrawDebugSphere(GetWorld(), DamageCenter, _DamageRadius, 12, FColor::Red, false, 1.0f);
-}
-
-
 void AKeeperCharacter::AttackDown()
 {
 	// 이동 중 캐릭터 공격 제어
 	GetCharacterMovement()->StopActiveMovement();
 	
 	
-	UE_LOG(LogTemp, Warning, TEXT("AttackDown 함수 실행"));
+	//UE_LOG(LogTemp, Warning, TEXT("AttackDown 함수 실행"));
 	bComboAttackDown = true;
 
 	if (bComboAttacking == false)
@@ -176,7 +152,7 @@ void AKeeperCharacter::AttackUp()
 
 void AKeeperCharacter::Attack(ACharacter* Monster)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Attack 함수 실행"));
+	//UE_LOG(LogTemp, Warning, TEXT("Attack 함수 실행"));
 	bComboAttackDown = true;
 
 	UAnimInstance* AnimaInstance = GetMesh()->GetAnimInstance();
@@ -188,33 +164,29 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 
 	if (ComboAttackNumber >= 4)
 		ComboAttackNumber = 0;
-	UE_LOG(LogTemp, Warning, TEXT("ComboAttack%d 실행"), ComboAttackNumber);
+	//UE_LOG(LogTemp, Warning, TEXT("ComboAttack%d 실행"), ComboAttackNumber);
 
 	AnimaInstance->Montage_Play(comboMontage, 1.5f);
 	AnimaInstance->Montage_JumpToSection(FName(comboList[ComboAttackNumber]), comboMontage);
-
-	FVector CharacterLocation = GetActorLocation();
-	FRotator CharacterRotation = GetActorRotation();
-    
-	FVector Offset(100.0f, 0.0f, 0.0f); // 거리 설정
-	FVector RotatedOffset = CharacterRotation.RotateVector(Offset);
-    
-	FVector DamageCenter = CharacterLocation + RotatedOffset;
-    
-	ApplyAreaDamage(DamageCenter, AttackPower, DamageRadius);
+	
+	if (DamageField)
+	{
+		DamageField->SetDamageAmount(AttackPower);
+		DamageField->ActivateDamage();
+	}
 
 }
 
 void AKeeperCharacter::AttackEnd()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ComboAttackEnd 함수 실행"));
+	//UE_LOG(LogTemp, Warning, TEXT("ComboAttackEnd 함수 실행"));
 	bComboAttacking = false;
 	ComboAttackNumber = 0;
 }
 
 void AKeeperCharacter::AttackCheck()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ComboAttackCheck �Լ� ... "));
+	//UE_LOG(LogTemp, Warning, TEXT("ComboAttackCheck �Լ� ... "));
 
 	if (bComboAttackNext == true)
 	{
@@ -257,7 +229,7 @@ void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 
 	if (MaxMadness >= CurrentMadness)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Character has died."));
+		//UE_LOG(LogTemp, Warning, TEXT("Character has died."));
 	}
 }
 

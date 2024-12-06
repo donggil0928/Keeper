@@ -2,7 +2,7 @@
 
 
 #include "Character/KeeperCharacterController.h"
-#include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Blueprint/UserWidget.h"
 #include "Character/KeeperCharacter.h"
 
 AKeeperCharacterController::AKeeperCharacterController()
@@ -69,6 +69,12 @@ void AKeeperCharacterController::SetupInputComponent()
 	
 	InputComponent->BindAction("LeftClick", IE_Pressed, this, &AKeeperCharacterController::OnLeftClickPressed);
 	InputComponent->BindAction("LeftClick", IE_Released, this, &AKeeperCharacterController::OnLeftClickReleased);
+
+	if (InputComponent)
+	{
+		InputComponent->BindAction("Inventory", IE_Pressed, this, &AKeeperCharacterController::OnTabPressed);
+		InputComponent->BindAction("Inventory", IE_Released, this, &AKeeperCharacterController::OnTabReleased);
+	}
 	
 	InputComponent->BindAction<FUseSkillDelegate>("QSkill", IE_Pressed, this, &AKeeperCharacterController::UseSkill, 0);	// 가독성을 위해 ENUM 타입으로 수정 고려, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
 	//InputComponent->BindAction<FUseSkillDelegate>("WSkill", IE_Pressed, this, &AClickMovePlayerController::UseSkill, 1);	// �������� ���� ENUM Ÿ������ ���� ���, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
@@ -89,6 +95,35 @@ void AKeeperCharacterController::OnLeftClickReleased()
 	if (MyChar)
 	{
 		MyChar->AttackUp();
+	}
+}
+
+void AKeeperCharacterController::OnTabPressed()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Inventory 생성"));
+	
+	if (TabMenuWidgetClass && !CurrentTabMenuWidget)
+	{
+		CurrentTabMenuWidget = CreateWidget<UUserWidget>(this, TabMenuWidgetClass);
+        
+		if (CurrentTabMenuWidget)
+		{
+			CurrentTabMenuWidget->AddToViewport();
+			
+			//FInputModeUIOnly InputMode;
+			//SetInputMode(InputMode);
+		}
+	}
+}
+
+void AKeeperCharacterController::OnTabReleased()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Inventory 삭제"));
+	
+	if (CurrentTabMenuWidget)
+	{
+		CurrentTabMenuWidget->RemoveFromViewport();
+		CurrentTabMenuWidget = nullptr;
 	}
 }
 
