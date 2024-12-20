@@ -75,12 +75,15 @@ void AKeeperCharacterController::SetupInputComponent()
 		InputComponent->BindAction("Inventory", IE_Pressed, this, &AKeeperCharacterController::OnTabPressed);
 		InputComponent->BindAction("Inventory", IE_Released, this, &AKeeperCharacterController::OnTabReleased);
 	}
-	
-	InputComponent->BindAction<FUseSkillDelegate>("QSkill", IE_Pressed, this, &AKeeperCharacterController::UseSkill, 0);	// 가독성을 위해 ENUM 타입으로 수정 고려, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
-	//InputComponent->BindAction<FUseSkillDelegate>("WSkill", IE_Pressed, this, &AClickMovePlayerController::UseSkill, 1);	// �������� ���� ENUM Ÿ������ ���� ���, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
-	//InputComponent->BindAction<FUseSkillDelegate>("ESkill", IE_Pressed, this, &AClickMovePlayerController::UseSkill, 2);	// �������� ���� ENUM Ÿ������ ���� ���, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
-	//InputComponent->BindAction<FUseSkillDelegate>("RSkill", IE_Pressed, this, &AClickMovePlayerController::UseSkill, 3);	// �������� ���� ENUM Ÿ������ ���� ���, EX) Skills[ESkillKey::Key_Q].GetDefaultObject()
-    	
+
+	//------------------스킬 사용 관련------------------
+
+	InputComponent->BindAction("QSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonQPressed);
+	InputComponent->BindAction("WSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonWPressed);
+	InputComponent->BindAction("ESkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonEPressed);
+	InputComponent->BindAction("RSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonRPressed);
+
+	//-------------------------------------------------   	
 }
 
 void AKeeperCharacterController::OnLeftClickPressed()
@@ -95,6 +98,38 @@ void AKeeperCharacterController::OnLeftClickReleased()
 	if (MyChar)
 	{
 		MyChar->AttackUp();
+	}
+}
+
+void AKeeperCharacterController::OnButtonQPressed()
+{
+	if (MyChar)
+	{
+		MyChar->SkillActivatedQ();
+	}
+}
+
+void AKeeperCharacterController::OnButtonWPressed()
+{
+	if (MyChar)
+	{
+		MyChar->SkillActivatedW();
+	}
+}
+
+void AKeeperCharacterController::OnButtonEPressed()
+{
+	if (MyChar)
+	{
+		MyChar->SkillActivatedE();
+	}
+}
+
+void AKeeperCharacterController::OnButtonRPressed()
+{
+	if (MyChar)
+	{
+		MyChar->SkillActivatedR();
 	}
 }
 
@@ -125,14 +160,6 @@ void AKeeperCharacterController::OnTabReleased()
 		CurrentTabMenuWidget->RemoveFromViewport();
 		CurrentTabMenuWidget = nullptr;
 	}
-}
-
-void AKeeperCharacterController::UseSkill(int SkillIndex)
-{
-	if (!MyChar) return;
-	
-	AKeeperCharacter* Char = Cast<AKeeperCharacter>(GetPawn());
-	Char->UseSkill(SkillIndex);
 }
 
 void AKeeperCharacterController::PlayerTick(float DeltaTime)

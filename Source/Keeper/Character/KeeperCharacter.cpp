@@ -16,7 +16,7 @@
 #include "DrawDebugHelpers.h" // 디버깅
 #include "Components/SphereComponent.h"
 
-#include "Skill/SkillData.h"
+#include "Skill/SkillComponent.h"
 
 // Sets default values
 AKeeperCharacter::AKeeperCharacter()
@@ -76,7 +76,9 @@ AKeeperCharacter::AKeeperCharacter()
 	DamageField = nullptr;
 	
 	//------------------스킬 사용 관련------------------
-	Skills.SetNum(4);	// 캐릭터에게 할당된 스킬은 4개(배열의 크기 설정)
+
+	SkillComponent = CreateDefaultSubobject<USkillComponent>(TEXT("Skill"));
+
 	//-------------------------------------------------
 }
 
@@ -241,12 +243,90 @@ void AKeeperCharacter::ModifyMovementSpeed(float SpeedModifier)
 
 //------------------스킬 사용 관련------------------
 
-void AKeeperCharacter::UseSkill(int skillIndex)
+void AKeeperCharacter::SkillActivatedQ()
 {
-	Cast<USkillData>(Skills[skillIndex]->GetDefaultObject())->Use(this);
-
-	/*USkillData* Skill = Cast<USkillData>(SkillDataRef);
-	if (Skill != nullptr) Skill->Use(this);
-	else UE_LOG(LogTemp, Warning, TEXT("Skill Not Found"));*/
+	if (!SkillComponent->SkillToQ.IsCooldown())
+	{
+		SkillComponent->SkillToQ.Use(this);
+		SkillComponent->SkillToQ.StartCooldown();
+		float SkillCooldownRate = SkillComponent->SkillToQ.SecondToCooldown;
+		GetWorldTimerManager().SetTimer(SkillQTimerHandle, this, &AKeeperCharacter::SkillQCooldown, SkillCooldownRate, false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("Q Skill is Cooldown"));
 }
 
+void AKeeperCharacter::SkillActivatedW()
+{
+	if (!SkillComponent->SkillToW.IsCooldown())
+	{
+		SkillComponent->SkillToW.Use(this);
+		SkillComponent->SkillToW.StartCooldown();
+		float SkillCooldownRate = SkillComponent->SkillToW.SecondToCooldown;
+		GetWorldTimerManager().SetTimer(SkillWTimerHandle, this, &AKeeperCharacter::SkillWCooldown, SkillCooldownRate, false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("W Skill is Cooldown"));
+}
+
+void AKeeperCharacter::SkillActivatedE()
+{
+	if (!SkillComponent->SkillToE.IsCooldown())
+	{
+		SkillComponent->SkillToE.Use(this);
+		SkillComponent->SkillToE.StartCooldown();
+		float SkillCooldownRate = SkillComponent->SkillToE.SecondToCooldown;
+		GetWorldTimerManager().SetTimer(SkillETimerHandle, this, &AKeeperCharacter::SkillECooldown, SkillCooldownRate, false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("E Skill is Cooldown"));
+}
+
+void AKeeperCharacter::SkillActivatedR()
+{
+	if (!SkillComponent->SkillToR.IsCooldown())
+	{
+		SkillComponent->SkillToR.Use(this);
+		SkillComponent->SkillToR.StartCooldown();
+		float SkillCooldownRate = SkillComponent->SkillToR.SecondToCooldown;
+		GetWorldTimerManager().SetTimer(SkillRTimerHandle, this, &AKeeperCharacter::SkillRCooldown, SkillCooldownRate, false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("R Skill is Cooldown"));
+}
+
+void AKeeperCharacter::SkillQCooldown()
+{
+	// Q 스킬 쿨다운 종료
+	if (SkillComponent->SkillToQ.IsCooldown())
+	{
+		GetWorldTimerManager().ClearTimer(SkillQTimerHandle);
+		SkillComponent->SkillToQ.EndCooldown();
+	}
+}
+
+void AKeeperCharacter::SkillWCooldown()
+{
+	// W 스킬 쿨다운 종료
+	if (SkillComponent->SkillToW.IsCooldown())
+	{
+		GetWorldTimerManager().ClearTimer(SkillWTimerHandle);
+		SkillComponent->SkillToW.EndCooldown();
+	}
+}
+
+void AKeeperCharacter::SkillECooldown()
+{
+	// E 스킬 쿨다운 종료
+	if (SkillComponent->SkillToE.IsCooldown())
+	{
+		GetWorldTimerManager().ClearTimer(SkillETimerHandle);
+		SkillComponent->SkillToE.EndCooldown();
+	}
+}
+
+void AKeeperCharacter::SkillRCooldown()
+{
+	// R 스킬 쿨다운 종료
+	if (SkillComponent->SkillToR.IsCooldown())
+	{
+		GetWorldTimerManager().ClearTimer(SkillRTimerHandle);
+		SkillComponent->SkillToR.EndCooldown();
+	}
+}

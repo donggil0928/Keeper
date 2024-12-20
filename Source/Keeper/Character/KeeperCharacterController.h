@@ -30,7 +30,12 @@ protected:
 	virtual void SetupInputComponent() override;
 	void OnLeftClickPressed();
 	void OnLeftClickReleased();
-	void UseSkill(int SkillIndex);
+
+	void OnButtonQPressed();
+	void OnButtonWPressed();
+	void OnButtonEPressed();
+	void OnButtonRPressed();
+
 	virtual void PlayerTick(float DeltaTime) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
