@@ -2,6 +2,7 @@
 
 
 #include "DamageField_Base.h"
+#include "Character/KeeperCharacter.h"
 #include "Components/SphereComponent.h"
 #include "Monster/MonsterBase.h"
 
@@ -18,6 +19,7 @@ ADamageField_Base::ADamageField_Base()
 	DamageAmount = 0.0f;
 	damageCalculation = 0.0f;
 	bCanDealDamage = true;
+	TargetType = EDamageTarget::Both;
 }
 
 void ADamageField_Base::CreateDamageField_Sphere(float radius)
@@ -41,15 +43,32 @@ void ADamageField_Base::CreateDamageField_Sphere(float radius)
 void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, 
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (bCanDealDamage && OtherActor && OtherActor != this)
+	if (!bCanDealDamage || !OtherActor || OtherActor == this)
 	{
-		AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor);
-		if (Monster)
+		return;
+	}
+	
+	if ((TargetType == EDamageTarget::Monster || TargetType == EDamageTarget::Both))
+	{
+		if (AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor))
 		{
 			SetDamageAmount(DamageAmount);
 			Monster->TakeDamage(damage);
 			
-			UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
+			return;
+		}
+	}
+	
+	if ((TargetType == EDamageTarget::Character || TargetType == EDamageTarget::Both))
+	{
+		if (AKeeperCharacter* Character = Cast<AKeeperCharacter>(OtherActor))
+		{
+			SetDamageAmount(DamageAmount);
+			Character->TakeDamage(damage);
+			
+			//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
+			return;
 		}
 	}
 }
@@ -91,6 +110,5 @@ void ADamageField_Base::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	//DrawDebugSphere(GetWorld(), GetActorLocation(), damageRadius, 12, FColor::Red, false, 1.0f);
-
 }
 

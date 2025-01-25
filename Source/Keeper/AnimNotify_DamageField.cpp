@@ -12,10 +12,10 @@ void UAnimNotify_DamageField::Notify(USkeletalMeshComponent* MeshComp, UAnimSequ
 {
 	Super::Notify(MeshComp, Animation, EventReference);
 
-	if (SpawndDamageField)
+	if (SpawnedDamageField)
 	{
-		SpawndDamageField->Destroy();
-		SpawndDamageField = nullptr;
+		SpawnedDamageField->Destroy();
+		SpawnedDamageField = nullptr;
 	}
 	
 	{
@@ -28,12 +28,12 @@ void UAnimNotify_DamageField::Notify(USkeletalMeshComponent* MeshComp, UAnimSequ
 		SpawnTransform.SetRotation(MeshTransform.GetRotation() * RotationOffsetQuat);
 		SpawnTransform.SetScale3D(Scale);
 		
-		SpawndDamageField = MeshComp->GetWorld()->SpawnActor<ADamageField_Base>(DamageFieldClass, SpawnTransform, SpawnInfo);
-		SpawndDamageField->CreateDamageField_Sphere(DamageFieldRadius);
+		SpawnedDamageField = MeshComp->GetWorld()->SpawnActor<ADamageField_Base>(DamageFieldClass, SpawnTransform, SpawnInfo);
+		SpawnedDamageField->CreateDamageField_Sphere(DamageFieldRadius);
 
 		if (DamageFieldLifeTime > 0.f)
 		{
-			SpawndDamageField->SetLifeSpan(DamageFieldLifeTime);
+			SpawnedDamageField->SetLifeSpan(DamageFieldLifeTime);
 		}
 	}
 }
@@ -69,7 +69,7 @@ void UAnimNotify_DamageField::PostEditChangeProperty(FPropertyChangedEvent& Prop
 }
 #endif
 
-ADamageField_Base* UAnimNotify_DamageField::GetSpawndDamageField()
+ADamageField_Base* UAnimNotify_DamageField::GetSpawnedDamageField()
 {
-	return SpawndDamageField;
+	return SpawnedDamageField;
 }

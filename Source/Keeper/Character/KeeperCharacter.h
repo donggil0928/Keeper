@@ -2,6 +2,9 @@
 
 #pragma once
 
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Skill/SkillData.h"
@@ -22,7 +25,6 @@ class KEEPER_API AKeeperCharacter : public ACharacter
 
 public:
 	AKeeperCharacter();
-	void SetNewDestination(AKeeperCharacterController* _LogPlayerController, const FVector Destination) const;
 
 protected:
 	virtual void BeginPlay() override;
@@ -31,6 +33,18 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	bool IsPerformingAction() const
+	{
+		return bIsAttacking || bIsDodging || bIsHitReacting;
+	}
+
+	bool CanMove() const;
+
+private:
+	bool bIsAttacking;
+	bool bIsDodging;
+	bool bIsHitReacting;
+	
 private:
 	ACharacter* CurrentTarget;
 
@@ -43,9 +57,30 @@ public:
 	bool bComboAttackNext;
 	int ComboAttackNumber;
 	
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "ComboAttack", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* comboMontage;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	class UAnimMontage* HitMontage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	class UAnimMontage* DodgeMontage;
+
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputMappingContext* DefaultMappingContext;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* MoveAction;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* AttackAction;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* DodgeAction;
+
+public:
+	// -----------------공격 관련-----------------
 	UFUNCTION(BlueprintCallable)
 	void AttackDown();
 
@@ -60,6 +95,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void AttackCheck();
+
+	UFUNCTION(BlueprintCallable)
+	void TraceWeapon();
 
 	//------------------스탯 관련------------------
 public:
@@ -92,12 +130,33 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 MovementSpeed;  // 이동 속도
-	
 
-	// ----- 스탯 변경 함수 -----
-	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override ;
+	// --------------------피격 관련---------------------
+
+	UFUNCTION()
+	void OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	void AttackReset();
+	void PlayHitAnimation();
+
+	// -------------------회피 관련---------------------
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float DodgeDistance;
 	
-	void DealDamage(ACharacter* Monster, float DamageAmount);
+	
+public:
+	void ExecuteDodge();
+	UFUNCTION()
+	void OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	
+	// ----- 스탯 변경 함수 -----
+	virtual void TakeDamage(float DamageAmount/*, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/) /*override*/ ;
+
+	float DamageCalculation(float DamageAmount) const;
+
+	static void DealDamage(ACharacter* Monster, float DamageAmount);
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void IncreasedMadness(float MadnessCost);
@@ -115,6 +174,11 @@ public:
 protected:
 	void CreateDamageField();
 
+public:
+	// 무기 메시 컴포넌트
+	UPROPERTY(VisibleAnywhere, Category = Mesh)
+	USkeletalMeshComponent* WeaponMesh;
+
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* CameraComponent;
@@ -122,38 +186,12 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArmComponent;
 
-	//------------------스킬 사용 관련------------------
-private:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Skill", meta = (AllowPrivateAccess = "true"))
-	class USkillComponent* SkillComponent;	// 스킬을 관리하는 컴포넌트. 스킬의 기능이나 요소는 여기에 있습니다.
-
-	// 스킬 쿨타임 제어를 위한 타이머핸들
-	FTimerHandle SkillQTimerHandle;
-	FTimerHandle SkillWTimerHandle;
-	FTimerHandle SkillETimerHandle;
-	FTimerHandle SkillRTimerHandle;
-
+	//------------------��ų ��� ����------------------
 public:
-	// 스킬 사용 시 바인딩되는 함수들
-	UFUNCTION(BlueprintCallable)
-	void SkillActivatedQ();
-	UFUNCTION(BlueprintCallable)
-	void SkillActivatedW();
-	UFUNCTION(BlueprintCallable)
-	void SkillActivatedE();
-	UFUNCTION(BlueprintCallable)
-	void SkillActivatedR();
-
-	// 스킬 쿨타임 종료 후 타이머핸들을 클리어 해주는 함수
-	UFUNCTION(BlueprintCallable)
-	void SkillQCooldown();
-	UFUNCTION(BlueprintCallable)
-	void SkillWCooldown();
-	UFUNCTION(BlueprintCallable)
-	void SkillECooldown();
-	UFUNCTION(BlueprintCallable)
-	void SkillRCooldown();
-
-	//-------------------------------------------------
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TArray<TSubclassOf<class USkillData>> Skills;	//ĳ���Ͱ� ���� ��ų �迭
+	
+ public:
+ 	//스킬(Q,W,E,R) 입력 시 각 스킬을 구분하여 바인딩하기
+ 	void UseSkill(int skillIndex);
 };

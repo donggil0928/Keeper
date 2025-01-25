@@ -2,88 +2,96 @@
 
 
 #include "Character/KeeperCharacterController.h"
+
+#include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "Blueprint/UserWidget.h"
 #include "Character/KeeperCharacter.h"
 
-AKeeperCharacterController::AKeeperCharacterController()
+AKeeperCharacterController::AKeeperCharacterController(): DefaultMappingContext(nullptr), RightClickAction(nullptr),
+                                                          LeftClickAction(nullptr),
+                                                          DodgeAction(nullptr),
+                                                          TabAction(nullptr),
+                                                          SkillQAction(nullptr),
+                                                          CurrentTabMenuWidget(nullptr)
 {
 	bShowMouseCursor = true;
-	bClickRightMouse = false; //
-	MyChar = nullptr; //
+	MyChar = nullptr;
 }
 
- void AKeeperCharacterController::BeginPlay()
- {
+void AKeeperCharacterController::BeginPlay()
+{
  	Super::BeginPlay();
-	
- 	APawn* MyPawn = GetPawn();
-	
-	AKeeperCharacter* Char = Cast<AKeeperCharacter>(MyPawn);
-	if (Char)
+
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
-		MyChar = Char;
+		Subsystem->AddMappingContext(DefaultMappingContext, 0);
 	}
-	else
-	{
-		MyChar = nullptr;
-	}
- }
-
-void AKeeperCharacterController::InputRightMouseButtonPressed()
-{
-	bClickRightMouse = true;
-}
-
-void AKeeperCharacterController::InputRightMouseButtonReleased()
-{
-	bClickRightMouse = false;
-}
-
-void AKeeperCharacterController::SetNewDestination( const FVector Destination)
-{
-	if (MyChar)
-	{
-		MyChar->SetNewDestination(this, Destination);
-	}
-}
-
-void AKeeperCharacterController::MoveToMouseCursor()
-{
-	if (!MyChar) return;
-	
-	FHitResult Hit;
-	GetHitResultUnderCursor(ECC_Visibility, false, Hit);
-
-	if (Hit.bBlockingHit)
-		SetNewDestination(Hit.ImpactPoint);
+    
+	MyChar = Cast<AKeeperCharacter>(GetPawn());
 }
 
 void AKeeperCharacterController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
-	
-	InputComponent->BindAction("RightClick", IE_Pressed, this, &AKeeperCharacterController::InputRightMouseButtonPressed);
-	InputComponent->BindAction("RightClick", IE_Released, this, &AKeeperCharacterController::InputRightMouseButtonReleased);
-
-	
-	
-	InputComponent->BindAction("LeftClick", IE_Pressed, this, &AKeeperCharacterController::OnLeftClickPressed);
-	InputComponent->BindAction("LeftClick", IE_Released, this, &AKeeperCharacterController::OnLeftClickReleased);
-
-	if (InputComponent)
+    
+	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent))
 	{
-		InputComponent->BindAction("Inventory", IE_Pressed, this, &AKeeperCharacterController::OnTabPressed);
-		InputComponent->BindAction("Inventory", IE_Released, this, &AKeeperCharacterController::OnTabReleased);
+		EnhancedInputComponent->BindAction(RightClickAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnRightClick);
+		EnhancedInputComponent->BindAction(LeftClickAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnLeftClickPressed);
+		EnhancedInputComponent->BindAction(LeftClickAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnLeftClickReleased);
+		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnTabPressed);
+		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnTabReleased);
+		EnhancedInputComponent->BindAction(SkillQAction, ETriggerEvent::Started, this, &AKeeperCharacterController::UseQSkill);
+		EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Started, this, &AKeeperCharacterController::Dodge);
 	}
+}
 
-	//------------------스킬 사용 관련------------------
+void AKeeperCharacterController::Dodge()
+{
+	if (AKeeperCharacter* KeeperChar = Cast<AKeeperCharacter>(GetPawn()))
+	{
+		KeeperChar->ExecuteDodge();
+	}
+}
 
-	InputComponent->BindAction("QSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonQPressed);
-	InputComponent->BindAction("WSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonWPressed);
-	InputComponent->BindAction("ESkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonEPressed);
-	InputComponent->BindAction("RSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonRPressed);
+void AKeeperCharacterController::OnRightClick(const FInputActionValue& Value)
+{
+	AKeeperCharacter* KeeperChar = Cast<AKeeperCharacter>(GetPawn());
+	if (!KeeperChar || KeeperChar->IsPerformingAction())
+		return;
 
-	//-------------------------------------------------   	
+	FHitResult Hit;
+	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
+	{
+		SetNewDestination(Hit.Location);
+	}
+}
+
+void AKeeperCharacterController::SetNewDestination(const FVector& DestLocation)
+{
+	
+	AKeeperCharacter* KeeperChar = Cast<AKeeperCharacter>(GetPawn());
+	if (!KeeperChar)
+		return;
+
+	USkeletalMeshComponent* CharacterMesh = KeeperChar->GetMesh();
+	if (CharacterMesh->GetAnimInstance()->IsAnyMontagePlaying())
+	{
+		return;
+	}
+	
+	float const Distance = FVector::Distance(DestLocation, KeeperChar->GetActorLocation());
+    
+	if (Distance > MinMoveDistance)
+	{
+		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, DestLocation);
+		
+		FVector Direction = (DestLocation - KeeperChar->GetActorLocation()).GetSafeNormal();
+		FRotator NewRotation = Direction.Rotation();
+		NewRotation.Pitch = 0.0f;
+		NewRotation.Roll = 0.0f;
+		KeeperChar->SetActorRotation(NewRotation);
+	}
 }
 
 void AKeeperCharacterController::OnLeftClickPressed()
@@ -98,38 +106,6 @@ void AKeeperCharacterController::OnLeftClickReleased()
 	if (MyChar)
 	{
 		MyChar->AttackUp();
-	}
-}
-
-void AKeeperCharacterController::OnButtonQPressed()
-{
-	if (MyChar)
-	{
-		MyChar->SkillActivatedQ();
-	}
-}
-
-void AKeeperCharacterController::OnButtonWPressed()
-{
-	if (MyChar)
-	{
-		MyChar->SkillActivatedW();
-	}
-}
-
-void AKeeperCharacterController::OnButtonEPressed()
-{
-	if (MyChar)
-	{
-		MyChar->SkillActivatedE();
-	}
-}
-
-void AKeeperCharacterController::OnButtonRPressed()
-{
-	if (MyChar)
-	{
-		MyChar->SkillActivatedR();
 	}
 }
 
@@ -162,11 +138,16 @@ void AKeeperCharacterController::OnTabReleased()
 	}
 }
 
+void AKeeperCharacterController::UseSkill(int SkillIndex)
+{
+	if (!MyChar) return;
+	
+	AKeeperCharacter* Char = Cast<AKeeperCharacter>(GetPawn());
+	Char->UseSkill(SkillIndex);
+}
+
 void AKeeperCharacterController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
-
-	if (bClickRightMouse)
-		MoveToMouseCursor();
 }
 

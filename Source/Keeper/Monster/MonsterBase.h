@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/WidgetComponent.h"
 #include "MonsterBase.generated.h"
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float, HealthPercent);
 
 UCLASS()
 class KEEPER_API AMonsterBase : public ACharacter
@@ -24,6 +27,9 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AI")
 	class UBehaviorTree* BehaviorTree;
+
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnHealthChanged OnHealthChanged;
 	
 	void TakeDamage(float DamageAmount);
 
@@ -38,6 +44,47 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Movement")
 	void SetMovementSpeed(float NewSpeed);
 
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	class UAnimMontage* HitMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	class UAnimMontage* AttackMontage;
+
+	UFUNCTION(BlueprintCallable, Category = "Combat")
+	virtual void Attack();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "UI")
+	class UWidgetComponent* HealthBarWidget;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<class UUserWidget> HealthBarWidgetClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<class UUserWidget> DamageTextWidgetClass;
+	
+	UPROPERTY()
+	class AMonsterAIControllerBase* MonsterAIController;
+
+	UPROPERTY()
+	bool bIsHitReacting;
+
+	UPROPERTY()
+	bool bIsAttacking;
+
+	UFUNCTION(BlueprintCallable, Category = "Animation")
+	void PlayAttackMontage();
+	
+	UFUNCTION()
+	void OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	void PlayHitAnimation();
+	void ResumeAIBehavior();
+	
+	void UpdateHealthBar();
+	
 private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Stats", meta = (AllowPrivateAccess = "true"))
 	int32 MaxHP;		// 몬스터의 최대 HP

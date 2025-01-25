@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 //#include "Skill/SkillData.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
 #include "KeeperCharacterController.generated.h"
 
 class AKeeperCharacter;
@@ -16,37 +18,52 @@ class KEEPER_API AKeeperCharacterController : public APlayerController
 
 public:
 	AKeeperCharacterController();
-	virtual void BeginPlay() override;
-	
+
 protected:
+	virtual void BeginPlay() override;
+	virtual void PlayerTick(float DeltaTime) override;
+	virtual void SetupInputComponent() override;
+	
+	void Move(const FInputActionValue& Value);
+	void OnRightClick(const FInputActionValue& Value);
+	void SetNewDestination(const FVector& DestLocation);
+	void Dodge();
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float MinMoveDistance = 120.0f;
+
+private:
 	UPROPERTY()
 	AKeeperCharacter* MyChar; // UObject라 스마트 포인터가 아닌 UPROPERTY
-	bool bClickRightMouse;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputMappingContext* DefaultMappingContext;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* RightClickAction;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* LeftClickAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* DodgeAction;
 	
-	void InputRightMouseButtonPressed();
-	void InputRightMouseButtonReleased();
-	void SetNewDestination(const FVector Destination);
-	void MoveToMouseCursor();
-	virtual void SetupInputComponent() override;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* TabAction;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* SkillQAction;
+	
 	void OnLeftClickPressed();
 	void OnLeftClickReleased();
+	void OnTabPressed();
+	void OnTabReleased();
+	void UseSkill(int SkillIndex);
+	void UseQSkill() { UseSkill(0); }
 
-	void OnButtonQPressed();
-	void OnButtonWPressed();
-	void OnButtonEPressed();
-	void OnButtonRPressed();
-
-	virtual void PlayerTick(float DeltaTime) override;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<UUserWidget> TabMenuWidgetClass;
 
 	UPROPERTY()
 	UUserWidget* CurrentTabMenuWidget;
-
-	UFUNCTION(BlueprintCallable, Category = "UI")
-	void OnTabPressed();
-
-	UFUNCTION(BlueprintCallable, Category = "UI")
-	void OnTabReleased();
 };

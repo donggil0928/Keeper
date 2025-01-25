@@ -15,8 +15,10 @@
 #include "DamageField_Base.h"
 #include "DrawDebugHelpers.h" // 디버깅
 #include "Components/SphereComponent.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
 
-#include "Skill/SkillComponent.h"
+#include "Skill/SkillData.h"
 
 // Sets default values
 AKeeperCharacter::AKeeperCharacter()
@@ -26,6 +28,8 @@ AKeeperCharacter::AKeeperCharacter()
 	bComboAttackNext = false;
 	ComboAttackNumber = 0;
 
+	bIsDodging = false;
+	
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
@@ -45,7 +49,7 @@ AKeeperCharacter::AKeeperCharacter()
 	SpringArmComponent->SetupAttachment(RootComponent);
 	SpringArmComponent->bInheritRoll = false;
 	SpringArmComponent->SetUsingAbsoluteRotation(true);
-	SpringArmComponent->TargetArmLength = 800.0f;
+	SpringArmComponent->TargetArmLength = 1600.0f;
 	SpringArmComponent->SetRelativeRotation(FRotator(-30.0f, 45.0f, 0.0f));
 	SpringArmComponent->bDoCollisionTest = false;
 
@@ -57,6 +61,11 @@ AKeeperCharacter::AKeeperCharacter()
 	CameraComponent->SetProjectionMode(ECameraProjectionMode::Orthographic);
 
 	CameraComponent->SetOrthoWidth(2048.0f);
+
+	// 무기 메시 컴포넌트
+	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
+	WeaponMesh->SetupAttachment(GetMesh(), FName("WeaponSocket"));
+	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 	//------------------스탯 초기화------------------
 	Level = 1;				// 레벨
@@ -74,11 +83,11 @@ AKeeperCharacter::AKeeperCharacter()
 
 	DamageRadius = 50.0f;  // 기본 데미지 반경 설정
 	DamageField = nullptr;
+
+	DodgeDistance = 6000.0f;
 	
 	//------------------스킬 사용 관련------------------
-
-	SkillComponent = CreateDefaultSubobject<USkillComponent>(TEXT("Skill"));
-
+	Skills.SetNum(4);	// 캐릭터에게 할당된 스킬은 4개(배열의 크기 설정)
 	//-------------------------------------------------
 }
 
@@ -86,37 +95,58 @@ void AKeeperCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	CreateDamageField();
+	bIsAttacking = false;
+	bIsDodging = false;
+	bIsHitReacting = false;
+
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 640.0f, 0.0f);
+	GetCharacterMovement()->MaxWalkSpeed = MovementSpeed;
+
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+		}
+	}
 	
+	//CreateDamageField();
+
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+		}
+	}
 	GetCharacterMovement()->MaxWalkSpeed = MovementSpeed;
 }
 
 void AKeeperCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
-void AKeeperCharacter::SetNewDestination(AKeeperCharacterController* _LogPlayerController, const FVector Destination) const
+void AKeeperCharacter::TraceWeapon()
 {
-	// 공격 중 캐릭터 이동 제어
-	if (GetMesh()->GetAnimInstance()->IsAnyMontagePlaying())
-	{
-		return;
-	}
 
-	float const Distance = FVector::Dist(Destination, GetActorLocation());
-	if (Distance > 120.0f)
-		UAIBlueprintHelperLibrary::SimpleMoveToLocation(_LogPlayerController, Destination);
 }
 
 void AKeeperCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	
 	check(PlayerInputComponent);
 }
 
+bool AKeeperCharacter::CanMove() const
+{
+	if (GetMesh()->GetAnimInstance()->IsAnyMontagePlaying()) return false;
+	if (bIsAttacking || bIsDodging || bIsHitReacting) return false;
+    
+	return true;
+}
 
 void AKeeperCharacter::CreateDamageField()
 {
@@ -132,7 +162,6 @@ void AKeeperCharacter::AttackDown()
 {
 	// 이동 중 캐릭터 공격 제어
 	GetCharacterMovement()->StopActiveMovement();
-	
 	
 	//UE_LOG(LogTemp, Warning, TEXT("AttackDown 함수 실행"));
 	bComboAttackDown = true;
@@ -198,30 +227,159 @@ void AKeeperCharacter::AttackCheck()
 	}
 }
 
-
-//------------------스탯 변경 함수------------------
-
-float AKeeperCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+void AKeeperCharacter::OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	// 데미지 계산식
-	float ActualDamage = FMath::Max(0.0f, DamageAmount - Defense);
+	if (Montage == HitMontage)
+	{
+		bIsHitReacting = false;
+
+		AttackReset();
+		
+		if (USkeletalMeshComponent* MeshComponent = GetMesh())
+		{
+			if (UAnimInstance* AnimInstance = MeshComponent->GetAnimInstance())
+			{
+				AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnHitMontageEnded);
+			}
+		}
+	}
+}
+
+void AKeeperCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	if (Montage == comboMontage)
+	{
+		bIsAttacking = false;
+		
+		if (USkeletalMeshComponent* MeshComponent = GetMesh())
+		{
+			if (UAnimInstance* AnimInstance = MeshComponent->GetAnimInstance())
+			{
+				AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnAttackMontageEnded);
+			}
+		}
+	}
+}
+
+void AKeeperCharacter::AttackReset()
+{
+	bComboAttacking = false;
+	bComboAttackNext = false;
+	bComboAttackDown = false;
+	ComboAttackNumber = 0;
+	bIsAttacking = false;
+}
+
+void AKeeperCharacter::PlayHitAnimation()
+{
+	if (HitMontage)
+	{
+		USkeletalMeshComponent* MeshComponent = GetMesh();
+		GetCharacterMovement()->StopMovementImmediately();
+		
+		if (MeshComponent)
+		{
+			UAnimInstance* AnimInstance = MeshComponent->GetAnimInstance();
+			
+			if (AnimInstance)
+			{
+				AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnAttackMontageEnded);
+				AnimInstance->OnMontageEnded.AddDynamic(this, &AKeeperCharacter::OnHitMontageEnded);
+                
+				// 현재 진행 중인 몽타주 중단
+				AnimInstance->StopAllMontages(0.1f);
+                
+				// 피격 몽타주 재생
+				AnimInstance->Montage_Play(HitMontage);
+			}
+		}
+	}
+}
+
+
+void AKeeperCharacter::ExecuteDodge()
+{
+	if (bIsDodging || bIsAttacking || bIsHitReacting)
+		return;
+
+	if (DodgeMontage)
+	{
+		bIsDodging = true;
+
+		AttackReset();
+		
+		FVector ForwardDirection = GetActorForwardVector();
+		FVector CurrentLocation = GetActorLocation();
+		FVector DodgeDestination = CurrentLocation + (ForwardDirection * DodgeDistance);
+		
+		GetCharacterMovement()->StopMovementImmediately();
+        
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		if (AnimInstance)
+		{
+			if (!AnimInstance->OnMontageEnded.Contains(this, FName("OnDodgeMontageEnded")))
+			{
+				AnimInstance->OnMontageEnded.AddDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
+			}
+            
+			AnimInstance->Montage_Play(DodgeMontage);
+			LaunchCharacter(ForwardDirection * DodgeDistance, true, false);
+		}
+	}
+}
+
+void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	if (Montage == DodgeMontage)
+	{
+		bIsDodging = false;
+        
+		if (USkeletalMeshComponent* MeshComponent = GetMesh())
+		{
+			if (UAnimInstance* AnimInstance = MeshComponent->GetAnimInstance())
+			{
+				AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
+			}
+		}
+	}
+}
+
+void AKeeperCharacter::TakeDamage(float DamageAmount/*, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/)
+{
+	if (bIsDodging)
+		return;
+	
+	float ActualDamage = DamageCalculation(DamageAmount);
 	CurrentHP = FMath::Max(0.0f, CurrentHP - ActualDamage);
 
+	UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Hue"), ActualDamage);
+	
 	if (CurrentHP <= 0.0f)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Character has died."));
 	}
 
+	if (!bIsHitReacting)
+	{
+		bIsHitReacting = true;
+		PlayHitAnimation();
+	}
+}
+
+float AKeeperCharacter::DamageCalculation(float DamageAmount) const
+{
+	float ActualDamage = FMath::Max(0.0f, DamageAmount - Defense);
+	
 	return ActualDamage;
 }
 
 void AKeeperCharacter::DealDamage(ACharacter* Monster, float DamageAmount)
 {
 	AMonsterBase* MonsterTarget = Cast<AMonsterBase>(Monster);
-	if (Monster && DamageAmount > 0.0f)
+	if (MonsterTarget && DamageAmount > 0.0f)
 	{
 		MonsterTarget->TakeDamage(DamageAmount);
-		UE_LOG(LogTemp, Warning, TEXT("Dealt %f damage to %s"), DamageAmount, *Monster->GetName());
+		//UE_LOG(LogTemp, Warning, TEXT("Dealt %f damage to %s"), DamageAmount, *Monster->GetName());
 	}
 }
 
@@ -243,90 +401,12 @@ void AKeeperCharacter::ModifyMovementSpeed(float SpeedModifier)
 
 //------------------스킬 사용 관련------------------
 
-void AKeeperCharacter::SkillActivatedQ()
+void AKeeperCharacter::UseSkill(int skillIndex)
 {
-	if (!SkillComponent->SkillToQ.IsCooldown())
-	{
-		SkillComponent->SkillToQ.Use(this);
-		SkillComponent->SkillToQ.StartCooldown();
-		float SkillCooldownRate = SkillComponent->SkillToQ.SecondToCooldown;
-		GetWorldTimerManager().SetTimer(SkillQTimerHandle, this, &AKeeperCharacter::SkillQCooldown, SkillCooldownRate, false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("Q Skill is Cooldown"));
+	Cast<USkillData>(Skills[skillIndex]->GetDefaultObject())->Use(this);
+
+	/*USkillData* Skill = Cast<USkillData>(SkillDataRef);
+	if (Skill != nullptr) Skill->Use(this);
+	else UE_LOG(LogTemp, Warning, TEXT("Skill Not Found"));*/
 }
 
-void AKeeperCharacter::SkillActivatedW()
-{
-	if (!SkillComponent->SkillToW.IsCooldown())
-	{
-		SkillComponent->SkillToW.Use(this);
-		SkillComponent->SkillToW.StartCooldown();
-		float SkillCooldownRate = SkillComponent->SkillToW.SecondToCooldown;
-		GetWorldTimerManager().SetTimer(SkillWTimerHandle, this, &AKeeperCharacter::SkillWCooldown, SkillCooldownRate, false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("W Skill is Cooldown"));
-}
-
-void AKeeperCharacter::SkillActivatedE()
-{
-	if (!SkillComponent->SkillToE.IsCooldown())
-	{
-		SkillComponent->SkillToE.Use(this);
-		SkillComponent->SkillToE.StartCooldown();
-		float SkillCooldownRate = SkillComponent->SkillToE.SecondToCooldown;
-		GetWorldTimerManager().SetTimer(SkillETimerHandle, this, &AKeeperCharacter::SkillECooldown, SkillCooldownRate, false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("E Skill is Cooldown"));
-}
-
-void AKeeperCharacter::SkillActivatedR()
-{
-	if (!SkillComponent->SkillToR.IsCooldown())
-	{
-		SkillComponent->SkillToR.Use(this);
-		SkillComponent->SkillToR.StartCooldown();
-		float SkillCooldownRate = SkillComponent->SkillToR.SecondToCooldown;
-		GetWorldTimerManager().SetTimer(SkillRTimerHandle, this, &AKeeperCharacter::SkillRCooldown, SkillCooldownRate, false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("R Skill is Cooldown"));
-}
-
-void AKeeperCharacter::SkillQCooldown()
-{
-	// Q 스킬 쿨다운 종료
-	if (SkillComponent->SkillToQ.IsCooldown())
-	{
-		GetWorldTimerManager().ClearTimer(SkillQTimerHandle);
-		SkillComponent->SkillToQ.EndCooldown();
-	}
-}
-
-void AKeeperCharacter::SkillWCooldown()
-{
-	// W 스킬 쿨다운 종료
-	if (SkillComponent->SkillToW.IsCooldown())
-	{
-		GetWorldTimerManager().ClearTimer(SkillWTimerHandle);
-		SkillComponent->SkillToW.EndCooldown();
-	}
-}
-
-void AKeeperCharacter::SkillECooldown()
-{
-	// E 스킬 쿨다운 종료
-	if (SkillComponent->SkillToE.IsCooldown())
-	{
-		GetWorldTimerManager().ClearTimer(SkillETimerHandle);
-		SkillComponent->SkillToE.EndCooldown();
-	}
-}
-
-void AKeeperCharacter::SkillRCooldown()
-{
-	// R 스킬 쿨다운 종료
-	if (SkillComponent->SkillToR.IsCooldown())
-	{
-		GetWorldTimerManager().ClearTimer(SkillRTimerHandle);
-		SkillComponent->SkillToR.EndCooldown();
-	}
-}

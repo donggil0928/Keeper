@@ -31,10 +31,10 @@ public:
 	TSubclassOf<class ADamageField_Base>  DamageFieldClass;
 
 	UFUNCTION(BlueprintCallable, Category = "AnimNotify")
-	ADamageField_Base* GetSpawndDamageField();
+	ADamageField_Base* GetSpawnedDamageField();
 	
 	UPROPERTY()
-	ADamageField_Base* SpawndDamageField;
+	ADamageField_Base* SpawnedDamageField;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AnimNotify")
 	FVector LocationOffset;
