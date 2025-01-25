@@ -7,164 +7,12 @@
     <projectFile>Intermediate/ProjectFiles/Keeper.vcxproj</projectFile>
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/1__1__Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABP_Hue_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABS_Hue_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/AM_Hue_Combo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Ability_Q_Jog_Fwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Idle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Idle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/PrimaryAttack_A_Slow.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/PrimaryAttack_B_Slow.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/PrimaryAttack_C_Slow.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/PrimaryAttack_D_Slow.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/001-머리.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/001-머리_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/001-머리_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/1_머리카락.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/1_머리카락_Mat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/2_상의.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/2_상의_Mat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/4_하의+오팔.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/4_하의+오팔_Mat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/5_카라.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/5_카라_Mat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/Material__128.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/Material__134.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/Material__149.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/머리.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_PhysicsAsset.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_PhysicsAsset.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Standard_Walk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Standing_Melee_Attack_360_High.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/1011hue.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/4096_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/4096_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Material__114.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Material__115.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/IK_AutoGeneratedSource.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/IK_AutoGeneratedTarget.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/MF_DynamicSCurve.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/Mt_CR7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/Mt_CartoonRendering.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/Mt_CartoonRendering_Line.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/Mt_Outline.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/Mt_Outline6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/RTG_AutoGenerated.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/hueunreal_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/0_men1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/10__.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/11___.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/12_shintai.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/13__haba.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/14___.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/15_shutou.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/16_mimi_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/17_hada.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/18_shutou.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/19____.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/1_men2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/20___.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/2_matsuge.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/3_me.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/4_meboshi.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/5_nijuu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/6_mayu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/7_kouzetsu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/8__.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/9_mejiro.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/0__.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/10__ko.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/1_meshiro.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/2_gansei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/3__ko.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/4___.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/5___.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/6_gaitou.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/7__shina.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/8_ifuku.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/9_hyoujou.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/迪卢克.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/迪卢克_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/test/迪卢克_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/空.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/空_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/Test/test/空_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/e07_low_hide_wall_reload_0_Open_A_UE4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/e07_low_hide_wall_reload_e07_low_hide_wall_reload.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal_PhysicsAsset1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal_PhysicsAsset_Backup.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Test/hueunreal_Skeleton1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/_front_ref002.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/hueonly.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_HueWeapon.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/FireDamageField1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/SphereDamageField.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/WB_Inventory.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/WB_Slot.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IA_CharacterMove.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IA_CharacterMove.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IA_Dash.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_ChatacterBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_ChatacterBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Tutorial_1.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Tutorial_1_HLOD0_Instancing.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/Animation/Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Animation/Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/BP_AI_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/BP_AI_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/BP_Monster2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/BP_Monster2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/Tasks/BT_Task_MonsterAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Tasks/BT_Task_MonsterAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Util/MonsterSpawn/MonsterSpawn_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/MonsterSpawn/MonsterSpawn_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Util/MonsterSpawn/SpawnPoint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/MonsterSpawn/SpawnPoint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/0/5B/5XFRAYDLMXZ6A8SUMFOOT7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/0/G7/DDJ92I0T0KP1KOCDV7O627.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/3/JY/L1RDCYCJ8RM1SMQKHGWEBK.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/5/2X/BIEO716CTT74AYKDOD2SE8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/5/A6/866K3YWZZVSYODDR798VTW.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/5/EB/7QDXDX7BICL2N2VC9815L9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/5/SA/YKZW3WW8HYXUSTIPQ49IH3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/5/UJ/E717FTZZE4P66OH8L5RPUP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/6/8Z/E36NAUH38KLOXWGOSTEEO7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/6/JA/5K6TTZH1Y80WBAM4UYVJ9M.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/6/QU/HPP32JFKNQQV3HGFTPUG4U.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/7/5S/9XDLQCBQPQUNUHR1Y0HE2W.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/7/CI/OSFSY3JR7SWF8OIV2GTV45.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/7/OD/UASKD5BYHYH31F0EL503WN.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/8/0Q/CB4WX6T7KCNW9B4CXZUC25.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/8/BO/TRUV4NMGA1TDIKB2RMERR6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/9/HE/8KU780OM2SWRLTIBBXVG02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/A/2K/KYDT7G48P6OVWP63RHO6KR.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/A/CJ/4B9O5CZTQVZWX47M38MCCW.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/B/EW/7FNJGD0MJ6OV8AVW5WF07B.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/B/TH/DUEK27DHN230ZUU9V0QW4V.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/B/W9/ATQ8LBONM258UYZ837FKF9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/C/I5/HPW47MBYJE4XFBKQLKJ26V.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/C/L1/BNTITSB8FV7XKKTFUX3NYG.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Tutorial_1/E/9X/0FWIKKMHR7X4EJNR181ZP3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Tutorial_1/1/FE/L1PS5U4YLK6DMKB9EABZJN.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keeper.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keeper.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Keeper.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillComponent.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillComponent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,22 +31,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;C++ 프로젝트.Keeper.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C++ 프로젝트.Keeper.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\qkreh\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\qkreh\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\qkreh\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\qkreh\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\qkreh\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\qkreh\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="C++ 프로젝트.Keeper">
     <configuration name="Keeper" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -638,6 +490,7 @@
       <workItem from="1737785112298" duration="42000" />
       <workItem from="1737785565677" duration="116000" />
       <workItem from="1737785790572" duration="84000" />
+      <workItem from="1737786917100" duration="733000" />
     </task>
     <servers />
   </component>
