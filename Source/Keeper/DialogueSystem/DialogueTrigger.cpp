@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "DialogueSystem/DialogueTrigger.h"
 #include "DialogueManager.h"
 #include "GameFramework/Character.h"
@@ -36,15 +35,7 @@ void ADialogueTrigger::OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActo
 		FDialogueSequence* Sequence = DialogueData->FindRow<FDialogueSequence>(SequenceName, TEXT(""));
 		if (Sequence)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Loading Sequence: %s, Entries: %d"), 
-				*SequenceName.ToString(), Sequence->DialogueEntries.Num());
-            
 			DialogueManager->DialogueSequence = *Sequence;
-			
-			UE_LOG(LogTemp, Warning, TEXT("Sequence Initialized - Name: %s, Entries: %d"), 
-				*DialogueManager->DialogueSequence.SequenceName,
-				DialogueManager->DialogueSequence.DialogueEntries.Num());
-                
 			DialogueManager->StartDialogue();
 		}
 		else

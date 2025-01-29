@@ -19,9 +19,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UpdateHealthPercent(float HealthPercent);
 
-	// UFUNCTION(BlueprintCallable)
-	// void UpdateDelayedHealthPercent(float HealthPercent);
-
 protected:
 	UPROPERTY(meta = (BindWidget))
 	class UOverlay* HealthBarOverlay;

@@ -275,5 +275,3 @@ void ADialogueManager::OnNextButtonClicked()
 {
     HandleInput();
 }
-
-//

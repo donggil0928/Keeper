@@ -61,9 +61,7 @@ public:
         bool bShowPreviousLeft = (PreviousDialogueData.CharacterPosition == ECharacterPosition::Left && 
                                 PreviousDialogueData.CharacterPortrait != nullptr);
         
-        // 현재 화자가 왼쪽이거나, 이전 화자가 왼쪽이고 현재 화자가 오른쪽일 때
-        return bShowCurrentLeft || (bShowPreviousLeft && 
-                                  CurrentDialogueData.CharacterPosition == ECharacterPosition::Right);
+        return bShowCurrentLeft || bShowPreviousLeft;
     }
 
     UFUNCTION(BlueprintPure, Category = "Dialogue")
@@ -74,9 +72,7 @@ public:
         bool bShowPreviousRight = (PreviousDialogueData.CharacterPosition == ECharacterPosition::Right && 
                                  PreviousDialogueData.CharacterPortrait != nullptr);
         
-        // 현재 화자가 오른쪽이거나, 이전 화자가 오른쪽이고 현재 화자가 왼쪽일 때
-        return bShowCurrentRight || (bShowPreviousRight && 
-                                   CurrentDialogueData.CharacterPosition == ECharacterPosition::Left);
+        return bShowCurrentRight || bShowPreviousRight;
     }
 
     UFUNCTION(BlueprintPure, Category = "Dialogue")
@@ -86,8 +82,7 @@ public:
         {
             return CurrentDialogueData.CharacterPortrait;
         }
-        else if (PreviousDialogueData.CharacterPosition == ECharacterPosition::Left && 
-                 CurrentDialogueData.CharacterPosition == ECharacterPosition::Right)
+        else if (PreviousDialogueData.CharacterPosition == ECharacterPosition::Left)
         {
             return PreviousDialogueData.CharacterPortrait;
         }
@@ -101,8 +96,7 @@ public:
         {
             return CurrentDialogueData.CharacterPortrait;
         }
-        else if (PreviousDialogueData.CharacterPosition == ECharacterPosition::Right && 
-                 CurrentDialogueData.CharacterPosition == ECharacterPosition::Left)
+        else if (PreviousDialogueData.CharacterPosition == ECharacterPosition::Right)
         {
             return PreviousDialogueData.CharacterPortrait;
         }
@@ -168,5 +162,3 @@ private:
     FString CurrentAnimatedText;
     int32 CurrentCharacterIndex;
 };
-
-//

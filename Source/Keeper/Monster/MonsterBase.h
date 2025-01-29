@@ -82,6 +82,9 @@ protected:
 	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 	void PlayHitAnimation();
 	void ResumeAIBehavior();
+
+	UPROPERTY()
+	TArray<TWeakObjectPtr<class UDamageTextWidget>> ActiveDamageWidgets;
 	
 	void UpdateHealthBar();
 	

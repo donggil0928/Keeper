@@ -7,30 +7,11 @@
 #include "Engine/DataTable.h"
 #include "DialogueData.generated.h"
 
-// 화자의 위치를 나타내는 열거형 (왼쪽, 오른쪽)
 UENUM(BlueprintType)
 enum class ECharacterPosition : uint8
 {
     Left UMETA(DisplayName = "Left"),
     Right UMETA(DisplayName = "Right")
-};
-
-USTRUCT(BlueprintType)
-struct FDialogChoice
-{
-    GENERATED_BODY()
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
-    FText ChoiceText;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
-    int32 NextDialogueIndex;
-
-    FDialogChoice()
-        : ChoiceText(FText::GetEmpty())
-        , NextDialogueIndex(-1)
-    {
-    }
 };
 
 USTRUCT(BlueprintType)
@@ -78,6 +59,9 @@ struct FDialogueData : public FTableRowBase
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Visual")
     bool bShowPortrait;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue")
+    bool bKeepPreviousPortraits;
+    
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Timing")
     float DisplayDuration;
 
@@ -89,10 +73,7 @@ struct FDialogueData : public FTableRowBase
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Audio")
     FDialogAudioData AudioData;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Choices")
-    TArray<FDialogChoice> Choices;
-
+    
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Settings")
     bool bCanBeSkipped;
 
@@ -103,8 +84,7 @@ struct FDialogueData : public FTableRowBase
     FName CustomEventTag;
 
     bool bUseCameraFocus;
-
-    // 화자의 위치 정보 추가
+    
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog|Settings")
     ECharacterPosition CharacterPosition;
 
@@ -113,24 +93,20 @@ struct FDialogueData : public FTableRowBase
         , CharacterPortrait(nullptr)
         , TextColor(FLinearColor::White)
         , bShowPortrait(true)
+        , bKeepPreviousPortraits(false)
         , DisplayDuration(3.0f)
         , TypewriterSpeed(20.0f)
         , bUseTypewriterEffect(true)
         , bCanBeSkipped(true)
         , bRequireConfirmation(false)
         , bUseCameraFocus(false)
-        , CharacterPosition(ECharacterPosition::Left) // 기본값: Left
+        , CharacterPosition(ECharacterPosition::Left)
     {
     }
 
     bool IsValid() const
     {
         return !DialogueText.IsEmpty() && !CharacterName.IsEmpty();
-    }
-
-    bool HasChoices() const
-    {
-        return Choices.Num() > 0;
     }
 
     bool HasVoiceOver() const

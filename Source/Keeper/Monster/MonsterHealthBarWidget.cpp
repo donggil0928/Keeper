@@ -77,11 +77,3 @@ void UMonsterHealthBarWidget::UpdateHealthPercent(float HealthPercent)
 		);
 	}
 }
-
-// void UMonsterHealthBarWidget::UpdateDelayedHealthPercent(float HealthPercent)
-// {
-// 	if (DelayedHealthBar)
-// 	{
-// 		DelayedHealthBar->SetPercent(FMath::Clamp(HealthPercent, 0.0f, 1.0f));
-// 	}
-// }

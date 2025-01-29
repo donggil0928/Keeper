@@ -13,6 +13,18 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/2I/CVWOO2S2HB7F98V5KQL77B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueTrigger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueTrigger.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +33,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -492,6 +507,11 @@
       <workItem from="1737785790572" duration="84000" />
       <workItem from="1737786917100" duration="733000" />
       <workItem from="1737833552421" duration="122000" />
+      <workItem from="1737833833110" duration="313000" />
+      <workItem from="1737881830997" duration="591000" />
+      <workItem from="1738158737152" duration="789000" />
+      <workItem from="1738160135475" duration="3458000" />
+      <workItem from="1738163654903" duration="232000" />
     </task>
     <servers />
   </component>

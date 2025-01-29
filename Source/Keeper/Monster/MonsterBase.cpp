@@ -61,6 +61,26 @@ void AMonsterBase::BeginPlay()
 void AMonsterBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC) return;
+
+	FVector WorldPosition = GetActorLocation() + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 50);
+	FVector2D ScreenPosition;
+
+	for (int32 i = ActiveDamageWidgets.Num() - 1; i >= 0; --i)
+	{
+		if (ActiveDamageWidgets[i].IsValid())
+		{
+			if (PC->ProjectWorldLocationToScreen(WorldPosition, ScreenPosition))
+			{
+				ActiveDamageWidgets[i]->SetPositionInViewport(ScreenPosition);
+			}
+		}
+		else
+		{
+			ActiveDamageWidgets.RemoveAt(i);
+		}
+	}
 }
 
 void AMonsterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -133,19 +153,20 @@ void AMonsterBase::TakeDamage(float DamageAmount)
 					FString::FromInt(FMath::FloorToInt(ActualDamage)), true);
 				
 				DamageTextWidget->AddToViewport(100);
-				
-				APlayerController* PC = World->GetFirstPlayerController();
-				if (PC)
-				{
-					FVector2D ScreenPosition;
-					UGameplayStatics::ProjectWorldToScreen(
-						PC, 
-						GetActorLocation() + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 50), 
-						ScreenPosition
-					);
-					
-					DamageTextWidget->SetPositionInViewport(ScreenPosition);
-				}
+
+				ActiveDamageWidgets.Add(TWeakObjectPtr<UDamageTextWidget>(DamageTextWidget));
+				// APlayerController* PC = World->GetFirstPlayerController();
+				// if (PC)
+				// {
+				// 	FVector2D ScreenPosition;
+				// 	UGameplayStatics::ProjectWorldToScreen(
+				// 		PC, 
+				// 		GetActorLocation() + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 50), 
+				// 		ScreenPosition
+				// 	);
+				// 	
+				// 	DamageTextWidget->SetPositionInViewport(ScreenPosition);
+				//}
 			}
 		}
 	}

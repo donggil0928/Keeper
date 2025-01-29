@@ -31,7 +31,25 @@ void UDialogueWidget::NativeConstruct()
 
 void UDialogueWidget::ShowDialogue(const FDialogueData& DialogueData)
 {
-    PreviousDialogueData = CurrentDialogueData;
+    if (!DialogueData.bKeepPreviousPortraits)
+    {
+        PreviousDialogueData = CurrentDialogueData;
+    }
+    else if (DialogueData.CharacterPosition != CurrentDialogueData.CharacterPosition)
+    {
+        if (DialogueData.CharacterPosition == ECharacterPosition::Left)
+        {
+            FDialogueData TempData = CurrentDialogueData;
+            PreviousDialogueData = TempData;
+            PreviousDialogueData.CharacterPosition = ECharacterPosition::Right;
+        }
+        else if (DialogueData.CharacterPosition == ECharacterPosition::Right)
+        {
+            FDialogueData TempData = CurrentDialogueData;
+            PreviousDialogueData = TempData;
+            PreviousDialogueData.CharacterPosition = ECharacterPosition::Left;
+        }
+    }
     
     CurrentDialogueData = DialogueData;
 
@@ -46,10 +64,6 @@ void UDialogueWidget::ShowDialogue(const FDialogueData& DialogueData)
         RightPortrait->SetVisibility(ESlateVisibility::Visible);
         RightPortrait->SetRenderOpacity(1.0f);
     }
-    
-    UE_LOG(LogTemp, Warning, TEXT("[ShowDialogue] Setting Previous Portrait: %p, Position: %s"), 
-        PreviousDialogueData.CharacterPortrait,
-        PreviousDialogueData.CharacterPosition == ECharacterPosition::Left ? TEXT("Left") : TEXT("Right"));
     
     UpdatePortraits(CurrentDialogueData, PreviousDialogueData);
     StartTextAnimation(DialogueData.DialogueText);
@@ -71,36 +85,19 @@ void UDialogueWidget::UpdatePortraits(const FDialogueData& CurrentData, const FD
     bool bShowCurrentRight = (CurrentData.CharacterPosition == ECharacterPosition::Right && CurrentData.CharacterPortrait);
     bool bShowPreviousLeft = (PreviousData.CharacterPosition == ECharacterPosition::Left && PreviousData.CharacterPortrait);
     bool bShowPreviousRight = (PreviousData.CharacterPosition == ECharacterPosition::Right && PreviousData.CharacterPortrait);
-
-    if (LeftPortrait)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("LeftPortrait - Visibility: %d, Opacity: %f"), 
-            (int32)LeftPortrait->GetVisibility(), 
-            LeftPortrait->GetRenderOpacity());
-    }
     
-    if (RightPortrait)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("RightPortrait - Visibility: %d, Opacity: %f"), 
-            (int32)RightPortrait->GetVisibility(), 
-            RightPortrait->GetRenderOpacity());
-    }
-    
-    // 왼쪽 초상화 처리
     if (LeftPortrait)
     {
         if (bShowCurrentLeft)
         {
-            // 현재 화자가 왼쪽
             FSlateBrush Brush;
             Brush.SetResourceObject(CurrentData.CharacterPortrait);
             LeftPortrait->SetBrush(Brush);
             LeftPortrait->SetVisibility(ESlateVisibility::Visible);
             LeftPortrait->SetColorAndOpacity(ActivePortraitColor);
         }
-        else if (bShowPreviousLeft && !bShowCurrentLeft && !bShowPreviousRight)
+        else if (!bShowCurrentLeft && bShowPreviousLeft && CurrentData.bKeepPreviousPortraits)
         {
-            // 이전 화자가 왼쪽이고 현재 화자가 왼쪽이 아닐 때
             FSlateBrush Brush;
             Brush.SetResourceObject(PreviousData.CharacterPortrait);
             LeftPortrait->SetBrush(Brush);
@@ -112,22 +109,19 @@ void UDialogueWidget::UpdatePortraits(const FDialogueData& CurrentData, const FD
             LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
         }
     }
-
-    // 오른쪽 초상화 처리
+    
     if (RightPortrait)
     {
         if (bShowCurrentRight)
         {
-            // 현재 화자가 오른쪽
             FSlateBrush Brush;
             Brush.SetResourceObject(CurrentData.CharacterPortrait);
             RightPortrait->SetBrush(Brush);
             RightPortrait->SetVisibility(ESlateVisibility::Visible);
             RightPortrait->SetColorAndOpacity(ActivePortraitColor);
         }
-        else if (bShowPreviousRight && !bShowCurrentRight && !bShowPreviousLeft)
+        else if (!bShowCurrentRight && bShowPreviousRight && CurrentData.bKeepPreviousPortraits)
         {
-            // 이전 화자가 오른쪽이고 현재 화자가 오른쪽이 아닐 때
             FSlateBrush Brush;
             Brush.SetResourceObject(PreviousData.CharacterPortrait);
             RightPortrait->SetBrush(Brush);
@@ -139,17 +133,6 @@ void UDialogueWidget::UpdatePortraits(const FDialogueData& CurrentData, const FD
             RightPortrait->SetVisibility(ESlateVisibility::Hidden);
         }
     }
-    
-    // UE_LOG(LogTemp, Warning, TEXT("[UpdatePortraits] Current - Position: %s, Portrait: %p"),
-    //     CurrentData.CharacterPosition == ECharacterPosition::Left ? TEXT("Left") : TEXT("Right"),
-    //     CurrentData.CharacterPortrait);
-    // UE_LOG(LogTemp, Warning, TEXT("[UpdatePortraits] Previous - Position: %s, Portrait: %p"),
-    //     PreviousData.CharacterPosition == ECharacterPosition::Left ? TEXT("Left") : TEXT("Right"),
-    //     PreviousData.CharacterPortrait);
-    
-    UE_LOG(LogTemp, Warning, TEXT("After Update - Left Visibility: %d, Right Visibility: %d"),
-        LeftPortrait ? (int32)LeftPortrait->GetVisibility() : -1,
-        RightPortrait ? (int32)RightPortrait->GetVisibility() : -1);
 }
 
 void UDialogueWidget::UpdateDialogueText(const FText& DialogueText, const FString& CharacterName)
