@@ -31,6 +31,11 @@ void UAnimNotify_DamageField::Notify(USkeletalMeshComponent* MeshComp, UAnimSequ
 		SpawnedDamageField = MeshComp->GetWorld()->SpawnActor<ADamageField_Base>(DamageFieldClass, SpawnTransform, SpawnInfo);
 		SpawnedDamageField->CreateDamageField_Sphere(DamageFieldRadius);
 
+		if (DamageFieldNiagaraEffect)
+		{
+			SpawnedDamageField->DamageEffectNiagara = DamageFieldNiagaraEffect;
+		}
+		
 		if (DamageFieldLifeTime > 0.f)
 		{
 			SpawnedDamageField->SetLifeSpan(DamageFieldLifeTime);

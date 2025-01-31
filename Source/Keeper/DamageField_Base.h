@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 #include "DamageField_Base.generated.h"
 
 UENUM(BlueprintType)
@@ -38,6 +40,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Damage")
 	void DeactivateDamage();
 	//---
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	class UNiagaraSystem* DamageEffectNiagara;
+
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Screen Effect")
+	// bool bEnableScreenShake = false;
+	//
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Screen Effect", meta = (EditCondition = "bEnableScreenShake"))
+	// TSubclassOf<UCameraShakeBase> DamageFieldCameraShake;
+
 	
 protected:
 	// Called when the game starts or when spawned

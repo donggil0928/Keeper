@@ -227,6 +227,31 @@ void AKeeperCharacter::AttackCheck()
 	}
 }
 
+void AKeeperCharacter::Die()
+{
+	GetCharacterMovement()->StopMovementImmediately();
+
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		DisableInput(PlayerController);
+	}
+
+	if (DeathMontage && GetMesh()->GetAnimInstance())
+	{
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		AnimInstance->Montage_Play(DeathMontage);
+	}
+
+	if (DeathWidgetClass)
+	{
+		UUserWidget* DeathWidget = CreateWidget<UUserWidget>(GetWorld(), DeathWidgetClass);
+		if (DeathWidget)
+		{
+			DeathWidget->AddToViewport();
+		}
+	}
+}
+
 void AKeeperCharacter::OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
 	if (Montage == HitMontage)
@@ -356,7 +381,8 @@ void AKeeperCharacter::TakeDamage(float DamageAmount/*, FDamageEvent const& Dama
 	
 	if (CurrentHP <= 0.0f)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Character has died."));
+		Die();
+		return;
 	}
 
 	if (!bIsHitReacting)
@@ -389,7 +415,8 @@ void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 
 	if (MaxMadness >= CurrentMadness)
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("Character has died."));
+		Die();
+		return;
 	}
 }
 

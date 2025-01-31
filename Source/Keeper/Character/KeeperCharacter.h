@@ -66,6 +66,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* DodgeMontage;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	class UAnimMontage* DeathMontage;
+	
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputMappingContext* DefaultMappingContext;
@@ -131,6 +134,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 MovementSpeed;  // 이동 속도
 
+	UFUNCTION(BlueprintCallable, Category = "Character State")
+	void Die();
+	
 	// --------------------피격 관련---------------------
 
 	UFUNCTION()
@@ -190,6 +196,9 @@ private:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
 	TArray<TSubclassOf<class USkillData>> Skills;	//ĳ���Ͱ� ���� ��ų �迭
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<class UUserWidget> DeathWidgetClass;
 	
  public:
  	//스킬(Q,W,E,R) 입력 시 각 스킬을 구분하여 바인딩하기

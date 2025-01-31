@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
+#include "NiagaraSystem.h"
 #include "AnimNotify_DamageField.generated.h"
 
 /**
@@ -30,6 +31,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class ADamageField_Base>  DamageFieldClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	class UNiagaraSystem* DamageFieldNiagaraEffect;
+	
 	UFUNCTION(BlueprintCallable, Category = "AnimNotify")
 	ADamageField_Base* GetSpawnedDamageField();
 	

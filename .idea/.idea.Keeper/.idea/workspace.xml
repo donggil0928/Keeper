@@ -13,18 +13,18 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/2I/CVWOO2S2HB7F98V5KQL77B.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueTrigger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueTrigger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterHealthBarWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -512,6 +512,9 @@
       <workItem from="1738158737152" duration="789000" />
       <workItem from="1738160135475" duration="3458000" />
       <workItem from="1738163654903" duration="232000" />
+      <workItem from="1738171898260" duration="214000" />
+      <workItem from="1738248550578" duration="682000" />
+      <workItem from="1738330601629" duration="5435000" />
     </task>
     <servers />
   </component>

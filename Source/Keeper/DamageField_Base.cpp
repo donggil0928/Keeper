@@ -54,7 +54,27 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 		{
 			SetDamageAmount(DamageAmount);
 			Monster->TakeDamage(damage);
-			
+
+			// 피격 이펙트
+			if (DamageEffectNiagara)
+			{
+				UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+					GetWorld(), 
+					DamageEffectNiagara, 
+					Monster->GetActorLocation(), 
+					FRotator::ZeroRotator
+				);
+			}
+
+			// 카메라 흔들기
+			// if (bEnableScreenShake && DamageFieldCameraShake)
+			// {
+			// 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+			// 	if (PlayerController)
+			// 	{
+			// 		PlayerController->ClientStartCameraShake(DamageFieldCameraShake);
+			// 	}
+			// }
 			//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
 			return;
 		}
