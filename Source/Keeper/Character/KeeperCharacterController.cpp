@@ -7,12 +7,13 @@
 #include "Blueprint/UserWidget.h"
 #include "Character/KeeperCharacter.h"
 
-AKeeperCharacterController::AKeeperCharacterController(): DefaultMappingContext(nullptr), RightClickAction(nullptr),
-                                                          LeftClickAction(nullptr),
-                                                          DodgeAction(nullptr),
-                                                          TabAction(nullptr),
-                                                          SkillQAction(nullptr),
-                                                          CurrentTabMenuWidget(nullptr)
+AKeeperCharacterController::AKeeperCharacterController()
+// DefaultMappingContext(nullptr), RightClickAction(nullptr),
+//                                                           LeftClickAction(nullptr),
+//                                                           DodgeAction(nullptr),
+//                                                           TabAction(nullptr),
+//                                                           SkillQAction(nullptr),
+//                                                           CurrentTabMenuWidget(nullptr)
 {
 	bShowMouseCursor = true;
 	MyChar = nullptr;
@@ -41,8 +42,13 @@ void AKeeperCharacterController::SetupInputComponent()
 		EnhancedInputComponent->BindAction(LeftClickAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnLeftClickReleased);
 		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnTabPressed);
 		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnTabReleased);
-		EnhancedInputComponent->BindAction(SkillQAction, ETriggerEvent::Started, this, &AKeeperCharacterController::UseQSkill);
+		//EnhancedInputComponent->BindAction(SkillQAction, ETriggerEvent::Started, this, &AKeeperCharacterController::UseQSkill);
 		EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Started, this, &AKeeperCharacterController::Dodge);
+
+		InputComponent->BindAction("QSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonQPressed);
+		InputComponent->BindAction("WSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonWPressed);
+		InputComponent->BindAction("ESkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonEPressed);
+		InputComponent->BindAction("RSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonRPressed);
 	}
 }
 
@@ -138,12 +144,36 @@ void AKeeperCharacterController::OnTabReleased()
 	}
 }
 
-void AKeeperCharacterController::UseSkill(int SkillIndex)
+void AKeeperCharacterController::OnButtonQPressed()
 {
-	if (!MyChar) return;
-	
-	AKeeperCharacter* Char = Cast<AKeeperCharacter>(GetPawn());
-	Char->UseSkill(SkillIndex);
+	if (MyChar)
+	{
+		MyChar->ActivateSkill(ESkillKeyMapping::Q);
+	}
+}
+
+void AKeeperCharacterController::OnButtonWPressed()
+{
+	if (MyChar)
+	{
+		MyChar->ActivateSkill(ESkillKeyMapping::W);
+	}
+}
+
+void AKeeperCharacterController::OnButtonEPressed()
+{
+	if (MyChar)
+	{
+		MyChar->ActivateSkill(ESkillKeyMapping::E);
+	}
+}
+
+void AKeeperCharacterController::OnButtonRPressed()
+{
+	if (MyChar)
+	{
+		MyChar->ActivateSkill(ESkillKeyMapping::R);
+	}
 }
 
 void AKeeperCharacterController::PlayerTick(float DeltaTime)

@@ -8,6 +8,7 @@
 #include "MonsterBase.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float, HealthPercent);
+DECLARE_MULTICAST_DELEGATE(FMonsterDeadDelegate);
 
 UCLASS()
 class KEEPER_API AMonsterBase : public ACharacter
@@ -109,4 +110,7 @@ private:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Movement", meta = (AllowPrivateAccess = "true"))
 	float DefaultMovementSpeed; // 몬스터의 이동속도
+
+public:
+	FMonsterDeadDelegate OnMonsterDead;
 };

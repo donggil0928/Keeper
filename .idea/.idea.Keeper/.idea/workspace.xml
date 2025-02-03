@@ -13,18 +13,40 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/Material__172_Opacity.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/Material__173.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/SM_tent_big_03.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/ABP_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/ABP_Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__141.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Material__141.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__142.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Material__142.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__143.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Material__143.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__337.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Material__337.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__338.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Material__338.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand__1_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand__1__Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand__1__PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand__1__Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TrailMaster/Material/MaterialInstance/Trail/MI_Trail_015.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TrailMaster/Material/MaterialInstance/Trail/MI_Trail_015.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TrailMaster/Particle/Trail/Trail_021-025/Trail_022/P_Trail_022.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TrailMaster/Particle/Trail/Trail_021-025/Trail_022/P_Trail_022.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/3/9H/TB3WJBN2KNZNTDZS52K4DK.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/6/TJ/DLMSFO9IUIWO4FORJ7VQIE.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/WX/KG0N7V097UPZH88MXZBU90.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/WX/KG0N7V097UPZH88MXZBU90.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/ZF/OTK732RE3Q0WQ3R8ROW8S6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/ZF/OTK732RE3Q0WQ3R8ROW8S6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +55,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -515,6 +540,10 @@
       <workItem from="1738171898260" duration="214000" />
       <workItem from="1738248550578" duration="682000" />
       <workItem from="1738330601629" duration="5435000" />
+      <workItem from="1738474249787" duration="1186000" />
+      <workItem from="1738509110788" duration="7652000" />
+      <workItem from="1738566902136" duration="689000" />
+      <workItem from="1738567661988" duration="1166000" />
     </task>
     <servers />
   </component>

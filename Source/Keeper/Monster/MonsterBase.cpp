@@ -275,6 +275,8 @@ void AMonsterBase::UpdateHealthBar()
 void AMonsterBase::Die()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Monster has died."));
+	
+	OnMonsterDead.Broadcast();
 
 	Destroy();
 }

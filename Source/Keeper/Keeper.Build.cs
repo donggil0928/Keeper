@@ -9,7 +9,7 @@ public class Keeper : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", 
-		"InputCore", "EnhancedInput", "NavigationSystem", "AIModule", "UMG"});
+		"InputCore", "EnhancedInput", "NavigationSystem", "AIModule", "UMG", "Niagara"});
 
 		PrivateDependencyModuleNames.AddRange( new string[] { "Slate", "SlateCore", "AITestSuite", "AITestSuite", "Niagara", "Niagara", "Niagara", "Niagara" });
 

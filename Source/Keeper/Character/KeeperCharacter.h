@@ -7,7 +7,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "Skill/SkillData.h"
+//#include "Skill/SkillData.h"
+#include "../Skill/SkillDataStruct.h"
 #include "DamageField_Base.h"
 #include "KeeperCharacter.generated.h"
 
@@ -156,6 +157,9 @@ public:
 	void ExecuteDodge();
 	UFUNCTION()
 	void OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<class UUserWidget> DeathWidgetClass;
 	
 	// ----- 스탯 변경 함수 -----
 	virtual void TakeDamage(float DamageAmount/*, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/) /*override*/ ;
@@ -192,13 +196,24 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArmComponent;
 
-	//------------------��ų ��� ����------------------
+	//------------------스킬 사용 관련------------------
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	TArray<TSubclassOf<class USkillData>> Skills;	//ĳ���Ͱ� ���� ��ų �迭
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Skill", meta = (AllowPrivateAccess = "true"))
+	class USkillComponent* SkillComponent;	// 스킬을 관리하는 컴포넌트. 스킬의 기능이나 요소는 여기에 있습니다.
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<class UUserWidget> DeathWidgetClass;
+	TMap<ESkillKeyMapping, FTimerHandle> SkillCooldownHandle;	//ĳ���Ͱ� ���� ��ų �迭
+
+public:
+	UFUNCTION()
+	FSkillDataStruct FindSkillDataWithMappingKey(ESkillKeyMapping Key);
+	// 스킬 사용 시 바인딩되는 함수
+	UFUNCTION()
+	void ActivateSkill(ESkillKeyMapping Key);
+	// 스킬 쿨타임 종료 후 타이머핸들을 클리어 해주는 함수
+	UFUNCTION()
+	void CooldownSkill(ESkillKeyMapping Key);
+
+	//-------------------------------------------------
 	
  public:
  	//스킬(Q,W,E,R) 입력 시 각 스킬을 구분하여 바인딩하기

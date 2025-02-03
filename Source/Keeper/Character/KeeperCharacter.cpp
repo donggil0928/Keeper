@@ -18,7 +18,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
-#include "Skill/SkillData.h"
+//#include "Skill/SkillData.h"
+#include "Skill/SkillComponent.h"
 
 // Sets default values
 AKeeperCharacter::AKeeperCharacter()
@@ -87,7 +88,12 @@ AKeeperCharacter::AKeeperCharacter()
 	DodgeDistance = 6000.0f;
 	
 	//------------------스킬 사용 관련------------------
-	Skills.SetNum(4);	// 캐릭터에게 할당된 스킬은 4개(배열의 크기 설정)
+	SkillComponent = CreateDefaultSubobject<USkillComponent>(TEXT("Skill"));
+
+	SkillCooldownHandle.Add(ESkillKeyMapping::Q);
+	SkillCooldownHandle.Add(ESkillKeyMapping::W);
+	SkillCooldownHandle.Add(ESkillKeyMapping::E);
+	SkillCooldownHandle.Add(ESkillKeyMapping::R);
 	//-------------------------------------------------
 }
 
@@ -334,8 +340,7 @@ void AKeeperCharacter::ExecuteDodge()
 		AttackReset();
 		
 		FVector ForwardDirection = GetActorForwardVector();
-		FVector CurrentLocation = GetActorLocation();
-		FVector DodgeDestination = CurrentLocation + (ForwardDirection * DodgeDistance);
+		FVector DodgeDestination = ForwardDirection * DodgeDistance;
 		
 		GetCharacterMovement()->StopMovementImmediately();
         
@@ -348,7 +353,7 @@ void AKeeperCharacter::ExecuteDodge()
 			}
             
 			AnimInstance->Montage_Play(DodgeMontage);
-			LaunchCharacter(ForwardDirection * DodgeDistance, true, false);
+			LaunchCharacter(DodgeDestination, true, true);
 		}
 	}
 }
@@ -428,12 +433,36 @@ void AKeeperCharacter::ModifyMovementSpeed(float SpeedModifier)
 
 //------------------스킬 사용 관련------------------
 
-void AKeeperCharacter::UseSkill(int skillIndex)
+FSkillDataStruct AKeeperCharacter::FindSkillDataWithMappingKey(ESkillKeyMapping Key)
 {
-	Cast<USkillData>(Skills[skillIndex]->GetDefaultObject())->Use(this);
+	return SkillComponent->Skills[Key];
+}
 
-	/*USkillData* Skill = Cast<USkillData>(SkillDataRef);
-	if (Skill != nullptr) Skill->Use(this);
-	else UE_LOG(LogTemp, Warning, TEXT("Skill Not Found"));*/
+void AKeeperCharacter::ActivateSkill(ESkillKeyMapping Key)
+{
+	if (!SkillComponent->Skills[Key].IsCooldown())
+	{
+		SkillComponent->Skills[Key].Use(this);
+		SkillComponent->Skills[Key].StartCooldown();
+		float SkillCooldownRate = SkillComponent->Skills[Key].SecondToCooldown;
+
+		FTimerDelegate CooldownDelegate = FTimerDelegate::CreateUFunction(
+			this,
+			FName("CooldownSkill"),
+			Key
+		);
+
+		GetWorldTimerManager().SetTimer(SkillCooldownHandle[Key], CooldownDelegate, SkillCooldownRate, false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("%d Skill is Cooldown"), Key);
+}
+
+void AKeeperCharacter::CooldownSkill(ESkillKeyMapping Key)
+{
+	if (SkillComponent->Skills[Key].IsCooldown())
+	{
+		GetWorldTimerManager().ClearTimer(SkillCooldownHandle[Key]);
+		SkillComponent->Skills[Key].EndCooldown();
+	}
 }
 
