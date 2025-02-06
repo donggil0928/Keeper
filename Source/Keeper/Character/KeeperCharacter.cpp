@@ -336,24 +336,40 @@ void AKeeperCharacter::ExecuteDodge()
 	if (DodgeMontage)
 	{
 		bIsDodging = true;
-
 		AttackReset();
+       
+		UCharacterMovementComponent* MovementComp = GetCharacterMovement();
+		MovementComp->StopMovementImmediately();
+		MovementComp->BrakingFriction = 0.0f;
+		MovementComp->GravityScale = 0.0f;
+       
+		FVector DodgeVector = GetActorForwardVector();
+		DodgeVector.Normalize();
 		
-		FVector ForwardDirection = GetActorForwardVector();
-		FVector DodgeDestination = ForwardDirection * DodgeDistance;
+		FHitResult SurfaceHit;
+		FVector Start = GetActorLocation();
+		FVector End = Start - FVector::UpVector * 200.0f;
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(this);
+
+		if (GetWorld()->LineTraceSingleByChannel(SurfaceHit, Start, End, ECC_Visibility, QueryParams))
+		{
+			FVector SurfaceNormal = SurfaceHit.Normal;
+			FVector ProjectedDodge = FVector::VectorPlaneProject(DodgeVector, SurfaceNormal);
+			ProjectedDodge.Normalize();
+			DodgeVector = ProjectedDodge;
+		}
 		
-		GetCharacterMovement()->StopMovementImmediately();
-        
+		float DodgeTime = DodgeMontage->GetPlayLength();
+		FVector RequiredVelocity = (DodgeVector * DodgeDistance) / DodgeTime;
+
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		if (AnimInstance)
 		{
-			if (!AnimInstance->OnMontageEnded.Contains(this, FName("OnDodgeMontageEnded")))
-			{
-				AnimInstance->OnMontageEnded.AddDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
-			}
-            
+			AnimInstance->OnMontageEnded.AddDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
 			AnimInstance->Montage_Play(DodgeMontage);
-			LaunchCharacter(DodgeDestination, true, true);
+           
+			MovementComp->Velocity = RequiredVelocity;
 		}
 	}
 }
@@ -363,13 +379,16 @@ void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrup
 	if (Montage == DodgeMontage)
 	{
 		bIsDodging = false;
-        
-		if (USkeletalMeshComponent* MeshComponent = GetMesh())
+       
+		UCharacterMovementComponent* MovementComp = GetCharacterMovement();
+		MovementComp->Velocity = FVector::ZeroVector;
+		MovementComp->StopMovementImmediately();
+		MovementComp->BrakingFriction = MovementComp->BrakingFrictionFactor;
+		MovementComp->GravityScale = 1.0f;
+       
+		if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance())
 		{
-			if (UAnimInstance* AnimInstance = MeshComponent->GetAnimInstance())
-			{
-				AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
-			}
+			AnimInstance->OnMontageEnded.RemoveDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
 		}
 	}
 }

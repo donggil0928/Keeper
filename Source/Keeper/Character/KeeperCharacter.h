@@ -174,7 +174,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void ModifyMovementSpeed(float SpeedModifier);
 
-
+	UPROPERTY()
+	FTimerHandle DodgeFrictionResetHandle;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	float DamageRadius;
 
