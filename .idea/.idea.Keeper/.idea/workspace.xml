@@ -13,21 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Tutorial_1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Tutorial_1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/HPBar/WBP_MonsterHealthBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/HPBar/WBP_MonsterHealthBar.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/T9/WI9X2NLLZJOCHF08R1W0AL.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/T9/WI9X2NLLZJOCHF08R1W0AL.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/WX/KG0N7V097UPZH88MXZBU90.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/WX/KG0N7V097UPZH88MXZBU90.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/test/flying_movement_f_front3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/test/flying_movement_f_front3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +29,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="없음" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -527,6 +520,9 @@
       <workItem from="1738567661988" duration="1166000" />
       <workItem from="1738569705513" duration="8322000" />
       <workItem from="1738760396042" duration="11918000" />
+      <workItem from="1738853445609" duration="1842000" />
+      <workItem from="1738934141045" duration="1007000" />
+      <workItem from="1738944246447" duration="1096000" />
     </task>
     <servers />
   </component>
