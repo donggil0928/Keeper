@@ -50,11 +50,15 @@ private:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* TabAction;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* SkillPopupAction;
+
 	void OnLeftClickPressed();
 	void OnLeftClickReleased();
 	void OnTabPressed();
 	void OnTabReleased();
+	void OnSkillPopupPressed();
 	void OnButtonQPressed();
 	void OnButtonWPressed();
 	void OnButtonEPressed();
@@ -65,4 +69,10 @@ private:
 
 	UPROPERTY()
 	UUserWidget* CurrentTabMenuWidget;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UUserWidget> SkillPopupWidgetClass;
+
+	UPROPERTY(BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	UUserWidget* CurrentSkillPopupWidget;
 };

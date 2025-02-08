@@ -14,4 +14,6 @@ class KEEPER_API USkillSlot : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+
 };
