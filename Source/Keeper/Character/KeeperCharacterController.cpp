@@ -17,6 +17,9 @@ AKeeperCharacterController::AKeeperCharacterController()
 {
 	bShowMouseCursor = true;
 	MyChar = nullptr;
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> SkillPopupRef = TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_SkillPopup.IA_SkillPopup'");
+	if (SkillPopupRef.Object) SkillPopupAction = SkillPopupRef.Object;
 }
 
 void AKeeperCharacterController::BeginPlay()
@@ -45,6 +48,7 @@ void AKeeperCharacterController::SetupInputComponent()
 		//EnhancedInputComponent->BindAction(SkillQAction, ETriggerEvent::Started, this, &AKeeperCharacterController::UseQSkill);
 		EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Started, this, &AKeeperCharacterController::Dodge);
 
+		EnhancedInputComponent->BindAction(SkillPopupAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnSkillPopupPressed);
 		InputComponent->BindAction("QSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonQPressed);
 		InputComponent->BindAction("WSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonWPressed);
 		InputComponent->BindAction("ESkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonEPressed);
@@ -141,6 +145,21 @@ void AKeeperCharacterController::OnTabReleased()
 	{
 		CurrentTabMenuWidget->RemoveFromViewport();
 		CurrentTabMenuWidget = nullptr;
+	}
+}
+
+void AKeeperCharacterController::OnSkillPopupPressed()
+{
+	if (SkillPopupWidgetClass && !CurrentSkillPopupWidget)
+	{
+		CurrentSkillPopupWidget = CreateWidget<UUserWidget>(this, SkillPopupWidgetClass);
+
+		if (CurrentSkillPopupWidget) CurrentSkillPopupWidget->AddToViewport();
+	}
+	else if (CurrentSkillPopupWidget)
+	{
+		CurrentSkillPopupWidget->RemoveFromViewport();
+		CurrentSkillPopupWidget = nullptr;
 	}
 }
 
