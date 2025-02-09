@@ -13,11 +13,26 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Clothing.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Clothing.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Metal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Metal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/MT_Text.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/MT_Text.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Util/Shader/Mt_CartoonRendering_Line.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/Shader/Mt_CartoonRendering_Line.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/0/FI/UGCVMVWFDY9OQFA2826PB7.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/AH/FNXBFPQIVDQU5HQRGV9FKB.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/VW/ZUTKX54SONENJYATCIGC4X.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/VW/ZUTKX54SONENJYATCIGC4X.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/6/6G/KF3I1WZOL6IL84YIDKAJGK.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/0F/8S5PPB59ML2KRBU5INQJU7.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/ET/65TW0IJ8S830691LWCK6MA.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/TD/RAU6EYHOHIFIGS22HJ9TFH.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/YJ/FET4L5FQOT4Y37ZBJHX5Q6.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/SJ/8FZW72Y6TWE1FJKLR6UCMP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/SJ/8FZW72Y6TWE1FJKLR6UCMP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/AL/LNVKD4JO1Q2GU3JK1JU0RK.uasset" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +44,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="없음" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -523,6 +535,8 @@
       <workItem from="1738853445609" duration="1842000" />
       <workItem from="1738934141045" duration="1007000" />
       <workItem from="1738944246447" duration="1096000" />
+      <workItem from="1739021559418" duration="1245000" />
+      <workItem from="1739028118664" duration="2704000" />
     </task>
     <servers />
   </component>
