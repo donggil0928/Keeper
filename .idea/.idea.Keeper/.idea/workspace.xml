@@ -13,26 +13,36 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Clothing.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Clothing.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Metal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Hue_Metal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/MT_Text.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/MT_Text.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Util/Shader/Mt_CartoonRendering_Line.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/Shader/Mt_CartoonRendering_Line.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/0/FI/UGCVMVWFDY9OQFA2826PB7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/AH/FNXBFPQIVDQU5HQRGV9FKB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/VW/ZUTKX54SONENJYATCIGC4X.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/VW/ZUTKX54SONENJYATCIGC4X.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/6/6G/KF3I1WZOL6IL84YIDKAJGK.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/0F/8S5PPB59ML2KRBU5INQJU7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/ET/65TW0IJ8S830691LWCK6MA.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/TD/RAU6EYHOHIFIGS22HJ9TFH.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/YJ/FET4L5FQOT4Y37ZBJHX5Q6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/SJ/8FZW72Y6TWE1FJKLR6UCMP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/SJ/8FZW72Y6TWE1FJKLR6UCMP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster_Attack_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Tasks/BT_Task_MonsterAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Tasks/BT_Task_MonsterAttack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/ABP_Test.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__141.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__142.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__143.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__337.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Material__338.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/test/Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_die_Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand_Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/monster002_ani_stand_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/Material__361.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/monster002_ani_hand_attack_Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/monster002_ani_hand_stand.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/monster002_ani_hand_stand_Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/monster002_ani_hand_stand_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/test/monster002_ani_hand_stand_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/3/FB/K4ZMIMAGTL2DQXQHNBMENH.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/PB/24E15YSZQIX2E59X67ELQP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/AL/LNVKD4JO1Q2GU3JK1JU0RK.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/NS_Holy_Slash_Impact1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/test/NS_Holy_Slash_Impact1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -537,6 +547,10 @@
       <workItem from="1738944246447" duration="1096000" />
       <workItem from="1739021559418" duration="1245000" />
       <workItem from="1739028118664" duration="2704000" />
+      <workItem from="1739093999810" duration="679000" />
+      <workItem from="1739112279504" duration="6822000" />
+      <workItem from="1739131287306" duration="1304000" />
+      <workItem from="1739203189230" duration="2981000" />
     </task>
     <servers />
   </component>

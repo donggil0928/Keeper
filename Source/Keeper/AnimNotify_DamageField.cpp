@@ -12,11 +12,11 @@ void UAnimNotify_DamageField::Notify(USkeletalMeshComponent* MeshComp, UAnimSequ
 {
 	Super::Notify(MeshComp, Animation, EventReference);
 
-	if (SpawnedDamageField)
-	{
-		SpawnedDamageField->Destroy();
-		SpawnedDamageField = nullptr;
-	}
+	// if (SpawnedDamageField)
+	// {
+	// 	SpawnedDamageField->Destroy();
+	// 	SpawnedDamageField = nullptr;
+	// }
 	
 	{
 		FActorSpawnParameters SpawnInfo;
