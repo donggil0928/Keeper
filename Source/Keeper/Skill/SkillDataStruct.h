@@ -30,7 +30,10 @@ UENUM(BlueprintType)
 enum class ESkillSetType : uint8
 {
 	Defalut	UMETA(DisplayName = "DefalutSet"),
-	Beast	UMETA(DisplayName = "BeastSet")
+	Beast	UMETA(DisplayName = "BeastSet"),
+	Mirror	UMETA(DisplayName = "MirrorSet"),
+	Puppet	UMETA(DisplayName = "PuppetSet"),
+	Dream	UMETA(DisplayName = "DreamSet")
 };
 
 // 스킬의 공격 방식, 해당 스킬의 공격이 근접인지, 원거리인지 구분을 위함.

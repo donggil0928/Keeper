@@ -5,11 +5,14 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "SkillDataStruct.h"
+
+#include "SkillUI/SkillWindowWidgetInterface.h"
+
 #include "SkillComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class KEEPER_API USkillComponent : public UActorComponent
+class KEEPER_API USkillComponent : public UActorComponent, public ISkillWindowWidgetInterface
 {
 	GENERATED_BODY()
 
@@ -26,10 +29,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FSkillDataStruct GetSkillDataRow(int32 index);
 	int32 GetSkillDataIndexToCurrentLevel(ESkillKeyMapping key, ESkillSetType skillSet, int32 currentSkillLevel);
+	int32 GetSkillLevelIndex(ESkillKeyMapping InKey, ESkillSetType SkillSet);
 
-private:
-	UPROPERTY(VisibleAnywhere, meta = (AllowPrivateAccess = "true"), Category = Skill)
-	TSubclassOf<class UUserWidget> SkillWindowWidget;
+	virtual void SetupSelectedSkillData(class USkillSlot* InSlot) override;
+	virtual void ModifySkillLevel(USkillSlot* InSlot, ESkillKeyMapping InKey) override;
 
 protected:
 	// Called when the game starts

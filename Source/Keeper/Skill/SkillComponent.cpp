@@ -4,6 +4,7 @@
 #include "Skill/SkillComponent.h"
 #include "Character/KeeperCharacter.h"
 //#include "SkillProjectile.h"
+#include "SkillUI/SkillSlot.h"
 
 #include "Blueprint/UserWidget.h"
 #include "Engine/DataTable.h"
@@ -28,12 +29,6 @@ USkillComponent::USkillComponent()
 		SkillDataTable = SkillDataTableRef.Object;
 	}
 
-	static ConstructorHelpers::FClassFinder<UUserWidget> SkillWindowWidgetRef(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/UI/Skill/WB_SkillWindow.WB_SkillWindow_C'"));
-	if (SkillWindowWidgetRef.Succeeded())
-	{
-		SkillWindowWidget = SkillWindowWidgetRef.Class;
-	}
-
 	SkillLevelArray.Init(0, 20);
 }
 
@@ -45,7 +40,25 @@ FSkillDataStruct USkillComponent::GetSkillDataRow(int32 index)
 int32 USkillComponent::GetSkillDataIndexToCurrentLevel(ESkillKeyMapping key, ESkillSetType skillSet, int32 currentSkillLevel)
 {
 	int32 ClampSkillLevel = FMath::Clamp<int32>(currentSkillLevel, 0, 5);
-	return int32((int32(skillSet) * 20) + (int32(key) * 5) + ClampSkillLevel);
+	return int32((int32(skillSet) * 24) + (int32(key) * 6) + ClampSkillLevel);
+}
+
+int32 USkillComponent::GetSkillLevelIndex(ESkillKeyMapping InKey, ESkillSetType SkillSet)
+{
+	return int32(int32(SkillSet) * 4 + int32(InKey));
+}
+
+void USkillComponent::SetupSelectedSkillData(USkillSlot* InSlot)
+{
+	FSkillDataStruct SelectedSkillData = GetSkillDataRow(InSlot->GetActualSkillIndex()); // 레벨이 적용된 스킬데이터.
+
+	Skills[InSlot->GetSkillOnKey()] = SelectedSkillData;
+}
+
+void USkillComponent::ModifySkillLevel(USkillSlot* InSlot, ESkillKeyMapping InKey)
+{
+	int32 ModifiedSkillIndex = GetSkillLevelIndex(InKey, InSlot->GetSkillData().SkillSet);
+	SkillLevelArray[ModifiedSkillIndex] = InSlot->GetCurrentSkillLevel();
 }
 
 // Called when the game starts
