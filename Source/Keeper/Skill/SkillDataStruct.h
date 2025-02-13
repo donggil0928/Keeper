@@ -64,6 +64,9 @@ public:
 	// 스킬 설명
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText Description;	
+	// 스킬 아이콘
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* SkillIcon;
 	// 스킬셋 타입. 어떤 스킬셋에 포함되어 있는지.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ESkillSetType SkillSet;
