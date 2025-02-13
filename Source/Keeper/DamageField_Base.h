@@ -88,4 +88,6 @@ private:
 	
 	UPROPERTY(EditAnywhere, Category = "Damage")
 	bool bCanDealDamage;
+
+	TArray<ADamageField_Base*> SpawnedDamageFields;
 };
