@@ -67,17 +67,6 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 				FRotator::ZeroRotator
 			);
 		}
-
-		// 카메라 흔들기
-		// if (bEnableScreenShake && DamageFieldCameraShake)
-		// {
-		// 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-		// 	if (PlayerController)
-		// 	{
-		// 		PlayerController->ClientStartCameraShake(DamageFieldCameraShake);
-		// 	}
-		// }
-		//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
 		return;
 	}
 	
@@ -90,6 +79,18 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 		
 		//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
 		return;
+	}
+
+	if ((TargetType == EDamageTarget::Character || TargetType == EDamageTarget::Both))
+	{
+		if (AKeeperCharacter* OnlyCharacter = Cast<AKeeperCharacter>(OtherActor))
+		{
+			DamageAmount = 100;
+			SetDamageAmount(DamageAmount);
+			OnlyCharacter->TakeDamage(damage);
+			
+			return;
+		}
 	}
 }
 
