@@ -11,7 +11,10 @@ void UCooldownRound::SetCooldownRoundPercent(float InCooldownRate)
 		RoundedTimerHandle,
 		this,
 		&UCooldownRound::SetCooldownRoundPercentImplement,
-		100.0f / InCooldownRate,
-		true,
-		InCooldownRate);
+		InCooldownRate / 100.0f,
+		true);
+}
+void UCooldownRound::EndCooldownDuration()
+{
+	GetWorld()->GetTimerManager().ClearTimer(RoundedTimerHandle);
 }

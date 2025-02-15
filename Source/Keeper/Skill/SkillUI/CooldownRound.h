@@ -25,4 +25,6 @@ public:
 	void SetCooldownRoundPercent(float InCooldownRate);
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetCooldownRoundPercentImplement(); // <-- 해당 함수 percent 값이 0.01씩 줄어들게 블루프린트로 작성.
+	UFUNCTION(BlueprintCallable)
+	void EndCooldownDuration();
 };

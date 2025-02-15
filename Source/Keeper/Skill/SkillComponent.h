@@ -42,7 +42,7 @@ protected:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Skill)
 	TMap<ESkillKeyMapping, FSkillDataStruct> Skills;
-
+prevSkillSet
 	//스킬 인덱스로 정보줘서 키 맵핑하기
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Skill)
 	TArray<int32> SkillLevelArray;
