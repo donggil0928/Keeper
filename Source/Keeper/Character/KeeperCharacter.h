@@ -249,6 +249,9 @@ public:
 
 	TMap<ESkillKeyMapping, FTimerHandle> SkillCooldownHandle;	//ĳ���Ͱ� ���� ��ų �迭
 
+	UPROPERTY(EditAnywhere, Category = "Skill")
+	TMap<ESkillSetType, bool> UnlockedSkillInfo;
+
 public:
 	UFUNCTION()
 	FSkillDataStruct FindSkillDataWithMappingKey(ESkillKeyMapping Key);
@@ -260,6 +263,8 @@ public:
 	void CooldownSkill(ESkillKeyMapping Key);
 	UFUNCTION()
 	void SetupAnimationBySkillSet(ESkillSetType InSkillSet);
+	UFUNCTION()
+	void UpdateUnlockedSkillInfo(ESkillSetType InSkillSet);
 
 	//-------------------------------------------------
 

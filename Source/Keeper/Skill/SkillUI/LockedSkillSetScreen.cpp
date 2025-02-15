@@ -10,13 +10,11 @@ void ULockedSkillSetScreen::NativeConstruct()
 	AKeeperCharacter* Player = Cast<AKeeperCharacter>(GetOwningPlayerPawn());
 	if (Player)
 	{
-		/*
 		bool bIsUnlocked = Player->UnlockedSkillInfo[LockedSkillSetByThisScreen];
 		if(bIsUnlocked)
 		{
 			this->SetVisibility(ESlateVisibility::Hidden);
 		}
 		else this->SetVisibility(ESlateVisibility::Visible);
-		*/
 	} 
 }
