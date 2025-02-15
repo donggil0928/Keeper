@@ -131,6 +131,12 @@ AKeeperCharacter::AKeeperCharacter()
 	SkillCooldownHandle.Add(ESkillKeyMapping::W);
 	SkillCooldownHandle.Add(ESkillKeyMapping::E);
 	SkillCooldownHandle.Add(ESkillKeyMapping::R);
+
+	UnlockedSkillInfo.Add(ESkillSetType::Defalut, true);
+	UnlockedSkillInfo.Add(ESkillSetType::Beast, true);
+	UnlockedSkillInfo.Add(ESkillSetType::Mirror, false);
+	UnlockedSkillInfo.Add(ESkillSetType::Puppet, false);
+	UnlockedSkillInfo.Add(ESkillSetType::Dream, false);
 	//-------------------------------------------------
 }
 
@@ -650,5 +656,10 @@ void AKeeperCharacter::SetupAnimationBySkillSet(ESkillSetType InSkillSet)
 	CurrentWeaponMesh		= WeaponMeshListBySkillSet[InSkillSet];
 	WeaponMeshComponent->SetSkeletalMesh(CurrentWeaponMesh);
 
+}
+
+void AKeeperCharacter::UpdateUnlockedSkillInfo(ESkillSetType InSkillSet)
+{
+	UnlockedSkillInfo[InSkillSet] = true;
 }
 
