@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "Blueprint/UserWidget.h"
+#include "Character/KeeperCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -141,6 +142,12 @@ void AMonsterBase::TakeDamage(float DamageAmount)
 	float ActualDamage = FMath::Max(0.0f, DamageAmount - MonsterDef);
 	CurrentHP = FMath::Max(0.0f, CurrentHP - ActualDamage);
 
+	if (AKeeperCharacter* PlayerCharacter = Cast<AKeeperCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)))
+	{
+		PlayerCharacter->StartMadnessDecayDelay();
+		UE_LOG(LogTemp, Warning, TEXT("광기 게이지 타이머 초기화"));
+	}
+	
 	if (ActualDamage > 0 && DamageTextWidgetClass)
 	{
 		UWorld* World = GetWorld();
@@ -155,18 +162,6 @@ void AMonsterBase::TakeDamage(float DamageAmount)
 				DamageTextWidget->AddToViewport(100);
 
 				ActiveDamageWidgets.Add(TWeakObjectPtr<UDamageTextWidget>(DamageTextWidget));
-				// APlayerController* PC = World->GetFirstPlayerController();
-				// if (PC)
-				// {
-				// 	FVector2D ScreenPosition;
-				// 	UGameplayStatics::ProjectWorldToScreen(
-				// 		PC, 
-				// 		GetActorLocation() + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 50), 
-				// 		ScreenPosition
-				// 	);
-				// 	
-				// 	DamageTextWidget->SetPositionInViewport(ScreenPosition);
-				//}
 			}
 		}
 	}

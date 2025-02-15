@@ -189,7 +189,7 @@ void UWeaponTraceNotifyState::PerformWeaponLineTrace(AKeeperCharacter* KeeperCha
             if (IsValid(KeeperCharacter))
             {
                 float FinalDamage = KeeperCharacter->AttackPower * DamageMultiplier;
-                KeeperCharacter->DealDamage(HitMonster, FinalDamage);
+                //KeeperCharacter->DealDamage(HitMonster, FinalDamage);
                 AlreadyHitActors.Add(HitActor);
             }
         }
@@ -236,7 +236,7 @@ void UWeaponTraceNotifyState::PerformWeaponTraceForSocket(USkeletalMeshComponent
                 !AlreadyHitActors.Contains(HitCharacter))
             {
                 float FinalDamage = KeeperCharacter->AttackPower * DamageMultiplier;
-                KeeperCharacter->DealDamage(HitCharacter, FinalDamage);
+                //KeeperCharacter->DealDamage(HitCharacter, FinalDamage);
                 AlreadyHitActors.Add(HitCharacter);
             }
         }

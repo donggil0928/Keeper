@@ -48,6 +48,28 @@ private:
 	bool bIsDodging;
 	bool bIsHitReacting;
 	bool bIsDead = false;
+
+	// 광기 게이지 하락
+	FTimerHandle MadnessDecayTimer;
+	FTimerHandle MadnessDecayDelayTimer;
+	
+	void StartMadnessDrain();
+	void DecreaseMadness();
+    
+	const float MADNESS_DECAY_DELAY = 5.0f;
+	const float MADNESS_DECAY_RATE = 1.0f;
+	const float MADNESS_DECAY_INTERVAL = 1.0f;
+
+	// 광기 몬스터 생성
+	FTimerHandle TargetSpawnTimer;
+	void SpawnTargets();
+	void HandleTargetSpawning();
+	const float MADNESS_MONSTER_INTERVAL = 20.0f;
+	const float MADNESS_SPAWN_DISTANCE = 150.0f;
+	bool bIsTargetSpawnOnCooldown = false;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "MadnessMonster")
+	TSubclassOf<AActor> MadnessMonsterBlueprintClass;
 	
 private:
 	ACharacter* CurrentTarget;
@@ -164,6 +186,8 @@ public:
 	void AttackReset();
 	void PlayHitAnimation();
 
+	void StartMadnessDecayDelay();
+	
 	// -------------------회피 관련---------------------
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float DodgeDistance;
@@ -180,11 +204,9 @@ public:
 	float GetAttackPower() const { return AttackPower; }
 	
 	// ----- 스탯 변경 함수 -----
-	virtual void TakeDamage(float DamageAmount/*, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/) /*override*/ ;
+	virtual void TakeDamage(float DamageAmount) ;
 
 	float DamageCalculation(float DamageAmount) const;
-
-	static void DealDamage(ACharacter* Monster, float DamageAmount);
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void IncreasedMadness(float MadnessCost);

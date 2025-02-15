@@ -11,7 +11,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="" />
+    <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -542,6 +551,9 @@
       <workItem from="1739607797723" duration="98000" />
       <workItem from="1739607941124" duration="574000" />
       <workItem from="1739617510082" duration="953000" />
+      <workItem from="1739621297460" duration="1369000" />
+      <workItem from="1739629857601" duration="2878000" />
+      <workItem from="1739632794352" duration="2332000" />
     </task>
     <servers />
   </component>

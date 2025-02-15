@@ -154,7 +154,21 @@ void AKeeperCharacter::BeginPlay()
 		}
 	}
 	
-	//CreateDamageField();
+	// 광기 몬스터 스폰 타이머
+	// GetWorldTimerManager().SetTimer(
+	// TargetSpawnTimer,
+	// this,
+	// &AKeeperCharacter::HandleTargetSpawning,
+	// MADNESS_MONSTER_INTERVAL,
+	// true
+	// );
+	GetWorldTimerManager().SetTimer(
+	TargetSpawnTimer,
+	this,
+	&AKeeperCharacter::HandleTargetSpawning,
+	1.0f, // Check more frequently but respect cooldown
+	true
+);
 
 	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
 	{
@@ -189,6 +203,104 @@ bool AKeeperCharacter::CanMove() const
 	if (bIsAttacking || bIsDodging || bIsHitReacting) return false;
     
 	return true;
+}
+
+void AKeeperCharacter::StartMadnessDecayDelay()
+{
+	GetWorldTimerManager().ClearTimer(MadnessDecayTimer);
+	GetWorldTimerManager().ClearTimer(MadnessDecayDelayTimer);
+	
+	GetWorldTimerManager().SetTimer(
+		MadnessDecayDelayTimer,
+		this,
+		&AKeeperCharacter::StartMadnessDrain,
+		MADNESS_DECAY_DELAY,
+		false
+	);
+}
+
+void AKeeperCharacter::StartMadnessDrain()
+{
+	GetWorldTimerManager().SetTimer(
+	MadnessDecayTimer,
+	this,
+	&AKeeperCharacter::DecreaseMadness,
+	MADNESS_DECAY_INTERVAL,
+	true
+	);
+}
+
+void AKeeperCharacter::DecreaseMadness()
+{
+	if (CurrentMadness > 0)
+	{
+		CurrentMadness = FMath::Max(0, CurrentMadness - MADNESS_DECAY_RATE);
+		OnStatChanged.Execute();
+	}
+	else
+	{
+		GetWorldTimerManager().ClearTimer(MadnessDecayTimer);
+	}
+}
+
+void AKeeperCharacter::SpawnTargets()
+{
+	if (!MadnessMonsterBlueprintClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Target Blueprint class not set!"));
+		return;
+	}
+	
+	FVector CharacterLocation = GetActorLocation();
+	FRotator CharacterRotation = GetActorRotation();
+	
+	TArray<FVector> SpawnOffsets = {
+		FVector(MADNESS_SPAWN_DISTANCE, 0.0f, 0.0f),
+		FVector(-MADNESS_SPAWN_DISTANCE, 0.0f, 0.0f),
+		FVector(0.0f, MADNESS_SPAWN_DISTANCE, 0.0f),
+		FVector(0.0f, -MADNESS_SPAWN_DISTANCE, 0.0f)
+	};
+	
+	for (const FVector& Offset : SpawnOffsets)
+	{
+		FVector SpawnLocation = CharacterLocation + CharacterRotation.RotateVector(Offset);
+		FRotator SpawnRotation = CharacterRotation;
+        
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.Owner = this;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+		AActor* SpawnedTarget = GetWorld()->SpawnActor<AActor>(
+			MadnessMonsterBlueprintClass,
+			SpawnLocation,
+			SpawnRotation,
+			SpawnParams
+		);
+	}
+}
+
+void AKeeperCharacter::HandleTargetSpawning()
+{
+	if (CurrentMadness >= 80 && !bIsTargetSpawnOnCooldown)
+	{
+		SpawnTargets();
+        
+		// Set cooldown
+		bIsTargetSpawnOnCooldown = true;
+        
+		// Create timer to reset cooldown
+		FTimerHandle CooldownTimer;
+		GetWorldTimerManager().SetTimer(
+			CooldownTimer,
+			[this]()
+			{
+				bIsTargetSpawnOnCooldown = false;
+				UE_LOG(LogTemp, Warning, TEXT("Target spawn cooldown finished"));
+			},
+			MADNESS_MONSTER_INTERVAL,
+			false
+		);
+	}
 }
 
 void AKeeperCharacter::CreateDamageField()
@@ -226,7 +338,6 @@ void AKeeperCharacter::AttackUp()
 
 void AKeeperCharacter::Attack(ACharacter* Monster)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("Attack 함수 실행"));
 	bComboAttackDown = true;
 
 	UAnimInstance* AnimaInstance = GetMesh()->GetAnimInstance();
@@ -238,7 +349,6 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 
 	if (ComboAttackNumber >= 4)
 		ComboAttackNumber = 0;
-	//UE_LOG(LogTemp, Warning, TEXT("ComboAttack%d 실행"), ComboAttackNumber);
 
 	AnimaInstance->Montage_Play(CurrentComboMontage, 1.5f);
 	AnimaInstance->Montage_JumpToSection(FName(comboList[ComboAttackNumber]), CurrentComboMontage);
@@ -249,6 +359,7 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 		DamageField->ActivateDamage();
 	}
 
+	StartMadnessDecayDelay();
 }
 
 void AKeeperCharacter::AttackEnd()
@@ -471,20 +582,15 @@ float AKeeperCharacter::DamageCalculation(float DamageAmount) const
 	return ActualDamage;
 }
 
-void AKeeperCharacter::DealDamage(ACharacter* Monster, float DamageAmount)
-{
-	AMonsterBase* MonsterTarget = Cast<AMonsterBase>(Monster);
-	if (MonsterTarget && DamageAmount > 0.0f)
-	{
-		MonsterTarget->TakeDamage(DamageAmount);
-		//UE_LOG(LogTemp, Warning, TEXT("Dealt %f damage to %s"), DamageAmount, *Monster->GetName());
-	}
-}
-
 void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 {
 	CurrentMadness = FMath::Min(MaxMadness, CurrentMadness + MadnessCost);
 	OnStatChanged.Execute();
+
+	if (CurrentMadness >= 80)
+	{
+		HandleTargetSpawning();
+	}
 	
 	if (CurrentMadness >= MaxMadness)
 	{
@@ -526,6 +632,9 @@ void AKeeperCharacter::ActivateSkill(ESkillKeyMapping Key)
 		GetWorldTimerManager().SetTimer(SkillCooldownHandle[Key], CooldownDelegate, SkillCooldownRate, false);
 	}
 	else UE_LOG(LogTemp, Warning, TEXT("%d Skill is Cooldown"), Key);
+
+	AttackReset();
+	StartMadnessDecayDelay();
 }
 
 void AKeeperCharacter::CooldownSkill(ESkillKeyMapping Key)
