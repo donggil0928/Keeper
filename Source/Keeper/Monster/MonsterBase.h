@@ -89,7 +89,7 @@ protected:
 	
 	void UpdateHealthBar();
 	
-private:
+public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Stats", meta = (AllowPrivateAccess = "true"))
 	int32 MaxHP;		// 몬스터의 최대 HP
 

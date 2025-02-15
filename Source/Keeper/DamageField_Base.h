@@ -79,8 +79,6 @@ public:
 private:
 	float damageRadius;
 	float damage;
-	
-	UPROPERTY(EditAnywhere, Category = "Damage")
 	float DamageAmount;
 
 	UPROPERTY(EditAnywhere, Category = "Damage")

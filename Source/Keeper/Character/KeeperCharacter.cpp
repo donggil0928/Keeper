@@ -108,7 +108,7 @@ AKeeperCharacter::AKeeperCharacter()
 	//------------------스탯 초기화------------------
 	Level = 1;				// 레벨
 	Exp = 0;				// 경험치
-	AttackPower = 100;		// 기본 공격력
+	AttackPower = 200;		// 기본 공격력
 	Defense = 100;			// 기본 방어력
 	MaxHP = 1000;			// 기본 최대 HP
 	CurrentHP = MaxHP;		// 시작 시 현재 HP는 최대 HP로 설정

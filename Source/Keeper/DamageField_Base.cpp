@@ -47,49 +47,49 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 	{
 		return;
 	}
+
+	AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor);
+	AKeeperCharacter* Character = Cast<AKeeperCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	
-	if ((TargetType == EDamageTarget::Monster || TargetType == EDamageTarget::Both))
+	if ((TargetType == EDamageTarget::Monster || TargetType == EDamageTarget::Both) && Monster && Character)
 	{
-		if (AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor))
+		DamageAmount=Character->AttackPower;
+		SetDamageAmount(DamageAmount);
+		Monster->TakeDamage(damage);
+
+		// 피격 이펙트
+		if (DamageEffectNiagara)
 		{
-			SetDamageAmount(DamageAmount);
-			Monster->TakeDamage(damage);
-
-			// 피격 이펙트
-			if (DamageEffectNiagara)
-			{
-				UNiagaraFunctionLibrary::SpawnSystemAtLocation(
-					GetWorld(), 
-					DamageEffectNiagara, 
-					Monster->GetActorLocation(), 
-					FRotator::ZeroRotator
-				);
-			}
-
-			// 카메라 흔들기
-			// if (bEnableScreenShake && DamageFieldCameraShake)
-			// {
-			// 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-			// 	if (PlayerController)
-			// 	{
-			// 		PlayerController->ClientStartCameraShake(DamageFieldCameraShake);
-			// 	}
-			// }
-			//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
-			return;
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+				GetWorld(), 
+				DamageEffectNiagara, 
+				Monster->GetActorLocation(), 
+				FRotator::ZeroRotator
+			);
 		}
+
+		// 카메라 흔들기
+		// if (bEnableScreenShake && DamageFieldCameraShake)
+		// {
+		// 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+		// 	if (PlayerController)
+		// 	{
+		// 		PlayerController->ClientStartCameraShake(DamageFieldCameraShake);
+		// 	}
+		// }
+		//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
+		return;
 	}
 	
-	if ((TargetType == EDamageTarget::Character || TargetType == EDamageTarget::Both))
+	
+	if ((TargetType == EDamageTarget::Character || TargetType == EDamageTarget::Both) && Monster && Character)
 	{
-		if (AKeeperCharacter* Character = Cast<AKeeperCharacter>(OtherActor))
-		{
-			SetDamageAmount(DamageAmount);
-			Character->TakeDamage(damage);
-			
-			//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
-			return;
-		}
+		DamageAmount=Monster->MonsterAtk;
+		SetDamageAmount(DamageAmount);
+		Character->TakeDamage(damage);
+		
+		//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
+		return;
 	}
 }
 
