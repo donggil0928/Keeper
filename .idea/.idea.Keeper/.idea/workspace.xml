@@ -12,7 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/MP_Background.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/MP_Background.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/MT_Background.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/MT_Background.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/background.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/background.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/background.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/background.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -548,6 +555,10 @@
       <workItem from="1739629857601" duration="2878000" />
       <workItem from="1739632794352" duration="2332000" />
       <workItem from="1739635271421" duration="95000" />
+      <workItem from="1739635414687" duration="2595000" />
+      <workItem from="1739640064491" duration="1880000" />
+      <workItem from="1739644975618" duration="1229000" />
+      <workItem from="1739647289309" duration="5471000" />
     </task>
     <servers />
   </component>
