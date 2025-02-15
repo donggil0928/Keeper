@@ -22,7 +22,9 @@ public:
 	// 해당 데미지필드 노티파이가 어떤 키에 위치한 스킬인지를 의미한다.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ESkillKeyMapping MappingKey;
-	// 스폰된 투사체 액터
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ESkillAttackType Effection;
+	// 스폰된 효과 액터
 	UPROPERTY()
 	class AAdditionalEffectActor* EffectActor;
 };

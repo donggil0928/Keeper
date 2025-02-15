@@ -83,6 +83,6 @@ void UAnimNotify_RadiusDamage::SpawnEffectActorToTarget(AMonsterBase* InTarget)
 	FRotator SpawnRotation = FRotator::ZeroRotator;
 	SpawnedEffectActor = GetWorld()->SpawnActor<AAdditionalEffectActor>(EffectActor, SpawnLocation, SpawnRotation);
 
-	SpawnedEffectActor->SetTargetMonster(InTarget);
+	SpawnedEffectActor->SetTargetActor(InTarget);
 	SpawnedEffectActor->SetEffectDuration(Duration);
 }

@@ -6,6 +6,8 @@
 #include "Monster/MonsterBase.h"
 #include "Skill/SkillActor/AdditionalEffectActor.h"
 
+#include "DrawDebugHelpers.h"
+
 // Sets default values
 ABaseSkillDamageField::ABaseSkillDamageField()
 {
@@ -31,6 +33,8 @@ void ABaseSkillDamageField::CreateDamageField_Sphere(float Radius, float Damage)
 	HitSphereComponent->RegisterComponent();
 	HitSphereComponent->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
 	HitSphereComponent->SetLineThickness(10.0f);
+
+	//DrawDebugSphere(GetWorld(), GetTransform().GetLocation(), Radius, 26, FColor(181, 0, 0), true, -1, 0, 2);
 }
 
 void ABaseSkillDamageField::SetDamage(float ActualDamage)
@@ -51,7 +55,7 @@ void ABaseSkillDamageField::SpawnEffectActorToTarget(AMonsterBase* InTarget)
 	FRotator SpawnRotation = FRotator::ZeroRotator;
 	SpawnedEffectActor = GetWorld()->SpawnActor<AAdditionalEffectActor>(EffectActor, SpawnLocation, SpawnRotation);
 
-	SpawnedEffectActor->SetTargetMonster(InTarget);
+	SpawnedEffectActor->SetTargetActor(InTarget);
 	SpawnedEffectActor->SetEffectDuration(Duration);
 }
 
@@ -63,7 +67,7 @@ void ABaseSkillDamageField::BeginPlay()
 
 void ABaseSkillDamageField::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor && OtherActor != this)
+	if (OtherActor || OtherActor != this)
 	{
 		AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor);
 		if (Monster)

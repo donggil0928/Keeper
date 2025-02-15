@@ -301,16 +301,6 @@ void AKeeperCharacter::HandleTargetSpawning()
 	}
 }
 
-void AKeeperCharacter::CreateDamageField()
-{
-	if (!DamageField)
-	{
-		DamageField = GetWorld()->SpawnActor<ADamageField_Base>(ADamageField_Base::StaticClass(), GetActorLocation(), GetActorRotation());
-		DamageField->CreateDamageField_Sphere(DamageRadius);
-		DamageField->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
-	}
-}
-
 void AKeeperCharacter::AttackDown()
 {
 	// 이동 중 캐릭터 공격 제어
@@ -576,7 +566,8 @@ void AKeeperCharacter::TakeDamage(float DamageAmount/*, FDamageEvent const& Dama
 float AKeeperCharacter::DamageCalculation(float DamageAmount) const
 {
 	float ActualDamage = FMath::Max(0.0f, DamageAmount - Defense);
-	
+	ActualDamage *= FMath::RandRange(0.85f, 1.15f);
+
 	return ActualDamage;
 }
 

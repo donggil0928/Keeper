@@ -54,15 +54,15 @@ void ABaseProjectileActor::BeginPlay()
 	FActorSpawnParameters SpawnInfo;
 	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	const FTransform ActorTransform = GetActorTransform();
+	const FTransform ActorTransform = GetTransform();
 	FTransform DamageFieldTransform;
-	DamageFieldTransform.SetLocation(ActorTransform.GetLocation());
+	DamageFieldTransform.SetLocation(FVector::Zero());
 	DamageFieldTransform.SetRotation(ActorTransform.GetRotation());
 	DamageFieldTransform.SetScale3D(FVector::One());
 
 	ProjectileDamageField = GetWorld()->SpawnActor<ABaseSkillDamageField>(ABaseSkillDamageField::StaticClass(), DamageFieldTransform, SpawnInfo);
-	ProjectileDamageField->CreateDamageField_Sphere(10.0f , BaseDamage * DamageCoefficient);
-	ProjectileDamageField->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
+	ProjectileDamageField->CreateDamageField_Sphere(100.0f , BaseDamage * DamageCoefficient);
+	ProjectileDamageField->AttachToComponent(ProjectilePivot, FAttachmentTransformRules::KeepRelativeTransform);
 
 	FireInDirection(GetActorForwardVector());
 }

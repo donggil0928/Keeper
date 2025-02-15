@@ -77,6 +77,20 @@ void FSkillDataStruct::Use(AKeeperCharacter* player)
 
 		break;
 	}
+	case ESkillAttackType::Buff:
+	{
+		UAnimInstance* AnimInstance = player->GetMesh()->GetAnimInstance();
+		if (AnimInstance)
+		{
+			if (SkillAnimMontage)
+			{
+				AnimInstance->Montage_Play(SkillAnimMontage);
+			}
+			else
+				UE_LOG(LogTemp, Warning, TEXT("Not Found Montage!"));
+		}
+		break;
+	}
 
 	default:
 		break;

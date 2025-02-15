@@ -139,7 +139,7 @@ void AMonsterBase::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted
 void AMonsterBase::TakeDamage(float DamageAmount)
 {
 	// 데미지 계산식
-	float ActualDamage = FMath::Max(0.0f, DamageAmount - MonsterDef);
+	float ActualDamage = FMath::RandRange(0.85f, 1.15f) * FMath::Max(0.0f, DamageAmount - MonsterDef);
 	CurrentHP = FMath::Max(0.0f, CurrentHP - ActualDamage);
 
 	if (AKeeperCharacter* PlayerCharacter = Cast<AKeeperCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)))

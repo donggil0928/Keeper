@@ -204,9 +204,9 @@ public:
 	float GetAttackPower() const { return AttackPower; }
 	
 	// ----- 스탯 변경 함수 -----
-	virtual void TakeDamage(float DamageAmount) ;
+	virtual void TakeDamage(float DamageAmount) ;		//HP 감소
 
-	float DamageCalculation(float DamageAmount) const;
+	float DamageCalculation(float DamageAmount) const;	// 
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void IncreasedMadness(float MadnessCost);
@@ -222,9 +222,6 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	ADamageField_Base* DamageField;
-
-protected:
-	void CreateDamageField();
 
 public:
 	// 무기 메시 컴포넌트
