@@ -13,26 +13,37 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABS_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABS_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABS_Hue_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/Blueprint/ABS_Hue_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack2_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack3_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack4.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack4_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Dead.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Dead_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Dodge.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Dodge2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Dodge_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Hit.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Hit_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Idle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Idle_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Run.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Run_Beast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultESkillAttack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultQSkillAttack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultWSkillAttack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultESkillAttack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultQSkillAttack_A.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultQSkillAttack_B.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/0205_weapon_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/0205_weapon_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GrimReaperSet/Animation/Ground_attack05.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GrimReaperSet/Animation/Ground_attack05.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GreatSword/GreatSword/Preview_GreatSword.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GreatSword/GreatSword/Preview_GreatSword.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -570,6 +581,7 @@
       <workItem from="1739635271421" duration="95000" />
       <workItem from="1739635414687" duration="2595000" />
       <workItem from="1739640064491" duration="1880000" />
+      <workItem from="1739644975618" duration="1229000" />
     </task>
     <servers />
   </component>
