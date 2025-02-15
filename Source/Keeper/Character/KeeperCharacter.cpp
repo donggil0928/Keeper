@@ -155,18 +155,12 @@ void AKeeperCharacter::BeginPlay()
 	}
 	
 	// 광기 몬스터 스폰 타이머
-	// GetWorldTimerManager().SetTimer(
-	// TargetSpawnTimer,
-	// this,
-	// &AKeeperCharacter::HandleTargetSpawning,
-	// MADNESS_MONSTER_INTERVAL,
-	// true
-	// );
+
 	GetWorldTimerManager().SetTimer(
 	TargetSpawnTimer,
 	this,
 	&AKeeperCharacter::HandleTargetSpawning,
-	1.0f, // Check more frequently but respect cooldown
+	1.0f,
 	true
 );
 
@@ -284,11 +278,9 @@ void AKeeperCharacter::HandleTargetSpawning()
 	if (CurrentMadness >= 80 && !bIsTargetSpawnOnCooldown)
 	{
 		SpawnTargets();
-        
-		// Set cooldown
+		
 		bIsTargetSpawnOnCooldown = true;
-        
-		// Create timer to reset cooldown
+		
 		FTimerHandle CooldownTimer;
 		GetWorldTimerManager().SetTimer(
 			CooldownTimer,
