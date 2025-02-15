@@ -12,7 +12,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultESkillAttack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultQSkillAttack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_DefaultWSkillAttack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultESkillAttack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultQSkillAttack_A.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/DefaultQSkillAttack_B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/0205_weapon_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/0205_weapon_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/무기_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GrimReaperSet/Animation/Ground_attack05.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GrimReaperSet/Animation/Ground_attack05.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -548,6 +568,8 @@
       <workItem from="1739629857601" duration="2878000" />
       <workItem from="1739632794352" duration="2332000" />
       <workItem from="1739635271421" duration="95000" />
+      <workItem from="1739635414687" duration="2595000" />
+      <workItem from="1739640064491" duration="1880000" />
     </task>
     <servers />
   </component>
