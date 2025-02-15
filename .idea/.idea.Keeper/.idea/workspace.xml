@@ -13,27 +13,26 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Weapon_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/MT_Weapon_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/Material__269.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/Material__269.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/Material__307.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/Material__307.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Shining_Materia__002.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Shining_Materia__002.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Shining_Material__001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Shining_Material__001.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Tree_end_L_002.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/식생/Tree_end_L_002.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Altar_Main.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Altar_Main.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Jewelry_Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Jewelry_Material.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Material__165.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Material__165.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Square1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Square1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stairs__001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stairs__001.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stone__002.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stone__002.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stone__005.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Stone__005.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Wood__001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Wood__001.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnim/Attack1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/MyUi.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CutScene/NewLevelSequence.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CutScene/NewLevelSequence1.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CutScene/PlayCutScene_Blueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CutScene/PlayCutScene_Blueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TrailMaster/Material/MaterialInstance/Trail/MI_Trail_015.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TrailMaster/Material/MaterialInstance/Trail/MI_Trail_015.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Util/NewCameraAnimationSequence.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/52/AGYJ3UI83CFVMEPQEDE3RO.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameAction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Tutorial_1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Tutorial_1.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/T_HealthBar_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Util/MonsterSpawn/MonsterSpawn_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/MonsterSpawn/MonsterSpawn_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Util/MonsterSpawn/SpawnPoint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Util/MonsterSpawn/SpawnPoint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/ZF/OTK732RE3Q0WQ3R8ROW8S6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/9/ZF/OTK732RE3Q0WQ3R8ROW8S6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/flying_movement_f_front3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/flying_movement_f_front4.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/flying_movement_f_front5.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterHUD.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterHUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -554,6 +555,9 @@
       <workItem from="1739471643636" duration="314000" />
       <workItem from="1739474188116" duration="690000" />
       <workItem from="1739474916396" duration="1430000" />
+      <workItem from="1739481424279" duration="255000" />
+      <workItem from="1739529439412" duration="4365000" />
+      <workItem from="1739567182055" duration="3360000" />
     </task>
     <servers />
   </component>

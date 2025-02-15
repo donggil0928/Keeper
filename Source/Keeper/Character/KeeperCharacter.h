@@ -18,6 +18,8 @@ class ADamageField_Base;
 class USphereComponent;
 
 DECLARE_DELEGATE_OneParam(FUseSkillDelegate, int);
+DECLARE_DELEGATE(FOnStatChanged);
+DECLARE_DELEGATE_OneParam(FStartCooldown, ESkillKeyMapping);
 
 UCLASS()
 class KEEPER_API AKeeperCharacter : public ACharacter
@@ -45,6 +47,7 @@ private:
 	bool bIsAttacking;
 	bool bIsDodging;
 	bool bIsHitReacting;
+	bool bIsDead = false;
 	
 private:
 	ACharacter* CurrentTarget;
@@ -160,6 +163,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<class UUserWidget> DeathWidgetClass;
+
+	float GetAttackPower() const { return AttackPower; }
 	
 	// ----- 스탯 변경 함수 -----
 	virtual void TakeDamage(float DamageAmount/*, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/) /*override*/ ;
@@ -216,7 +221,10 @@ public:
 	void CooldownSkill(ESkillKeyMapping Key);
 
 	//-------------------------------------------------
-	
+
+public:
+	FOnStatChanged OnStatChanged;
+	FStartCooldown StartCooldown;
  public:
  	//스킬(Q,W,E,R) 입력 시 각 스킬을 구분하여 바인딩하기
  	void UseSkill(int skillIndex);

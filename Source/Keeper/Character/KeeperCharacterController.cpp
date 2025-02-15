@@ -20,6 +20,15 @@ AKeeperCharacterController::AKeeperCharacterController()
 
 	static ConstructorHelpers::FObjectFinder<UInputAction> SkillPopupRef = TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_SkillPopup.IA_SkillPopup'");
 	if (SkillPopupRef.Object) SkillPopupAction = SkillPopupRef.Object;
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> QSkillActionRef(TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_Skill_Q.IA_Skill_Q'"));
+	if(QSkillActionRef.Succeeded()) QSkillAction = QSkillActionRef.Object;
+	static ConstructorHelpers::FObjectFinder<UInputAction> WSkillActionRef(TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_Skill_W.IA_Skill_W'"));
+	if(WSkillActionRef.Succeeded()) WSkillAction= WSkillActionRef.Object;
+	static ConstructorHelpers::FObjectFinder<UInputAction> ESkillActionRef(TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_Skill_E.IA_Skill_E'"));
+	if(ESkillActionRef.Succeeded()) ESkillAction = ESkillActionRef.Object;
+	static ConstructorHelpers::FObjectFinder<UInputAction> RSkillActionRef(TEXT("/Script/EnhancedInput.InputAction'/Game/Input/SkillAction/IA_Skill_R.IA_Skill_R'"));
+	if(RSkillActionRef.Succeeded()) RSkillAction = RSkillActionRef.Object;
 }
 
 void AKeeperCharacterController::BeginPlay()
@@ -45,14 +54,14 @@ void AKeeperCharacterController::SetupInputComponent()
 		EnhancedInputComponent->BindAction(LeftClickAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnLeftClickReleased);
 		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnTabPressed);
 		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnTabReleased);
-		//EnhancedInputComponent->BindAction(SkillQAction, ETriggerEvent::Started, this, &AKeeperCharacterController::UseQSkill);
 		EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Started, this, &AKeeperCharacterController::Dodge);
 
 		EnhancedInputComponent->BindAction(SkillPopupAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnSkillPopupPressed);
-		InputComponent->BindAction("QSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonQPressed);
-		InputComponent->BindAction("WSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonWPressed);
-		InputComponent->BindAction("ESkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonEPressed);
-		InputComponent->BindAction("RSkill", IE_Pressed, this, &AKeeperCharacterController::OnButtonRPressed);
+		EnhancedInputComponent->BindAction(QSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonQPressed);
+		EnhancedInputComponent->BindAction(WSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonWPressed);
+		EnhancedInputComponent->BindAction(ESkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonEPressed);
+		EnhancedInputComponent->BindAction(RSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonRPressed);
+		
 	}
 }
 

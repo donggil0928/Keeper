@@ -10,6 +10,7 @@
 
 #include "SkillComponent.generated.h"
 
+DECLARE_DELEGATE(FOnSkillChanged);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class KEEPER_API USkillComponent : public UActorComponent, public ISkillWindowWidgetInterface
@@ -46,6 +47,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Skill)
 	TArray<int32> SkillLevelArray;
 
+	FOnSkillChanged OnSkillChanged;
 	//설정한 키를 입력했을 때 정상적으로 정보를 출력하는지 확인
 	//스킬에 필요한 정보 다시 정리해서 구조체 재작성하기
 

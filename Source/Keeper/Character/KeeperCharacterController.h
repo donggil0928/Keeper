@@ -54,6 +54,15 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* SkillPopupAction;
 
+	UPROPERTY()
+	class UInputAction* QSkillAction;
+	UPROPERTY()
+	class UInputAction* WSkillAction;
+	UPROPERTY()
+	class UInputAction* ESkillAction;
+	UPROPERTY()
+	class UInputAction* RSkillAction;
+
 	void OnLeftClickPressed();
 	void OnLeftClickReleased();
 	void OnTabPressed();

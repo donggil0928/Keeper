@@ -26,7 +26,7 @@ public:
 	ADamageField_Base();
 
 	void CreateDamageField_Sphere(float radius);
-	
+    
 	UFUNCTION(BlueprintCallable)
 	class USphereComponent*		GetHitSphereComponent() const;
 	
@@ -75,7 +75,7 @@ public:
 	USceneComponent* CachedRootComponent;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USphereComponent* HitSphereComponent;
-	
+
 private:
 	float damageRadius;
 	float damage;

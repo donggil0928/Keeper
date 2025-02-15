@@ -17,17 +17,21 @@ USkillComponent::USkillComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
 
-	Skills.Add(ESkillKeyMapping::Q);
-	Skills.Add(ESkillKeyMapping::W);
-	Skills.Add(ESkillKeyMapping::E);
-	Skills.Add(ESkillKeyMapping::R);
-
 	FString SkillDataTablePath = TEXT("/Script/Engine.DataTable'/Game/Blueprints/TempSkill/SkillDataTable.SkillDataTable'");
 	static ConstructorHelpers::FObjectFinder<UDataTable> SkillDataTableRef(*SkillDataTablePath);
 	if (SkillDataTableRef.Succeeded())
 	{
 		SkillDataTable = SkillDataTableRef.Object;
 	}
+	
+	Skills.Add(ESkillKeyMapping::Q,
+		GetSkillDataRow(GetSkillDataIndexToCurrentLevel(ESkillKeyMapping::Q, ESkillSetType::Defalut, 0)));
+	Skills.Add(ESkillKeyMapping::W,
+		GetSkillDataRow(GetSkillDataIndexToCurrentLevel(ESkillKeyMapping::W, ESkillSetType::Defalut, 0)));
+	Skills.Add(ESkillKeyMapping::E,
+		GetSkillDataRow(GetSkillDataIndexToCurrentLevel(ESkillKeyMapping::E, ESkillSetType::Defalut, 0)));
+	Skills.Add(ESkillKeyMapping::R,
+		GetSkillDataRow(GetSkillDataIndexToCurrentLevel(ESkillKeyMapping::R, ESkillSetType::Defalut, 0)));
 
 	SkillLevelArray.Init(0, 20);
 }
@@ -53,6 +57,7 @@ void USkillComponent::SetupSelectedSkillData(USkillSlot* InSlot)
 	FSkillDataStruct SelectedSkillData = GetSkillDataRow(InSlot->GetActualSkillIndex()); // 레벨이 적용된 스킬데이터.
 
 	Skills[InSlot->GetSkillOnKey()] = SelectedSkillData;
+	OnSkillChanged.Execute();
 }
 
 void USkillComponent::ModifySkillLevel(USkillSlot* InSlot, ESkillKeyMapping InKey)

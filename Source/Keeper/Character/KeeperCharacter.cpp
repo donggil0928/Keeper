@@ -235,8 +235,16 @@ void AKeeperCharacter::AttackCheck()
 
 void AKeeperCharacter::Die()
 {
+    if (bIsDead)
+        return;
+        
+    bIsDead = true;
 	GetCharacterMovement()->StopMovementImmediately();
 
+	AttackReset();
+	bIsDodging = false;
+	bIsHitReacting = false;
+	
 	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
 	{
 		DisableInput(PlayerController);
@@ -245,6 +253,7 @@ void AKeeperCharacter::Die()
 	if (DeathMontage && GetMesh()->GetAnimInstance())
 	{
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		AnimInstance->StopAllMontages(0.1f);
 		AnimInstance->Montage_Play(DeathMontage);
 	}
 
@@ -395,16 +404,18 @@ void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrup
 
 void AKeeperCharacter::TakeDamage(float DamageAmount/*, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/)
 {
-	if (bIsDodging)
+	if (bIsDead || bIsDodging)
 		return;
 	
 	float ActualDamage = DamageCalculation(DamageAmount);
 	CurrentHP = FMath::Max(0.0f, CurrentHP - ActualDamage);
+	OnStatChanged.Execute();
 
 	UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Hue"), ActualDamage);
 	
 	if (CurrentHP <= 0.0f)
 	{
+		//bIsDead = true;
 		Die();
 		return;
 	}
@@ -435,9 +446,10 @@ void AKeeperCharacter::DealDamage(ACharacter* Monster, float DamageAmount)
 
 void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 {
-	CurrentMadness = FMath::Max(MaxMadness, CurrentMadness + MadnessCost);
-
-	if (MaxMadness >= CurrentMadness)
+	CurrentMadness = FMath::Min(MaxMadness, CurrentMadness + MadnessCost);
+	OnStatChanged.Execute();
+	
+	if (CurrentMadness >= MaxMadness)
 	{
 		Die();
 		return;
@@ -470,7 +482,7 @@ void AKeeperCharacter::ActivateSkill(ESkillKeyMapping Key)
 			FName("CooldownSkill"),
 			Key
 		);
-
+		StartCooldown.Execute(Key);
 		GetWorldTimerManager().SetTimer(SkillCooldownHandle[Key], CooldownDelegate, SkillCooldownRate, false);
 	}
 	else UE_LOG(LogTemp, Warning, TEXT("%d Skill is Cooldown"), Key);

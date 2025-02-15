@@ -131,4 +131,3 @@ void ADamageField_Base::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	//DrawDebugSphere(GetWorld(), GetActorLocation(), damageRadius, 12, FColor::Red, false, 1.0f);
 }
-

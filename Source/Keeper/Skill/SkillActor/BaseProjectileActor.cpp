@@ -88,7 +88,7 @@ void ABaseProjectileActor::SetProjectileInfo(float Damage, float Coefficient, fl
 {
 	BaseDamage = Damage;
 	DamageCoefficient = Coefficient;
-	MaxDistance = Range;
+	MaxDistance = Range * 5.0f;
 
 	ProjectileDamageField->SetDamage(BaseDamage * DamageCoefficient);
 }
