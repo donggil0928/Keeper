@@ -25,20 +25,22 @@ public:
 
 public:
 	// Target액터 변수가 필요. 해당 변수는 생성될 때 Attach된 부모 액터의 정보를 가짐.
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	class AMonsterBase* Target;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class AActor* Target;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	class UNiagaraComponent* AppliedEffect;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float EffectDuration;
 
 public:
 	UFUNCTION()
-	void SetTargetMonster(AMonsterBase* Monster);
+	void SetTargetActor(AActor* InTarget);
 	UFUNCTION()
 	void SetEffectDuration(float InDuration);
 	UFUNCTION()
 	void DestroyEffect();
+	UFUNCTION(BlueprintImplementableEvent)
+	void ActivateEffectImplement();
 };

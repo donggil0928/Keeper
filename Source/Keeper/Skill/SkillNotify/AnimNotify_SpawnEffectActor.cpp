@@ -17,9 +17,8 @@ void UAnimNotify_SpawnEffectActor::Notify(USkeletalMeshComponent* MeshComp, UAni
 			CurrentSkillData = Player->FindSkillDataWithMappingKey(MappingKey);
 			if (!EffectActor && CurrentSkillData.EffectActor)
 			{
-				FVector SpawnLocation = Player->GetActorLocation();
-				FRotator SpawnRotation = FRotator::ZeroRotator;
-				EffectActor = GetWorld()->SpawnActor<AAdditionalEffectActor>(CurrentSkillData.EffectActor, SpawnLocation, SpawnRotation);
+				EffectActor = GetWorld()->SpawnActor<AAdditionalEffectActor>(CurrentSkillData.EffectActor, FVector::ZeroVector, FRotator::ZeroRotator);
+				EffectActor->SetTargetActor(Player);
 				EffectActor->SetEffectDuration(CurrentSkillData.EffectDuration);
 
 				EffectActor = nullptr;

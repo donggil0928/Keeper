@@ -2,6 +2,7 @@
 
 
 #include "Skill/SkillActor/AdditionalEffectActor.h"
+#include "Character/KeeperCharacter.h"
 #include "Monster/MonsterBase.h"
 
 #include "NiagaraComponent.h"
@@ -30,15 +31,22 @@ void AAdditionalEffectActor::Tick(float DeltaTime)
 
 }
 
-void AAdditionalEffectActor::SetTargetMonster(AMonsterBase* Monster)
+void AAdditionalEffectActor::SetTargetActor(AActor* InTarget)
 {
-	Target = Monster;
+	Target = InTarget;
+	this->AttachToActor(Target, FAttachmentTransformRules::KeepRelativeTransform);
+	ActivateEffectImplement();
 }
 
 void AAdditionalEffectActor::SetEffectDuration(float InDuration)
 {
 	EffectDuration = InDuration;
-	if(Target)	Target->OnMonsterDead.AddUObject(this, &AAdditionalEffectActor::DestroyEffect);
+	if (AMonsterBase* Monster = Cast<AMonsterBase>(Target)) {
+		Monster->OnMonsterDead.AddUObject(this, &AAdditionalEffectActor::DestroyEffect);
+	}
+	if (AKeeperCharacter* Player = Cast<AKeeperCharacter>(Target)) {
+		//
+	}
 	SetLifeSpan(EffectDuration);
 }
 
