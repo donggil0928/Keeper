@@ -61,17 +61,30 @@ public:
 	bool bComboAttackNext;
 	int ComboAttackNumber;
 	
+	UPROPERTY(VisibleDefaultsOnly, Category = "Animation")
+	TMap<ESkillSetType, class UAnimMontage*> ComboMontageListBySkillSet;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
-	class UAnimMontage* comboMontage;
+	class UAnimMontage* CurrentComboMontage;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = "Animation")
+	TMap<ESkillSetType, class UAnimMontage*> HitMontageListBySkillSet;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
-	class UAnimMontage* HitMontage;
+	class UAnimMontage* CurrentHitMontage;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = "Animation")
+	TMap<ESkillSetType, class UAnimMontage*> DodgeMontageListBySkillSet;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
-	class UAnimMontage* DodgeMontage;
+	class UAnimMontage* CurrentDodgeMontage;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = "Animation")
+	TMap<ESkillSetType, class UAnimMontage*> DeathMontageListBySkillSet;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
-	class UAnimMontage* DeathMontage;
+	class UAnimMontage* CurrentDeathMontage;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = "Animation")
+	TMap<ESkillSetType, class UAnimBlueprint*> CommonAnimBlueprintListBySkillSet;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	class UAnimBlueprint* CurrentAnimBlueprint;
 	
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -194,7 +207,11 @@ protected:
 public:
 	// 무기 메시 컴포넌트
 	UPROPERTY(VisibleAnywhere, Category = Mesh)
-	USkeletalMeshComponent* WeaponMesh;
+	TMap<ESkillSetType, class USkeletalMesh*> WeaponMeshListBySkillSet;
+	UPROPERTY(VisibleAnywhere, Category = Mesh)
+	class USkeletalMesh* CurrentWeaponMesh;
+	UPROPERTY(VisibleAnywhere, Category = Mesh)
+	class USkeletalMeshComponent* WeaponMeshComponent;
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
@@ -219,6 +236,8 @@ public:
 	// 스킬 쿨타임 종료 후 타이머핸들을 클리어 해주는 함수
 	UFUNCTION()
 	void CooldownSkill(ESkillKeyMapping Key);
+	UFUNCTION()
+	void SetupAnimationBySkillSet(ESkillSetType InSkillSet);
 
 	//-------------------------------------------------
 

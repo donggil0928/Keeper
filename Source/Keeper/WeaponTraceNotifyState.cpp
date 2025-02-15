@@ -31,7 +31,7 @@ void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnim
         return;
     }
 
-    USkeletalMeshComponent* WeaponMesh = KeeperCharacter->WeaponMesh;
+    USkeletalMeshComponent* WeaponMesh = KeeperCharacter->WeaponMeshComponent;
     if (!WeaponMesh)
     {
         UE_LOG(LogTemp, Warning, TEXT("WeaponTraceNotifyState: Could not find WeaponMesh component"));
@@ -47,9 +47,9 @@ void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnim
     bool bHasSocket2 = false;
     
     // 무기 메시의 각 소켓에 대해 트레이스
-    if (KeeperCharacter->WeaponMesh->DoesSocketExist(Socket1Name))
+    if (KeeperCharacter->WeaponMeshComponent->DoesSocketExist(Socket1Name))
     {
-        Socket1Transform = KeeperCharacter->WeaponMesh->GetSocketTransform(Socket1Name);
+        Socket1Transform = KeeperCharacter->WeaponMeshComponent->GetSocketTransform(Socket1Name);
         CurrentSocket1Location = Socket1Transform.GetLocation();
         bHasSocket1 = true;
         
@@ -68,12 +68,12 @@ void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnim
         {
             PerformWeaponLineTrace(KeeperCharacter, PreviousSocket1Location, CurrentSocket1Location);
         }
-        PerformWeaponTraceForSocket(KeeperCharacter->WeaponMesh, KeeperCharacter, Socket1Name);
+        PerformWeaponTraceForSocket(KeeperCharacter->WeaponMeshComponent, KeeperCharacter, Socket1Name);
     }
     
-    if (KeeperCharacter->WeaponMesh->DoesSocketExist(Socket2Name))
+    if (KeeperCharacter->WeaponMeshComponent->DoesSocketExist(Socket2Name))
     {
-        Socket2Transform = KeeperCharacter->WeaponMesh->GetSocketTransform(Socket2Name);
+        Socket2Transform = KeeperCharacter->WeaponMeshComponent->GetSocketTransform(Socket2Name);
         CurrentSocket2Location = Socket2Transform.GetLocation();
         bHasSocket2 = true;
         
@@ -92,7 +92,7 @@ void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnim
         {
             PerformWeaponLineTrace(KeeperCharacter, PreviousSocket2Location, CurrentSocket2Location);
         }
-        PerformWeaponTraceForSocket(KeeperCharacter->WeaponMesh, KeeperCharacter, Socket2Name);
+        PerformWeaponTraceForSocket(KeeperCharacter->WeaponMeshComponent, KeeperCharacter, Socket2Name);
     }
     
     if (bHasSocket1 && bHasSocket2)

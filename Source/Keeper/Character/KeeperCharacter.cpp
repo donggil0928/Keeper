@@ -16,9 +16,12 @@
 #include "DrawDebugHelpers.h" // 디버깅
 #include "Components/SphereComponent.h"
 #include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
 
-//#include "Skill/SkillData.h"
+#include "Animation/AnimBlueprint.h"
+#include "Animation/AnimMontage.h"
+#include "Engine/SkeletalMesh.h"
+#include "Components/SkeletalMeshComponent.h"
+
 #include "Skill/SkillComponent.h"
 
 // Sets default values
@@ -63,10 +66,44 @@ AKeeperCharacter::AKeeperCharacter()
 
 	CameraComponent->SetOrthoWidth(2048.0f);
 
+	// 애니메이션 관련 요소 초기화
+	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> DefaultABPRef(TEXT("/Script/Engine.AnimBlueprint'/Game/Asset/CharacterHue/HueAnim/Blueprint/ABP_Hue.ABP_Hue'"));
+	if(DefaultABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Defalut, DefaultABPRef.Object);
+	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> BeastABPRef(TEXT("/Script/Engine.AnimBlueprint'/Game/Asset/CharacterHue/HueAnim/Blueprint/ABP_Hue_Beast.ABP_Hue_Beast'"));
+	if(BeastABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Beast, BeastABPRef.Object);
+
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> ComboDefaultAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.AM_Hue_Combo'"));
+	if (ComboDefaultAMRef.Succeeded()) ComboMontageListBySkillSet.Add(ESkillSetType::Defalut, ComboDefaultAMRef.Object);
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> ComboBeastAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.AM_Hue_Combo_Beast'"));
+	if (ComboBeastAMRef.Succeeded()) ComboMontageListBySkillSet.Add(ESkillSetType::Beast, ComboBeastAMRef.Object);
+
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> HitDefaultAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit.AM_Hue_Hit'"));
+	if (HitDefaultAMRef.Succeeded()) HitMontageListBySkillSet.Add(ESkillSetType::Defalut, HitDefaultAMRef.Object);
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> HitBeastAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Hit_Beast.AM_Hue_Hit_Beast'"));
+	if (HitBeastAMRef.Succeeded()) HitMontageListBySkillSet.Add(ESkillSetType::Beast, HitBeastAMRef.Object);
+
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> DodgeDefaultAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge2.AM_Hue_Dodge2'"));
+	if (DodgeDefaultAMRef.Succeeded()) DodgeMontageListBySkillSet.Add(ESkillSetType::Defalut, DodgeDefaultAMRef.Object);
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> DodgeBeastAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Dodge_Beast.AM_Hue_Dodge_Beast'"));
+	if (DodgeBeastAMRef.Succeeded()) DodgeMontageListBySkillSet.Add(ESkillSetType::Beast, DodgeBeastAMRef.Object);
+
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> DeathDefaultAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die.AM_Hue_Die'"));
+	if (DeathDefaultAMRef.Succeeded()) DeathMontageListBySkillSet.Add(ESkillSetType::Defalut, DeathDefaultAMRef.Object);
+	static ConstructorHelpers::FObjectFinder<UAnimMontage> DeathBeastAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Die_Beast.AM_Hue_Die_Beast'"));
+	if (DeathBeastAMRef.Succeeded()) DeathMontageListBySkillSet.Add(ESkillSetType::Beast, DeathBeastAMRef.Object);
+
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> DefaultWeaponMeshRef(TEXT("/Script/Engine.SkeletalMesh'/Game/Asset/CharacterHue/Resource/SK_Weapon_Default.SK_Weapon_Default'"));
+	if (DefaultWeaponMeshRef.Succeeded()) WeaponMeshListBySkillSet.Add(ESkillSetType::Defalut, DefaultWeaponMeshRef.Object);
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> BeastWeaponMeshRef(TEXT("/Script/Engine.SkeletalMesh'/Game/Asset/CharacterHue/Resource/SK_Weapon_Beast.SK_Weapon_Beast'"));
+	if (BeastWeaponMeshRef.Succeeded()) WeaponMeshListBySkillSet.Add(ESkillSetType::Beast, BeastWeaponMeshRef.Object);
+
 	// 무기 메시 컴포넌트
-	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
-	WeaponMesh->SetupAttachment(GetMesh(), FName("WeaponSocket"));
-	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	WeaponMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
+	WeaponMeshComponent->SetupAttachment(GetMesh(), FName("WeaponSocket"));
+	WeaponMeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	// 애니메이션 관련 요소 최초 초기화(DefaultSet)
+	SetupAnimationBySkillSet(ESkillSetType::Defalut);
 
 	//------------------스탯 초기화------------------
 	Level = 1;				// 레벨
@@ -194,7 +231,7 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 
 	UAnimInstance* AnimaInstance = GetMesh()->GetAnimInstance();
 
-	if (!AnimaInstance || !comboMontage) return;
+	if (!AnimaInstance || !CurrentComboMontage) return;
 
 	bComboAttacking = true;
 	const char* comboList[] = { "combo1", "combo2", "combo3", "combo4"};
@@ -203,8 +240,8 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 		ComboAttackNumber = 0;
 	//UE_LOG(LogTemp, Warning, TEXT("ComboAttack%d 실행"), ComboAttackNumber);
 
-	AnimaInstance->Montage_Play(comboMontage, 1.5f);
-	AnimaInstance->Montage_JumpToSection(FName(comboList[ComboAttackNumber]), comboMontage);
+	AnimaInstance->Montage_Play(CurrentComboMontage, 1.5f);
+	AnimaInstance->Montage_JumpToSection(FName(comboList[ComboAttackNumber]), CurrentComboMontage);
 	
 	if (DamageField)
 	{
@@ -250,11 +287,11 @@ void AKeeperCharacter::Die()
 		DisableInput(PlayerController);
 	}
 
-	if (DeathMontage && GetMesh()->GetAnimInstance())
+	if (CurrentDeathMontage && GetMesh()->GetAnimInstance())
 	{
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		AnimInstance->StopAllMontages(0.1f);
-		AnimInstance->Montage_Play(DeathMontage);
+		AnimInstance->Montage_Play(CurrentDeathMontage);
 	}
 
 	if (DeathWidgetClass)
@@ -269,7 +306,7 @@ void AKeeperCharacter::Die()
 
 void AKeeperCharacter::OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	if (Montage == HitMontage)
+	if (Montage == CurrentHitMontage)
 	{
 		bIsHitReacting = false;
 
@@ -287,7 +324,7 @@ void AKeeperCharacter::OnHitMontageEnded(UAnimMontage* Montage, bool bInterrupte
 
 void AKeeperCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	if (Montage == comboMontage)
+	if (Montage == CurrentComboMontage)
 	{
 		bIsAttacking = false;
 		
@@ -312,7 +349,7 @@ void AKeeperCharacter::AttackReset()
 
 void AKeeperCharacter::PlayHitAnimation()
 {
-	if (HitMontage)
+	if (CurrentHitMontage)
 	{
 		USkeletalMeshComponent* MeshComponent = GetMesh();
 		GetCharacterMovement()->StopMovementImmediately();
@@ -330,7 +367,7 @@ void AKeeperCharacter::PlayHitAnimation()
 				AnimInstance->StopAllMontages(0.1f);
                 
 				// 피격 몽타주 재생
-				AnimInstance->Montage_Play(HitMontage);
+				AnimInstance->Montage_Play(CurrentHitMontage);
 			}
 		}
 	}
@@ -342,7 +379,7 @@ void AKeeperCharacter::ExecuteDodge()
 	if (bIsDodging || bIsAttacking || bIsHitReacting)
 		return;
 
-	if (DodgeMontage)
+	if (CurrentDodgeMontage)
 	{
 		bIsDodging = true;
 		AttackReset();
@@ -369,14 +406,14 @@ void AKeeperCharacter::ExecuteDodge()
 			DodgeVector = ProjectedDodge;
 		}
 		
-		float DodgeTime = DodgeMontage->GetPlayLength();
+		float DodgeTime = CurrentDodgeMontage->GetPlayLength();
 		FVector RequiredVelocity = (DodgeVector * DodgeDistance) / DodgeTime;
 
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		if (AnimInstance)
 		{
 			AnimInstance->OnMontageEnded.AddDynamic(this, &AKeeperCharacter::OnDodgeMontageEnded);
-			AnimInstance->Montage_Play(DodgeMontage);
+			AnimInstance->Montage_Play(CurrentDodgeMontage);
            
 			MovementComp->Velocity = RequiredVelocity;
 		}
@@ -385,7 +422,7 @@ void AKeeperCharacter::ExecuteDodge()
 
 void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	if (Montage == DodgeMontage)
+	if (Montage == CurrentDodgeMontage)
 	{
 		bIsDodging = false;
        
@@ -473,10 +510,13 @@ void AKeeperCharacter::ActivateSkill(ESkillKeyMapping Key)
 {
 	if (!SkillComponent->Skills[Key].IsCooldown())
 	{
+		SkillComponent->PrevSkillSetData = SkillComponent->Skills[Key].SkillSet;
+		SetupAnimationBySkillSet(SkillComponent->PrevSkillSetData);
+
 		SkillComponent->Skills[Key].Use(this);
 		SkillComponent->Skills[Key].StartCooldown();
-		float SkillCooldownRate = SkillComponent->Skills[Key].SecondToCooldown;
 
+		float SkillCooldownRate = SkillComponent->Skills[Key].SecondToCooldown;
 		FTimerDelegate CooldownDelegate = FTimerDelegate::CreateUFunction(
 			this,
 			FName("CooldownSkill"),
@@ -495,5 +535,19 @@ void AKeeperCharacter::CooldownSkill(ESkillKeyMapping Key)
 		GetWorldTimerManager().ClearTimer(SkillCooldownHandle[Key]);
 		SkillComponent->Skills[Key].EndCooldown();
 	}
+}
+
+void AKeeperCharacter::SetupAnimationBySkillSet(ESkillSetType InSkillSet)
+{
+	GetMesh()->SetAnimClass(CommonAnimBlueprintListBySkillSet[InSkillSet]->GeneratedClass);
+
+	CurrentComboMontage		= ComboMontageListBySkillSet[InSkillSet];
+	CurrentHitMontage		= HitMontageListBySkillSet[InSkillSet];
+	CurrentDodgeMontage		= DodgeMontageListBySkillSet[InSkillSet];
+	CurrentDeathMontage		= DeathMontageListBySkillSet[InSkillSet];
+
+	CurrentWeaponMesh		= WeaponMeshListBySkillSet[InSkillSet];
+	WeaponMeshComponent->SetSkeletalMesh(CurrentWeaponMesh);
+
 }
 
