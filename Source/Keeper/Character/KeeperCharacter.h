@@ -17,9 +17,9 @@ class AMonsterBase;
 class ADamageField_Base;
 class USphereComponent;
 
-DECLARE_DELEGATE_OneParam(FUseSkillDelegate, int);
 DECLARE_DELEGATE(FOnStatChanged);
 DECLARE_DELEGATE_OneParam(FStartCooldown, ESkillKeyMapping);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRemoteSubShooter);
 
 UCLASS()
 class KEEPER_API AKeeperCharacter : public ACharacter
@@ -268,7 +268,6 @@ public:
 public:
 	FOnStatChanged OnStatChanged;
 	FStartCooldown StartCooldown;
- public:
- 	//스킬(Q,W,E,R) 입력 시 각 스킬을 구분하여 바인딩하기
- 	void UseSkill(int skillIndex);
+	UPROPERTY(BlueprintAssignable)
+	FRemoteSubShooter SubShooterDelegate;
 };

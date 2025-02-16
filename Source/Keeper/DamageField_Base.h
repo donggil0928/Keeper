@@ -25,6 +25,7 @@ public:
 	// Sets default values for this actor's properties
 	ADamageField_Base();
 
+	UFUNCTION(BlueprintCallable)
 	void CreateDamageField_Sphere(float radius);
     
 	UFUNCTION(BlueprintCallable)

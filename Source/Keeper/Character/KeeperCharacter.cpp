@@ -347,6 +347,11 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 		DamageField->ActivateDamage();
 	}
 
+	if (SubShooterDelegate.IsBound())
+	{
+		SubShooterDelegate.Broadcast();
+	}
+
 	StartMadnessDecayDelay();
 }
 
