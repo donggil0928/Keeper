@@ -11,7 +11,7 @@ public class Keeper : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", 
 		"InputCore", "EnhancedInput", "NavigationSystem", "AIModule", "UMG", "Niagara"});
 
-		PrivateDependencyModuleNames.AddRange( new string[] { "Slate", "SlateCore", "AITestSuite", "AITestSuite", "Niagara", "Niagara", "Niagara", "Niagara" });
+		PrivateDependencyModuleNames.AddRange( new string[] { "Slate", "SlateCore", "AITestSuite", "Niagara", "Niagara", "Niagara", "Niagara" });
 
 		PrivateIncludePaths.AddRange(new string[] { "Keeper" });
 
