@@ -11,7 +11,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="" />
+    <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/11.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/111.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast_PhysicsAsset.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast_PhysicsAsset.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Weapon_Beast_Skeleton.uasset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -555,7 +565,7 @@
       <workItem from="1739657229675" duration="4890000" />
       <workItem from="1739662236529" duration="1345000" />
       <workItem from="1739678930777" duration="1075000" />
-      <workItem from="1739681103143" duration="347000" />
+      <workItem from="1739681103143" duration="2901000" />
     </task>
     <servers />
   </component>
