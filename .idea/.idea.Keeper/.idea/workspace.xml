@@ -12,11 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster2/Animation/AM_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster2/Animation/AM_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster2/Animation/AM_Hand_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster2/Animation/AM_Hand_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster1/Animation/ABP_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster1/Animation/ABP_Monster1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster1/Tasks/BT_Task_MonsterChaseTarget_Monster1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster1/Tasks/BT_Task_MonsterChaseTarget_Monster1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster2/Animation/ABP_test.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster2/BT_Monster2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster2/BT_Monster2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster2/test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster2/test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/Material__342.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster3/Material__342.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_attack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_die.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_forward.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_hit.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_stand.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_stand_Anim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_stand_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monster003_ani_stand_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/monstr-3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/test/Test.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/T_HealthBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/T_HealthBar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/E/R5/BV5J0SUHGXY4KBAJ2QT2ZS.uasset" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -559,6 +574,7 @@
       <workItem from="1739655507623" duration="234000" />
       <workItem from="1739655802679" duration="1352000" />
       <workItem from="1739657229675" duration="4890000" />
+      <workItem from="1739662236529" duration="750000" />
     </task>
     <servers />
   </component>
