@@ -12,10 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_E.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_E.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_Q.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_Q.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_Q1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_Q1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_W.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Beast_W.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_R.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/Resource/SK_Hue_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/test/NS_Hit_GroundCrack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/FireDamageField1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/SphereDamageField1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Monster/Monster1_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Beast_R_Buff.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Beast_R_Buff.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Default_R_SubShooter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Default_R_SubShooter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Default_W_ScytheProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/TempSkill/BP_Default_W_ScytheProjectile.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/NiagaraMagicalSlashes/test2/NS_Slash_GuDef_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/NiagaraMagicalSlashes/test2/NS_Slash_GuDef_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/SlashHitVFX/test/NS_Slash_CurvedSword.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/BP_Shield_17.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/test/BP_Shield_17.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -562,7 +575,9 @@
       <workItem from="1739678930777" duration="1075000" />
       <workItem from="1739681103143" duration="2901000" />
       <workItem from="1739701817487" duration="1845000" />
-      <workItem from="1739704306006" duration="773000" />
+      <workItem from="1739704306006" duration="841000" />
+      <workItem from="1739707601537" duration="875000" />
+      <workItem from="1739710579697" duration="99000" />
     </task>
     <servers />
   </component>
