@@ -13,13 +13,30 @@ UDialogueWidget::UDialogueWidget(const FObjectInitializer& ObjectInitializer)
     bIsAnimatingText = false;
     CurrentCharacterIndex = 0;
     bIsProcessingInput = false;
-    ActivePortraitColor = FLinearColor(1.0f, 1.0f, 1.0f, 1.0f); // White
-    InactivePortraitColor = FLinearColor(0.5f, 0.5f, 0.5f, 1.0f); // Gray
+    bNeedsPortraitUpdate = false;
+    bIsPortraitInitialized = false;
+    bIsFirstDialogue = true;
+    ActivePortraitColor = FLinearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    InactivePortraitColor = FLinearColor(0.5f, 0.5f, 0.5f, 1.0f);
+    InitialDesiredSize = FVector2D(1.0f, 1.0f);
 }
 
 void UDialogueWidget::NativeConstruct()
 {
     Super::NativeConstruct();
+    
+    if (LeftPortrait)
+    {
+        LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
+        LeftPortrait->SetDesiredSizeOverride(InitialDesiredSize);
+    }
+    
+    if (RightPortrait)
+    {
+        RightPortrait->SetVisibility(ESlateVisibility::Hidden);
+        RightPortrait->SetDesiredSizeOverride(InitialDesiredSize);
+    }
+    
     ClearDialogue();
     SetVisibility(ESlateVisibility::Visible);
     
@@ -29,8 +46,37 @@ void UDialogueWidget::NativeConstruct()
     }
 }
 
+void UDialogueWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
+{
+    Super::NativeTick(MyGeometry, InDeltaTime);
+    
+    if (bNeedsPortraitUpdate && PortraitContainer)
+    {
+        FVector2D ContainerSize = PortraitContainer->GetCachedGeometry().GetLocalSize();
+        if (ContainerSize.Y > 0)
+        {
+            UpdatePortraits(CurrentDialogueData, PreviousDialogueData);
+            bNeedsPortraitUpdate = false;
+        }
+    }
+}
+
 void UDialogueWidget::ShowDialogue(const FDialogueData& DialogueData)
 {
+    if (bIsFirstDialogue)
+    {
+        if (LeftPortrait)
+        {
+            LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
+            LeftPortrait->SetDesiredSizeOverride(InitialDesiredSize);
+        }
+        if (RightPortrait)
+        {
+            RightPortrait->SetVisibility(ESlateVisibility::Hidden);
+            RightPortrait->SetDesiredSizeOverride(InitialDesiredSize);
+        }
+    }
+    
     if (!DialogueData.bKeepPreviousPortraits)
     {
         PreviousDialogueData = CurrentDialogueData;
@@ -52,21 +98,19 @@ void UDialogueWidget::ShowDialogue(const FDialogueData& DialogueData)
     }
     
     CurrentDialogueData = DialogueData;
+    bNeedsPortraitUpdate = true;
 
-    if (LeftPortrait)
+    if (bIsFirstDialogue)
     {
-        LeftPortrait->SetVisibility(ESlateVisibility::Visible);
-        LeftPortrait->SetRenderOpacity(1.0f);
+        GetWorld()->GetTimerManager().SetTimerForNextTick([this]()
+        {
+            UpdatePortraits(CurrentDialogueData, PreviousDialogueData);
+            bIsFirstDialogue = false;
+        });
     }
     
-    if (RightPortrait)
-    {
-        RightPortrait->SetVisibility(ESlateVisibility::Visible);
-        RightPortrait->SetRenderOpacity(1.0f);
-    }
-    
-    UpdatePortraits(CurrentDialogueData, PreviousDialogueData);
     StartTextAnimation(DialogueData.DialogueText);
+    
     
     if (NextButton)
     {
@@ -86,51 +130,86 @@ void UDialogueWidget::UpdatePortraits(const FDialogueData& CurrentData, const FD
     bool bShowPreviousLeft = (PreviousData.CharacterPosition == ECharacterPosition::Left && PreviousData.CharacterPortrait);
     bool bShowPreviousRight = (PreviousData.CharacterPosition == ECharacterPosition::Right && PreviousData.CharacterPortrait);
     
-    if (LeftPortrait)
+    if (PortraitContainer)
     {
-        if (bShowCurrentLeft)
+        FVector2D ContainerSize = PortraitContainer->GetCachedGeometry().GetLocalSize();
+        if (ContainerSize.Y > 0)
         {
-            FSlateBrush Brush;
-            Brush.SetResourceObject(CurrentData.CharacterPortrait);
-            LeftPortrait->SetBrush(Brush);
-            LeftPortrait->SetVisibility(ESlateVisibility::Visible);
-            LeftPortrait->SetColorAndOpacity(ActivePortraitColor);
-        }
-        else if (!bShowCurrentLeft && bShowPreviousLeft && CurrentData.bKeepPreviousPortraits)
-        {
-            FSlateBrush Brush;
-            Brush.SetResourceObject(PreviousData.CharacterPortrait);
-            LeftPortrait->SetBrush(Brush);
-            LeftPortrait->SetVisibility(ESlateVisibility::Visible);
-            LeftPortrait->SetColorAndOpacity(InactivePortraitColor);
+            if (bShowCurrentLeft || (bShowPreviousLeft && CurrentData.bKeepPreviousPortraits))
+            {
+                const UTexture2D* LeftTexture = bShowCurrentLeft ? CurrentData.CharacterPortrait : PreviousData.CharacterPortrait;
+                if (LeftPortrait && LeftTexture)
+                {
+                    UpdatePortraitSize(LeftPortrait, LeftTexture);
+                }
+            }
+            
+            if (bShowCurrentRight || (bShowPreviousRight && CurrentData.bKeepPreviousPortraits))
+            {
+                const UTexture2D* RightTexture = bShowCurrentRight ? CurrentData.CharacterPortrait : PreviousData.CharacterPortrait;
+                if (RightPortrait && RightTexture)
+                {
+                    UpdatePortraitSize(RightPortrait, RightTexture);
+                }
+            }
+            
+            bIsPortraitInitialized = true;
         }
         else
         {
-            LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
+            bNeedsPortraitUpdate = true;
+            return;
         }
     }
-    
-    if (RightPortrait)
+
+    if (bIsPortraitInitialized)
     {
-        if (bShowCurrentRight)
+        if (LeftPortrait)
         {
-            FSlateBrush Brush;
-            Brush.SetResourceObject(CurrentData.CharacterPortrait);
-            RightPortrait->SetBrush(Brush);
-            RightPortrait->SetVisibility(ESlateVisibility::Visible);
-            RightPortrait->SetColorAndOpacity(ActivePortraitColor);
+            if (bShowCurrentLeft)
+            {
+                FSlateBrush Brush;
+                Brush.SetResourceObject(CurrentData.CharacterPortrait);
+                LeftPortrait->SetBrush(Brush);
+                LeftPortrait->SetColorAndOpacity(ActivePortraitColor);
+                LeftPortrait->SetVisibility(ESlateVisibility::Visible);
+            }
+            else if (!bShowCurrentLeft && bShowPreviousLeft && CurrentData.bKeepPreviousPortraits)
+            {
+                FSlateBrush Brush;
+                Brush.SetResourceObject(PreviousData.CharacterPortrait);
+                LeftPortrait->SetBrush(Brush);
+                LeftPortrait->SetColorAndOpacity(InactivePortraitColor);
+                LeftPortrait->SetVisibility(ESlateVisibility::Visible);
+            }
+            else
+            {
+                LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
+            }
         }
-        else if (!bShowCurrentRight && bShowPreviousRight && CurrentData.bKeepPreviousPortraits)
+        
+        if (RightPortrait)
         {
-            FSlateBrush Brush;
-            Brush.SetResourceObject(PreviousData.CharacterPortrait);
-            RightPortrait->SetBrush(Brush);
-            RightPortrait->SetVisibility(ESlateVisibility::Visible);
-            RightPortrait->SetColorAndOpacity(InactivePortraitColor);
-        }
-        else
-        {
-            RightPortrait->SetVisibility(ESlateVisibility::Hidden);
+            if (bShowCurrentRight)
+            {
+                FSlateBrush Brush;
+                Brush.SetResourceObject(CurrentData.CharacterPortrait);
+                RightPortrait->SetBrush(Brush);
+                RightPortrait->SetColorAndOpacity(ActivePortraitColor);
+                RightPortrait->SetVisibility(ESlateVisibility::Visible);
+            }
+            else if (!bShowCurrentRight && bShowPreviousRight && CurrentData.bKeepPreviousPortraits)
+            {
+                FSlateBrush Brush;
+                Brush.SetResourceObject(PreviousData.CharacterPortrait);
+                RightPortrait->SetBrush(Brush);
+                RightPortrait->SetColorAndOpacity(InactivePortraitColor);
+                RightPortrait->SetVisibility(ESlateVisibility::Visible);
+            }
+            else
+            {
+                RightPortrait->SetVisibility(ESlateVisibility::Hidden);
+            }
         }
     }
 }
@@ -193,6 +272,31 @@ void UDialogueWidget::AnimateNextCharacter()
     }
 }
 
+void UDialogueWidget::UpdatePortraitSize(UImage* Portrait, const UTexture2D* Texture)
+{
+    if (!Portrait || !Texture || !PortraitContainer) return;
+
+    FVector2D ContainerSize = PortraitContainer->GetCachedGeometry().GetLocalSize();
+    if (ContainerSize.Y <= 0) 
+    {
+        bNeedsPortraitUpdate = true;
+        return;
+    }
+
+    float ContainerHeight = ContainerSize.Y;
+    float MaxPortraitHeight = ContainerHeight * PortraitMaxHeightRatio;
+    
+    float TextureWidth = Texture->GetSizeX();
+    float TextureHeight = Texture->GetSizeY();
+    
+    float AspectRatio = TextureWidth / TextureHeight;
+    
+    float NewHeight = MaxPortraitHeight;
+    float NewWidth = NewHeight * AspectRatio;
+    
+    Portrait->SetDesiredSizeOverride(FVector2D(NewWidth, NewHeight));
+}
+
 void UDialogueWidget::ClearDialogue()
 {
     if (TextBlock_DialogueText)
@@ -207,10 +311,12 @@ void UDialogueWidget::ClearDialogue()
     if (LeftPortrait)
     {
         LeftPortrait->SetVisibility(ESlateVisibility::Hidden);
+        LeftPortrait->SetDesiredSizeOverride(InitialDesiredSize);
     }
     if (RightPortrait)
     {
         RightPortrait->SetVisibility(ESlateVisibility::Hidden);
+        RightPortrait->SetDesiredSizeOverride(InitialDesiredSize);
     }
     
     if (GetWorld())
@@ -219,6 +325,8 @@ void UDialogueWidget::ClearDialogue()
     }
     
     bIsAnimatingText = false;
+    bIsFirstDialogue = true;
+    bIsPortraitInitialized = false;
     CurrentCharacterIndex = 0;
     CurrentAnimatedText.Empty();
     

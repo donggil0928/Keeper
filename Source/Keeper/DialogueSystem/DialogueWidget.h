@@ -126,6 +126,14 @@ public:
 protected:
     virtual void NativeConstruct() override;
 
+    virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
+    
+    UPROPERTY()
+    bool bNeedsPortraitUpdate;
+    
+    UPROPERTY()
+    FDialogueData PendingDialogueData;
+    
     virtual void UpdateDialogueText(const FText& DialogueText, const FString& CharacterName);
     virtual void UpdatePortraits(const FDialogueData& CurrentData, const FDialogueData& PreviousData);
 
@@ -155,6 +163,20 @@ protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue")
     FLinearColor InactivePortraitColor;
 
+    void UpdatePortraitSize(UImage* Portrait, const UTexture2D* Texture);
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue")
+    float PortraitMaxHeightRatio = 0.9f; 
+
+    UPROPERTY()
+    bool bIsPortraitInitialized;
+    
+    UPROPERTY()
+    FVector2D InitialDesiredSize;
+
+    UPROPERTY()
+    bool bIsFirstDialogue;
+    
     bool bIsProcessingInput;
 
 private:
