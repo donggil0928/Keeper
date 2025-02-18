@@ -13,11 +13,22 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/Animation/AS_Monster3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/1_까마귀_sd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/1_까마귀_sd.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/1_휴 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/1_휴__1_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_BlackScreen.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Captain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Captain.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Captain_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Captain_Emotionless.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Captain_Emotionless.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue_Anger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue_Anger.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue_Pain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Hue_Pain.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_Rav.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/T_P_cap.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/레브스탠딩(0205).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Portrait/휴스탠딩(0205).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -592,6 +603,7 @@
       <workItem from="1739898254296" duration="75000" />
       <workItem from="1739898344827" duration="238000" />
       <workItem from="1739898595281" duration="1145000" />
+      <workItem from="1739906109618" duration="501000" />
     </task>
     <servers />
   </component>
