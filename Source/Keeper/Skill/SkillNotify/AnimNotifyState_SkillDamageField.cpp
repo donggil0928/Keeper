@@ -6,9 +6,11 @@
 #include "Skill/SkillComponent.h"
 #include "Skill/BaseSkillDamageField.h"
 
+#if WITH_EDITOR
 #include "AnimationEditorViewportClient.h"
+#endif
 
-void UAnimNotifyState_SkillDamageField::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration)
+void UAnimNotifyState_SkillDamageField::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration, const FAnimNotifyEventReference& EventReference)
 {
 	//Super::NotifyBegin(MeshComp, Animation, TotalDuration);
 
@@ -49,12 +51,12 @@ void UAnimNotifyState_SkillDamageField::NotifyBegin(USkeletalMeshComponent* Mesh
 	}
 }
 
-void UAnimNotifyState_SkillDamageField::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime)
+void UAnimNotifyState_SkillDamageField::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime, const FAnimNotifyEventReference& EventReference)
 {
 	//Super::NotifyTick(MeshComp, Animation, FrameDeltaTime);
 }
 
-void UAnimNotifyState_SkillDamageField::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
+void UAnimNotifyState_SkillDamageField::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, const FAnimNotifyEventReference& EventReference)
 {
 	//Super::NotifyEnd(MeshComp, Animation);
 
@@ -72,6 +74,7 @@ void UAnimNotifyState_SkillDamageField::PostLoad()
 	RotationOffsetQuat = FQuat(RotationOffset);
 }
 
+#if WITH_EDITOR
 void UAnimNotifyState_SkillDamageField::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -81,6 +84,7 @@ void UAnimNotifyState_SkillDamageField::PostEditChangeProperty(FPropertyChangedE
 		RotationOffsetQuat = FQuat(RotationOffset);
 	}
 }
+#endif
 
 void UAnimNotifyState_SkillDamageField::ModifyDamageFieldMembers(float NewDamage, float NewCoefficient, float NewRadius)
 {

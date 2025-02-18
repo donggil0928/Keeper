@@ -32,7 +32,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnHealthChanged OnHealthChanged;
 	
-	void TakeDamage(float DamageAmount);
+	void TakeDamage_M(float DamageAmount);
 
 	void SomeEventTrigger();
 	void ResetMovementSpeed();

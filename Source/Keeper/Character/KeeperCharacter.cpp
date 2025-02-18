@@ -43,7 +43,7 @@ AKeeperCharacter::AKeeperCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
-
+	
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 640.0f, 0.0f);
 	GetCharacterMovement()->bConstrainToPlane = true;
@@ -65,13 +65,51 @@ AKeeperCharacter::AKeeperCharacter()
 	CameraComponent->SetProjectionMode(ECameraProjectionMode::Orthographic);
 
 	CameraComponent->SetOrthoWidth(2048.0f);
+	
+    CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Dream, nullptr);
 
+    ComboMontageListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    ComboMontageListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    ComboMontageListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    ComboMontageListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    ComboMontageListBySkillSet.Add(ESkillSetType::Dream, nullptr);
+
+    HitMontageListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    HitMontageListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    HitMontageListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    HitMontageListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    HitMontageListBySkillSet.Add(ESkillSetType::Dream, nullptr);
+
+    DodgeMontageListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    DodgeMontageListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    DodgeMontageListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    DodgeMontageListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    DodgeMontageListBySkillSet.Add(ESkillSetType::Dream, nullptr);
+
+    DeathMontageListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    DeathMontageListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    DeathMontageListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    DeathMontageListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    DeathMontageListBySkillSet.Add(ESkillSetType::Dream, nullptr);
+
+    WeaponMeshListBySkillSet.Add(ESkillSetType::Defalut, nullptr);
+    WeaponMeshListBySkillSet.Add(ESkillSetType::Beast, nullptr);
+    WeaponMeshListBySkillSet.Add(ESkillSetType::Mirror, nullptr);
+    WeaponMeshListBySkillSet.Add(ESkillSetType::Puppet, nullptr);
+    WeaponMeshListBySkillSet.Add(ESkillSetType::Dream, nullptr);
+	
+    
 	// 애니메이션 관련 요소 초기화
 	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> DefaultABPRef(TEXT("/Script/Engine.AnimBlueprint'/Game/Asset/CharacterHue/HueAnim/Blueprint/ABP_Hue.ABP_Hue'"));
-	if(DefaultABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Defalut, DefaultABPRef.Object);
+	if(DefaultABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet[ESkillSetType::Defalut] = DefaultABPRef.Object;
 	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> BeastABPRef(TEXT("/Script/Engine.AnimBlueprint'/Game/Asset/CharacterHue/HueAnim/Blueprint/ABP_Hue_Beast.ABP_Hue_Beast'"));
-	if(BeastABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet.Add(ESkillSetType::Beast, BeastABPRef.Object);
+	if(BeastABPRef.Succeeded()) CommonAnimBlueprintListBySkillSet[ESkillSetType::Beast] = BeastABPRef.Object;
 
+	
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> ComboDefaultAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.AM_Hue_Combo'"));
 	if (ComboDefaultAMRef.Succeeded()) ComboMontageListBySkillSet.Add(ESkillSetType::Defalut, ComboDefaultAMRef.Object);
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> ComboBeastAMRef(TEXT("/Script/Engine.AnimMontage'/Game/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.AM_Hue_Combo_Beast'"));
@@ -102,6 +140,15 @@ AKeeperCharacter::AKeeperCharacter()
 	WeaponMeshComponent->SetupAttachment(GetMesh(), FName("WeaponSocket"));
 	WeaponMeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
+	if (CommonAnimBlueprintListBySkillSet[ESkillSetType::Defalut] != nullptr)
+	{
+		SetupAnimationBySkillSet(ESkillSetType::Defalut);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load default animation blueprint"));
+	}
+	
 	// 애니메이션 관련 요소 최초 초기화(DefaultSet)
 	SetupAnimationBySkillSet(ESkillSetType::Defalut);
 
@@ -148,6 +195,37 @@ void AKeeperCharacter::BeginPlay()
 	bIsDodging = false;
 	bIsHitReacting = false;
 
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+		}
+	}
+	
+	if (CommonAnimBlueprintListBySkillSet.Contains(ESkillSetType::Defalut) && 
+		CommonAnimBlueprintListBySkillSet[ESkillSetType::Defalut] != nullptr)
+	{
+		UAnimBlueprint* DefaultAnimBP = CommonAnimBlueprintListBySkillSet[ESkillSetType::Defalut];
+		if (DefaultAnimBP && DefaultAnimBP->GeneratedClass)
+		{
+			GetMesh()->SetAnimInstanceClass(DefaultAnimBP->GeneratedClass);
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load default animation blueprint"));
+	}
+
+	if (DefaultAnimBlueprint)
+	{
+		GetMesh()->SetAnimInstanceClass(DefaultAnimBlueprint);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("AnimInstance is NULL in packaged build!"));
+	}
+	
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 640.0f, 0.0f);
 	GetCharacterMovement()->MaxWalkSpeed = MovementSpeed;
@@ -543,7 +621,7 @@ void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrup
 	}
 }
 
-void AKeeperCharacter::TakeDamage(float DamageAmount/*, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/)
+void AKeeperCharacter::TakeDamage_C(float DamageAmount/*, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/)
 {
 	if (bIsDead || bIsDodging)
 		return;
@@ -642,16 +720,33 @@ void AKeeperCharacter::CooldownSkill(ESkillKeyMapping Key)
 
 void AKeeperCharacter::SetupAnimationBySkillSet(ESkillSetType InSkillSet)
 {
-	GetMesh()->SetAnimClass(CommonAnimBlueprintListBySkillSet[InSkillSet]->GeneratedClass);
+	if (!CommonAnimBlueprintListBySkillSet.Contains(InSkillSet) || 
+		!ComboMontageListBySkillSet.Contains(InSkillSet) ||
+		!HitMontageListBySkillSet.Contains(InSkillSet) ||
+		!DodgeMontageListBySkillSet.Contains(InSkillSet) ||
+		!DeathMontageListBySkillSet.Contains(InSkillSet) ||
+		!WeaponMeshListBySkillSet.Contains(InSkillSet))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Missing animation data for skill set type: %d"), static_cast<int32>(InSkillSet));
+		return;
+	}
+	
+	UAnimBlueprint* AnimBP = CommonAnimBlueprintListBySkillSet[InSkillSet];
+	if (AnimBP && AnimBP->GeneratedClass)
+	{
+		GetMesh()->SetAnimClass(AnimBP->GeneratedClass);
+	}
 
 	CurrentComboMontage		= ComboMontageListBySkillSet[InSkillSet];
 	CurrentHitMontage		= HitMontageListBySkillSet[InSkillSet];
 	CurrentDodgeMontage		= DodgeMontageListBySkillSet[InSkillSet];
 	CurrentDeathMontage		= DeathMontageListBySkillSet[InSkillSet];
 
-	CurrentWeaponMesh		= WeaponMeshListBySkillSet[InSkillSet];
-	WeaponMeshComponent->SetSkeletalMesh(CurrentWeaponMesh);
-
+	CurrentWeaponMesh = WeaponMeshListBySkillSet[InSkillSet];
+	if (WeaponMeshComponent && CurrentWeaponMesh)
+	{
+		WeaponMeshComponent->SetSkeletalMesh(CurrentWeaponMesh);
+	}
 }
 
 void AKeeperCharacter::UpdateUnlockedSkillInfo(ESkillSetType InSkillSet)

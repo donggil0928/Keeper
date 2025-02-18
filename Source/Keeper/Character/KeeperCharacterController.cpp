@@ -88,23 +88,38 @@ void AKeeperCharacterController::OnRightClick(const FInputActionValue& Value)
 
 void AKeeperCharacterController::SetNewDestination(const FVector& DestLocation)
 {
-	
 	AKeeperCharacter* KeeperChar = Cast<AKeeperCharacter>(GetPawn());
 	if (!KeeperChar)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("KeeperChar is null"));
 		return;
+	}
 
 	USkeletalMeshComponent* CharacterMesh = KeeperChar->GetMesh();
-	if (CharacterMesh->GetAnimInstance()->IsAnyMontagePlaying())
+	if (!CharacterMesh)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CharacterMesh is null"));
+		return;
+	}
+        
+	UAnimInstance* AnimInstance = CharacterMesh->GetAnimInstance();
+	if (!AnimInstance)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AnimInstance is null"));
+		return;
+	}
+
+	if (AnimInstance->IsAnyMontagePlaying())
 	{
 		return;
 	}
-	
+
 	float const Distance = FVector::Distance(DestLocation, KeeperChar->GetActorLocation());
-    
+
 	if (Distance > MinMoveDistance)
 	{
 		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, DestLocation);
-		
+
 		FVector Direction = (DestLocation - KeeperChar->GetActorLocation()).GetSafeNormal();
 		FRotator NewRotation = Direction.Rotation();
 		NewRotation.Pitch = 0.0f;
@@ -152,7 +167,7 @@ void AKeeperCharacterController::OnTabReleased()
 	
 	if (CurrentTabMenuWidget)
 	{
-		CurrentTabMenuWidget->RemoveFromViewport();
+		CurrentTabMenuWidget->RemoveFromParent();
 		CurrentTabMenuWidget = nullptr;
 	}
 }
@@ -167,7 +182,7 @@ void AKeeperCharacterController::OnSkillPopupPressed()
 	}
 	else if (CurrentSkillPopupWidget)
 	{
-		CurrentSkillPopupWidget->RemoveFromViewport();
+		CurrentSkillPopupWidget->RemoveFromParent();
 		CurrentSkillPopupWidget = nullptr;
 	}
 }

@@ -55,7 +55,7 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 	{
 		DamageAmount=Character->AttackPower;
 		SetDamageAmount(DamageAmount);
-		Monster->TakeDamage(damage);
+		Monster->TakeDamage_M(damage);
 
 		// 피격 이펙트
 		if (DamageEffectNiagara)
@@ -75,7 +75,7 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 	{
 		DamageAmount = Monster->MonsterAtk;
 		SetDamageAmount(DamageAmount);
-		Character->TakeDamage(damage);
+		Character->TakeDamage_C(damage);
 		
 		//UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Monster: %s"), damage, *OtherActor->GetName());
 		return;
@@ -87,7 +87,7 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 		{
 			DamageAmount = 100;
 			SetDamageAmount(DamageAmount);
-			OnlyCharacter->TakeDamage(damage);
+			OnlyCharacter->TakeDamage_C(damage);
 			
 			return;
 		}

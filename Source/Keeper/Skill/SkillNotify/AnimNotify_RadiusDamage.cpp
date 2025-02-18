@@ -45,7 +45,7 @@ void UAnimNotify_RadiusDamage::Notify(USkeletalMeshComponent* MeshComp, UAnimSeq
 						if (CheckInRadialRange(Player, Monster, 90.0f))
 						{
 							float AmountDamage = Player->AttackPower * CurrentSkillData.DamageCoefficient;
-							Monster->TakeDamage(AmountDamage);
+							Monster->TakeDamage_M(AmountDamage);
 
 							if (EffectActor) SpawnEffectActorToTarget(Monster);
 						}

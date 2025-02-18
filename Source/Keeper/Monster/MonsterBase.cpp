@@ -136,7 +136,7 @@ void AMonsterBase::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted
 	}
 }
 
-void AMonsterBase::TakeDamage(float DamageAmount)
+void AMonsterBase::TakeDamage_M(float DamageAmount)
 {
 	// 데미지 계산식
 	float ActualDamage = FMath::RandRange(0.85f, 1.15f) * FMath::Max(0.0f, DamageAmount - MonsterDef);

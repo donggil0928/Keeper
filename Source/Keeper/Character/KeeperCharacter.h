@@ -107,6 +107,9 @@ public:
 	TMap<ESkillSetType, class UAnimBlueprint*> CommonAnimBlueprintListBySkillSet;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	class UAnimBlueprint* CurrentAnimBlueprint;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation")
+	TSubclassOf<UAnimInstance> DefaultAnimBlueprint;
 	
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -204,7 +207,7 @@ public:
 	float GetAttackPower() const { return AttackPower; }
 	
 	// ----- 스탯 변경 함수 -----
-	virtual void TakeDamage(float DamageAmount) ;		//HP 감소
+	void TakeDamage_C(float DamageAmount) ;		//HP 감소
 
 	float DamageCalculation(float DamageAmount) const;	// 
 

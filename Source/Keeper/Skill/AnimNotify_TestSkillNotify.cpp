@@ -4,7 +4,7 @@
 #include "Skill/AnimNotify_TestSkillNotify.h"
 #include "Keeper/Character/KeeperCharacter.h"
 
-void UAnimNotify_TestSkillNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
+void UAnimNotify_TestSkillNotify::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, const FAnimNotifyEventReference& EventReference)
 {
 	Super::Notify(MeshComp, Animation);
 

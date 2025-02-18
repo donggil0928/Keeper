@@ -15,6 +15,7 @@ class KEEPER_API UAnimNotify_TestSkillNotify : public UAnimNotify
 	GENERATED_BODY()
 	
 public:
-	virtual void Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation) override;
+// Fill out your copyright notice in the Description page of Project Settings.
+	virtual void Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, const FAnimNotifyEventReference& EventReference) override;
 
 };

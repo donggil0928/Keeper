@@ -5,7 +5,7 @@
 #include "Keeper/Character/KeeperCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
-void UAnimNotifyState_SkillTestNotify::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration)
+void UAnimNotifyState_SkillTestNotify::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration, const FAnimNotifyEventReference& EventReference)
 {
 	Super::NotifyBegin(MeshComp, Animation, TotalDuration);
 
@@ -22,7 +22,7 @@ void UAnimNotifyState_SkillTestNotify::NotifyBegin(USkeletalMeshComponent* MeshC
 	}
 }
 
-void UAnimNotifyState_SkillTestNotify::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime)
+void UAnimNotifyState_SkillTestNotify::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime, const FAnimNotifyEventReference& EventReference)
 {
 	Super::NotifyTick(MeshComp, Animation, FrameDeltaTime);
 
@@ -37,7 +37,7 @@ void UAnimNotifyState_SkillTestNotify::NotifyTick(USkeletalMeshComponent* MeshCo
 	}
 }
 
-void UAnimNotifyState_SkillTestNotify::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
+void UAnimNotifyState_SkillTestNotify::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, const FAnimNotifyEventReference& EventReference)
 {
 	Super::NotifyEnd(MeshComp, Animation);
 

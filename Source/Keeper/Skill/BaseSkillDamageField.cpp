@@ -72,7 +72,7 @@ void ABaseSkillDamageField::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, 
 		AMonsterBase* Monster = Cast<AMonsterBase>(OtherActor);
 		if (Monster)
 		{
-			Monster->TakeDamage(DamageAmount);
+			Monster->TakeDamage_M(DamageAmount);
 
 			if (EffectActor) SpawnEffectActorToTarget(Monster);
 		}

@@ -9,15 +9,15 @@ public class Keeper : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", 
-		"InputCore", "EnhancedInput", "NavigationSystem", "AIModule", "UMG", "Niagara"});
+		"InputCore", "EnhancedInput", "NavigationSystem", "AIModule", "UMG", "Niagara"/*, "UnrealEd"*/});
 
-		PrivateDependencyModuleNames.AddRange( new string[] { "Slate", "SlateCore", "AITestSuite", "AITestSuite", "Niagara", "Niagara", "Niagara", "Niagara" });
+		PrivateDependencyModuleNames.AddRange( new string[] { "Slate", "SlateCore", /*"AITestSuite",*/ "Niagara" });
 
 		PrivateIncludePaths.AddRange(new string[] { "Keeper" });
 
 		if (Target.bBuildEditor)
 		{
-			PrivateDependencyModuleNames.AddRange(new string[]{"UnrealEd", "Persona"});
+			PrivateDependencyModuleNames.AddRange(new string[]{"Persona"});
 		}
 		
 		// Uncomment if you are using Slate UI

@@ -3,20 +3,20 @@
 
 #include "AnimNotify_DamageField.h"
 
+#if WITH_EDITOR
 #include "AnimationEditorViewportClient.h"
+#endif
+
 #include "DamageField_Base.h"
+
+#if WITH_EDITOR
 #include "Subsystems/EditorActorSubsystem.h"
+#endif
 
 void UAnimNotify_DamageField::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation,
                                      const FAnimNotifyEventReference& EventReference)
 {
 	Super::Notify(MeshComp, Animation, EventReference);
-
-	// if (SpawnedDamageField)
-	// {
-	// 	SpawnedDamageField->Destroy();
-	// 	SpawnedDamageField = nullptr;
-	// }
 	
 	{
 		FActorSpawnParameters SpawnInfo;

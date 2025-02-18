@@ -5,7 +5,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Monster/MonsterBase.h"
 
-void UWeaponTraceNotifyState::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration)
+void UWeaponTraceNotifyState::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float TotalDuration, const FAnimNotifyEventReference& EventReference)
 {
     Super::NotifyBegin(MeshComp, Animation, TotalDuration);
 
@@ -21,7 +21,7 @@ void UWeaponTraceNotifyState::NotifyBegin(USkeletalMeshComponent* MeshComp, UAni
     }
 }
 
-void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime)
+void UWeaponTraceNotifyState::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation, float FrameDeltaTime, const FAnimNotifyEventReference& EventReference)
 {
     Super::NotifyTick(MeshComp, Animation, FrameDeltaTime);
     
