@@ -32,13 +32,13 @@ public:
 	TSubclassOf<class ADamageField_Base>  DamageFieldClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
-	class UNiagaraSystem* DamageFieldNiagaraEffect;
+	TObjectPtr<UNiagaraSystem> DamageFieldNiagaraEffect;
 	
 	UFUNCTION(BlueprintCallable, Category = "AnimNotify")
 	ADamageField_Base* GetSpawnedDamageField();
 	
-	UPROPERTY()
-	ADamageField_Base* SpawnedDamageField;
+	UPROPERTY(Transient)
+	TWeakObjectPtr<ADamageField_Base> SpawnedDamageField;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AnimNotify")
 	FVector LocationOffset;

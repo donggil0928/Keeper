@@ -13,28 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build/Windows/Application.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Hue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Keeper.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Monster/MonsterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotifyState_SkillTestNotify.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotifyState_SkillTestNotify.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotifyState_SkillTestNotify.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotifyState_SkillTestNotify.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotify_TestSkillNotify.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotify_TestSkillNotify.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotify_TestSkillNotify.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/AnimNotify_TestSkillNotify.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/BaseSkillDamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/BaseSkillDamageField.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotify_RadiusDamage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotify_RadiusDamage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/WeaponTraceNotifyState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/AnimNotify_DamageField.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -599,6 +579,7 @@
       <workItem from="1739737402670" duration="180000" />
       <workItem from="1739737615147" duration="1457000" />
       <workItem from="1739739241002" duration="5027000" />
+      <workItem from="1739861622006" duration="2633000" />
     </task>
     <servers />
   </component>
