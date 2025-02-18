@@ -21,7 +21,7 @@ void UAnimNotifyState_SkillDamageField::NotifyBegin(USkeletalMeshComponent* Mesh
 		if (Player)
 		{
 			CurrentSkillData = Player->FindSkillDataWithMappingKey(MappingKey);
-			ModifyDamageFieldMembers(Player->AttackPower, CurrentSkillData.DamageCoefficient, CurrentSkillData.Range);
+			ModifyDamageFieldMembers(Player->CurrentAttackPower, CurrentSkillData.DamageCoefficient, CurrentSkillData.Range);
 		}
 
 		if (SpawnedDamageField)

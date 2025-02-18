@@ -156,6 +156,7 @@ AKeeperCharacter::AKeeperCharacter()
 	Level = 1;				// 레벨
 	Exp = 0;				// 경험치
 	AttackPower = 200;		// 기본 공격력
+	CurrentAttackPower = AttackPower; // 현재 공격력
 	Defense = 100;			// 기본 방어력
 	MaxHP = 1000;			// 기본 최대 HP
 	CurrentHP = MaxHP;		// 시작 시 현재 HP는 최대 HP로 설정
@@ -314,6 +315,7 @@ void AKeeperCharacter::DecreaseMadness()
 	{
 		CurrentMadness = FMath::Max(0, CurrentMadness - MADNESS_DECAY_RATE);
 		OnStatChanged.Execute();
+		IncreasedAttack();
 	}
 	else
 	{
@@ -421,7 +423,7 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 	
 	if (DamageField)
 	{
-		DamageField->SetDamageAmount(AttackPower);
+		DamageField->SetDamageAmount(CurrentAttackPower);
 		DamageField->ActivateDamage();
 	}
 
@@ -659,6 +661,8 @@ void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 	CurrentMadness = FMath::Min(MaxMadness, CurrentMadness + MadnessCost);
 	OnStatChanged.Execute();
 
+	IncreasedAttack();
+	
 	if (CurrentMadness >= 80)
 	{
 		HandleTargetSpawning();
@@ -668,6 +672,26 @@ void AKeeperCharacter::IncreasedMadness(float MadnessCost)
 	{
 		Die();
 		return;
+	}
+}
+
+void AKeeperCharacter::IncreasedAttack()
+{
+	if (CurrentMadness < 20)
+	{
+		CurrentAttackPower = AttackPower * 1.0f;
+	}
+	else if (CurrentMadness >= 20 && CurrentMadness < 50)
+	{
+		CurrentAttackPower = AttackPower * 1.2f;
+	}
+	else if (CurrentMadness >= 50 && CurrentMadness < 80)
+	{
+		CurrentAttackPower = AttackPower * 1.5f;
+	}
+	else if (CurrentMadness >= 80)
+	{
+		CurrentAttackPower = AttackPower * 2.0f;
 	}
 }
 

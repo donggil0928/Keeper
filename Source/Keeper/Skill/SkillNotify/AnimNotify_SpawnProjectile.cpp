@@ -22,7 +22,7 @@ void UAnimNotify_SpawnProjectile::Notify(USkeletalMeshComponent* MeshComp, UAnim
 				//ABaseProjectileActor* SpawnProjectile = CurrentSkillData.Projectile;
 				ProjectileActor = GetWorld()->SpawnActor<ABaseProjectileActor>(CurrentSkillData.Projectile, SpawnLocation, FRotator::ZeroRotator);
 
-				ProjectileActor->SetProjectileInfo(Player->AttackPower, CurrentSkillData.DamageCoefficient, CurrentSkillData.Range);
+				ProjectileActor->SetProjectileInfo(Player->CurrentAttackPower, CurrentSkillData.DamageCoefficient, CurrentSkillData.Range);
 				ProjectileActor->FireInDirection(Player->GetActorForwardVector());
 
 				ProjectileActor = nullptr;

@@ -13,17 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/HueAnimMontage/AM_Hue_Combo_Beast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/BeastSet/AM_Q_Besat.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/BeastSet/AM_Q_Besat.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_E_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_E.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/Animation/AS_Default_E.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/UA/198K0G3CLXM60MJIWJB717.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/UA/198K0G3CLXM60MJIWJB717.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/test/NS_Default_Hit.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/test/NS_Default_Hit.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Skill/WB_SkillWindow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Skill/WB_SkillWindow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DamageField_Base.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotifyState_SkillDamageField.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotify_SpawnProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Skill/SkillNotify/AnimNotify_SpawnProjectile.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -590,7 +587,7 @@
       <workItem from="1739739241002" duration="5027000" />
       <workItem from="1739861622006" duration="2633000" />
       <workItem from="1739864620219" duration="1425000" />
-      <workItem from="1739866490857" duration="5403000" />
+      <workItem from="1739866490857" duration="8933000" />
     </task>
     <servers />
   </component>

@@ -53,7 +53,7 @@ void ADamageField_Base::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAct
 	
 	if ((TargetType == EDamageTarget::Monster || TargetType == EDamageTarget::Both) && Monster && Character)
 	{
-		DamageAmount=Character->AttackPower;
+		DamageAmount=Character->CurrentAttackPower;
 		SetDamageAmount(DamageAmount);
 		Monster->TakeDamage_M(damage);
 

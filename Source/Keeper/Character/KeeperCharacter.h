@@ -156,6 +156,9 @@ public:
 	int32 AttackPower;  // 공격력
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	int32 CurrentAttackPower;  // 공격력
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 Defense;  // 방어력
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
@@ -214,6 +217,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void IncreasedMadness(float MadnessCost);
 
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+	void IncreasedAttack();
+	
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void ModifyMovementSpeed(float SpeedModifier);
 
