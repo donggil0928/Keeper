@@ -56,6 +56,8 @@ void AKeeperCharacterController::SetupInputComponent()
 		EnhancedInputComponent->BindAction(TabAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnTabReleased);
 		EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Started, this, &AKeeperCharacterController::Dodge);
 
+		EnhancedInputComponent->BindAction(ESCMenuAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnESCPressed);
+		
 		EnhancedInputComponent->BindAction(SkillPopupAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnSkillPopupPressed);
 		EnhancedInputComponent->BindAction(QSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonQPressed);
 		EnhancedInputComponent->BindAction(WSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonWPressed);
@@ -169,6 +171,24 @@ void AKeeperCharacterController::OnTabReleased()
 	{
 		CurrentTabMenuWidget->RemoveFromParent();
 		CurrentTabMenuWidget = nullptr;
+	}
+}
+
+void AKeeperCharacterController::OnESCPressed()
+{
+	if (ESCMenuWidgetClass && !CurrentESCMenuWidget)
+	{
+		CurrentESCMenuWidget = CreateWidget<UUserWidget>(this, ESCMenuWidgetClass);
+
+		if (CurrentESCMenuWidget)
+		{
+			CurrentESCMenuWidget->AddToViewport();
+		}
+	}
+	else if (CurrentESCMenuWidget)
+	{
+		CurrentESCMenuWidget->RemoveFromParent();
+		CurrentESCMenuWidget = nullptr;
 	}
 }
 

@@ -54,6 +54,9 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* SkillPopupAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* ESCMenuAction;
+	
 	UPROPERTY()
 	class UInputAction* QSkillAction;
 	UPROPERTY()
@@ -67,6 +70,7 @@ private:
 	void OnLeftClickReleased();
 	void OnTabPressed();
 	void OnTabReleased();
+	void OnESCPressed();
 	void OnSkillPopupPressed();
 	void OnButtonQPressed();
 	void OnButtonWPressed();
@@ -84,4 +88,10 @@ private:
 
 	UPROPERTY(BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	UUserWidget* CurrentSkillPopupWidget;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<UUserWidget> ESCMenuWidgetClass;
+
+	UPROPERTY(BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	UUserWidget* CurrentESCMenuWidget;
 };
