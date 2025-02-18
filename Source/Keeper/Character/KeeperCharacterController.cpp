@@ -176,6 +176,12 @@ void AKeeperCharacterController::OnTabReleased()
 
 void AKeeperCharacterController::OnESCPressed()
 {
+	if (CurrentSkillPopupWidget)
+	{
+		CurrentSkillPopupWidget->RemoveFromParent();
+		CurrentSkillPopupWidget = nullptr;
+	}
+	
 	if (ESCMenuWidgetClass && !CurrentESCMenuWidget)
 	{
 		CurrentESCMenuWidget = CreateWidget<UUserWidget>(this, ESCMenuWidgetClass);

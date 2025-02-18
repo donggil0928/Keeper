@@ -13,14 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_KeeperCharacterController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IMC_ChatacterBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IMC_ChatacterBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Menu/WB_Menu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Skill/WB_SkillWindow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Skill/WB_SkillWindow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Cursor/WBP_Sursor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Cursor/WBP_Sursor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -596,7 +593,7 @@
       <workItem from="1739898344827" duration="238000" />
       <workItem from="1739898595281" duration="1145000" />
       <workItem from="1739906109618" duration="501000" />
-      <workItem from="1739906720828" duration="4777000" />
+      <workItem from="1739906720828" duration="5657000" />
     </task>
     <servers />
   </component>
