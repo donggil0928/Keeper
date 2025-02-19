@@ -13,11 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Windows/Application.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Windows/Application.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Cursor/WBP_Sursor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Cursor/WBP_Sursor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Death/WBP_Death.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacterController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/T9/WI9X2NLLZJOCHF08R1W0AL.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/T9/WI9X2NLLZJOCHF08R1W0AL.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -594,6 +594,8 @@
       <workItem from="1739898595281" duration="1145000" />
       <workItem from="1739906109618" duration="501000" />
       <workItem from="1739906720828" duration="5657000" />
+      <workItem from="1739914806899" duration="1407000" />
+      <workItem from="1739953375988" duration="707000" />
     </task>
     <servers />
   </component>
