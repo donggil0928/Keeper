@@ -13,7 +13,58 @@
   <component name="ChangeListManager">
     <list default="true" id="df249cb2-a6df-4f57-96b4-3301e6eb4eca" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Keeper/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/ESCMenu/WB_ESCWidget.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/BeastSet/AM_Q_Besat.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/BeastSet/AM_Q_Besat.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/CharacterHue/HueAnim/SkillAnim/AnimBlurprint/DefaultSet/AM_Q_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Material__165.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Asset/Props/test/텍스쳐/Material__165.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Monster3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_TriggerEnd.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_TriggerEnd.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/BP_Beast_Q.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/DamageFields/Hue/BP_Beast_Q.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CutScene/BP_PlayCutScene.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CutScene/BP_PlayCutScene.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Level/Menu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Level/Menu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster1/Animation/AM_Monster1_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster1/Animation/AM_Monster1_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Monster/Monster3/Animation/AM_Monster3_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Monster/Monster3/Animation/AM_Monster3_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sound/SW_End.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sound/SW_End.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sound/SW_Map.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sound/SW_Map.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sound/SW_Menu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sound/SW_Menu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/DT_DialogueSequence.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/Dialogue/WBP_DialogueWidget.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/TutorialEnd/WBP_End.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/TutorialEnd/WBP_End.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/0/TM/FJ5YKSZQ7NZGEFXNFPBB7Y.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/0/TM/FJ5YKSZQ7NZGEFXNFPBB7Y.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/5X/9OKFUT2DJ0JUFH4ENHTQB7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/5X/9OKFUT2DJ0JUFH4ENHTQB7.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/7Z/QJKXG9POP4B4Y8GUX85WJ8.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/1/RZ/DXJ3NSKZ7CB84S1JSZC16X.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/2/P2/4E75W1BN83HJS79BDTO1DF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/2/P2/4E75W1BN83HJS79BDTO1DF.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/2/PQ/GAK9M8R54B4IF8PJO5D49F.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/3/F8/B3GFEC6LURUESW6MOWFZOC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/3/LY/YHZ1W8JPUUC0TZC3TVLIF7.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/4/7G/TLZGYN8NW0OEDPHZLGTSGN.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/4/9R/26TGKL99OD1OUG4SBA3J8A.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/4/A4/VDVMJPYTM1EO5QNTE2AAAG.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/4/MS/1IW09X0IRVG33XFAKZF2V3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/2Q/X4RB8OMBW30E3O8CKKCVVK.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/9Y/427NURQMVT960WM48VVNCU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/9Y/427NURQMVT960WM48VVNCU.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/IO/2GCWGFBBCZ986UW3PFM6MK.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/5/N3/D4FRB1SXD11WQWVL40623B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/7/I6/3U3YUZ9YV0YK7UM8ENUED2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/3V/4OQSCOK5SZQTVBTNHTKC9T.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/Q3/L2NYDAGI6P5D5BYHWIHY0Q.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/XW/KD1PI18H7F5W36E0KV86A7.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/8/Y6/BL2MAVOP28KA7T1VMMN7W0.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/38/QAOXTMUAS5KIVQQYJAQ1GS.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/9R/Y9DS5YF5DYQLC8RGBMIYN9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/A/Y0/ME165KVIW8T4BNPV0ZLNHE.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/FW/I9Z7B9DT3C2UC6990VPKSH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/FW/I9Z7B9DT3C2UC6990VPKSH.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/HH/D50ON5IFVTTTXUPLI3WLWG.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/HH/D50ON5IFVTTTXUPLI3WLWG.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/UA/198K0G3CLXM60MJIWJB717.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/B/UA/198K0G3CLXM60MJIWJB717.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/C/H5/3T34GJ72CSP1JPSEKDA8LB.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/E9/MUK1Q1NJMG6U2CW32G3Y5L.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Level/Tutorial_1/D/VP/IRP0F0DM0NDYY2BTGDNKZH.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/test/NS_Hit_Sword1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/test/NS_Hit_Sword1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Keeper.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Keeper.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/Character/KeeperCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Keeper/DialogueSystem/DialogueWidget.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -591,7 +642,9 @@
       <workItem from="1739906109618" duration="501000" />
       <workItem from="1739906720828" duration="5657000" />
       <workItem from="1739914806899" duration="1407000" />
-      <workItem from="1739953375988" duration="1846000" />
+      <workItem from="1739953375988" duration="8384000" />
+      <workItem from="1739998092410" duration="2771000" />
+      <workItem from="1740489259677" duration="717000" />
     </task>
     <servers />
   </component>

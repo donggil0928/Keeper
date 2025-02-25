@@ -33,6 +33,7 @@ AKeeperCharacter::AKeeperCharacter()
 	ComboAttackNumber = 0;
 
 	bIsDodging = false;
+	bIsHitting = false;
 	
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -296,6 +297,12 @@ void AKeeperCharacter::StartMadnessDecayDelay()
 		MADNESS_DECAY_DELAY,
 		false
 	);
+}
+
+void AKeeperCharacter::ResetHitState()
+{
+	bIsHitting = false;
+	GetWorldTimerManager().ClearTimer(HitStateTimer);
 }
 
 void AKeeperCharacter::StartMadnessDrain()
@@ -625,14 +632,27 @@ void AKeeperCharacter::OnDodgeMontageEnded(UAnimMontage* Montage, bool bInterrup
 
 void AKeeperCharacter::TakeDamage_C(float DamageAmount/*, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser*/)
 {
-	if (bIsDead || bIsDodging)
+	if (bIsDead || bIsDodging || bIsHitting)
 		return;
 	
 	float ActualDamage = DamageCalculation(DamageAmount);
 	CurrentHP = FMath::Max(0.0f, CurrentHP - ActualDamage);
 	OnStatChanged.Execute();
 
-	UE_LOG(LogTemp, Warning, TEXT("Damage %f applied to Hue"), ActualDamage);
+	bIsHitting = true;
+
+	if (GetWorldTimerManager().IsTimerActive(HitStateTimer))
+	{
+		GetWorldTimerManager().ClearTimer(HitStateTimer);
+	}
+	
+	GetWorldTimerManager().SetTimer(
+		HitStateTimer,
+		this,
+		&AKeeperCharacter::ResetHitState,
+		HIT_STATE_DURATION,
+		false
+	);
 	
 	if (CurrentHP <= 0.0f)
 	{

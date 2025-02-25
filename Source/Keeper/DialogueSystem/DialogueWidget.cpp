@@ -283,18 +283,19 @@ void UDialogueWidget::UpdatePortraitSize(UImage* Portrait, const UTexture2D* Tex
         return;
     }
 
-    float ContainerHeight = ContainerSize.Y;
-    float MaxPortraitHeight = ContainerHeight * PortraitMaxHeightRatio;
+    // float ContainerHeight = ContainerSize.Y;
+    // float MaxPortraitHeight = ContainerHeight * PortraitMaxHeightRatio;
     
     float TextureWidth = Texture->GetSizeX();
     float TextureHeight = Texture->GetSizeY();
     
     float AspectRatio = TextureWidth / TextureHeight;
     
-    float NewHeight = MaxPortraitHeight;
-    float NewWidth = NewHeight * AspectRatio;
+    // float NewHeight = MaxPortraitHeight;
+    // float NewWidth = NewHeight * AspectRatio;
     
-    Portrait->SetDesiredSizeOverride(FVector2D(NewWidth, NewHeight));
+    //Portrait->SetDesiredSizeOverride(FVector2D(NewWidth, NewHeight));
+    Portrait->SetDesiredSizeOverride(FVector2D(TextureWidth, TextureHeight)); 
 }
 
 void UDialogueWidget::ClearDialogue()

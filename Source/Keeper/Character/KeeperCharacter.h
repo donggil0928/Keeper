@@ -46,9 +46,16 @@ public:
 private:
 	bool bIsAttacking;
 	bool bIsDodging;
+	bool bIsHitting;
 	bool bIsHitReacting;
 	bool bIsDead = false;
 
+	// 피격 무적
+	FTimerHandle HitStateTimer;
+	const float HIT_STATE_DURATION = 2.0f;
+	
+	void ResetHitState();
+	
 	// 광기 게이지 하락
 	FTimerHandle MadnessDecayTimer;
 	FTimerHandle MadnessDecayDelayTimer;
