@@ -31,6 +31,16 @@ AKeeperCharacterController::AKeeperCharacterController()
 	if(RSkillActionRef.Succeeded()) RSkillAction = RSkillActionRef.Object;
 }
 
+void AKeeperCharacterController::SetLastClickedLocation(const FVector& Location)
+{
+	LastClickedLocation = Location;
+}
+
+FVector AKeeperCharacterController::GetLastClickedLocation() const
+{
+	return LastClickedLocation;
+}
+
 void AKeeperCharacterController::BeginPlay()
 {
  	Super::BeginPlay();
@@ -132,6 +142,10 @@ void AKeeperCharacterController::SetNewDestination(const FVector& DestLocation)
 
 void AKeeperCharacterController::OnLeftClickPressed()
 {
+	FHitResult HitResult;
+	GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+	SetLastClickedLocation(HitResult.Location);
+	
 	if (MyChar)
 	{
 		MyChar->AttackDown();

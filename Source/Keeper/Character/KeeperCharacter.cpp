@@ -419,6 +419,21 @@ void AKeeperCharacter::Attack(ACharacter* Monster)
 
 	if (!AnimaInstance || !CurrentComboMontage) return;
 
+	AKeeperCharacterController* KeeperController = Cast<AKeeperCharacterController>(GetController());
+	if (KeeperController)
+	{
+		FVector ClickedLocation = KeeperController->GetLastClickedLocation();
+		FVector Direction = ClickedLocation - GetActorLocation();
+		Direction.Z = 0;
+        
+		if (Direction.SizeSquared() > 0.01f)
+		{
+			Direction.Normalize();
+			FRotator NewRotation = Direction.Rotation();
+			SetActorRotation(FRotator(0, NewRotation.Yaw, 0));
+		}
+	}
+	
 	bComboAttacking = true;
 	const char* comboList[] = { "combo1", "combo2", "combo3", "combo4"};
 

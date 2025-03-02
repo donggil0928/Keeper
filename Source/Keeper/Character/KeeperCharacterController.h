@@ -19,6 +19,9 @@ class KEEPER_API AKeeperCharacterController : public APlayerController
 public:
 	AKeeperCharacterController();
 
+	void SetLastClickedLocation(const FVector& Location);
+	FVector GetLastClickedLocation() const;
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void PlayerTick(float DeltaTime) override;
@@ -36,6 +39,8 @@ private:
 	UPROPERTY()
 	AKeeperCharacter* MyChar; // UObject라 스마트 포인터가 아닌 UPROPERTY
 
+	FVector LastClickedLocation;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputMappingContext* DefaultMappingContext;
     
