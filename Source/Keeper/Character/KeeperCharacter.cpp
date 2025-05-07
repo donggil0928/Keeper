@@ -24,6 +24,8 @@
 
 #include "Skill/SkillComponent.h"
 
+#include "Interaction/InteractorComponent.h"
+
 // Sets default values
 AKeeperCharacter::AKeeperCharacter()
 {
@@ -182,11 +184,14 @@ AKeeperCharacter::AKeeperCharacter()
 	SkillCooldownHandle.Add(ESkillKeyMapping::R);
 
 	UnlockedSkillInfo.Add(ESkillSetType::Defalut, true);
-	UnlockedSkillInfo.Add(ESkillSetType::Beast, true);
+	UnlockedSkillInfo.Add(ESkillSetType::Beast, false);
 	UnlockedSkillInfo.Add(ESkillSetType::Mirror, false);
 	UnlockedSkillInfo.Add(ESkillSetType::Puppet, false);
 	UnlockedSkillInfo.Add(ESkillSetType::Dream, false);
 	//-------------------------------------------------
+
+	InteractorComponent = CreateDefaultSubobject<UInteractorComponent>(TEXT("InteractorComponent"));
+	InteractorComponent->SetupAttachment(RootComponent);
 }
 
 void AKeeperCharacter::BeginPlay()

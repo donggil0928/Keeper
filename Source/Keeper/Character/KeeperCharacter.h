@@ -16,6 +16,7 @@ class AKeeperCharacterController;
 class AMonsterBase;
 class ADamageField_Base;
 class USphereComponent;
+class UInteractorComponent;
 
 DECLARE_DELEGATE(FOnStatChanged);
 DECLARE_DELEGATE_OneParam(FStartCooldown, ESkillKeyMapping);
@@ -286,4 +287,6 @@ public:
 	FStartCooldown StartCooldown;
 	UPROPERTY(BlueprintAssignable)
 	FRemoteSubShooter SubShooterDelegate;
+
+	UInteractorComponent* InteractorComponent;
 };

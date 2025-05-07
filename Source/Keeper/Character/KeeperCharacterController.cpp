@@ -6,6 +6,7 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "Blueprint/UserWidget.h"
 #include "Character/KeeperCharacter.h"
+#include "Interaction/InteractorComponent.h"
 
 AKeeperCharacterController::AKeeperCharacterController()
 // DefaultMappingContext(nullptr), RightClickAction(nullptr),
@@ -74,6 +75,8 @@ void AKeeperCharacterController::SetupInputComponent()
 		EnhancedInputComponent->BindAction(ESkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonEPressed);
 		EnhancedInputComponent->BindAction(RSkillAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnButtonRPressed);
 		
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &AKeeperCharacterController::OnBeginInteract);
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &AKeeperCharacterController::OnEndInteract);
 	}
 }
 
@@ -257,6 +260,16 @@ void AKeeperCharacterController::OnButtonRPressed()
 	{
 		MyChar->ActivateSkill(ESkillKeyMapping::R);
 	}
+}
+
+void AKeeperCharacterController::OnBeginInteract()
+{
+	if (MyChar) MyChar->InteractorComponent->BeginInteraction();
+}
+
+void AKeeperCharacterController::OnEndInteract()
+{
+	if (MyChar) MyChar->InteractorComponent->EndInteraction();
 }
 
 void AKeeperCharacterController::PlayerTick(float DeltaTime)

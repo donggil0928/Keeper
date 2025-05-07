@@ -71,6 +71,9 @@ private:
 	UPROPERTY()
 	class UInputAction* RSkillAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InteractAction;
+
 	void OnLeftClickPressed();
 	void OnLeftClickReleased();
 	void OnTabPressed();
@@ -81,6 +84,8 @@ private:
 	void OnButtonWPressed();
 	void OnButtonEPressed();
 	void OnButtonRPressed();
+	void OnBeginInteract();
+	void OnEndInteract();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<UUserWidget> TabMenuWidgetClass;
