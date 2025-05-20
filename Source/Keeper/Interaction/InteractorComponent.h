@@ -30,9 +30,9 @@ public:
 private:
 	bool DetectInteractableActor(FHitResult& OutHitResult);
 
-	UPROPERTY(EditAnywhere, Category = "Interaction")
+	UPROPERTY(EditAnywhere, Category = "Interaction", meta = (AllowPrivateAccess = "true"))
 	float HeightOffset = .0f;
-	UPROPERTY(EditAnywhere, Category = "Interaction")
+	UPROPERTY(EditAnywhere, Category = "Interaction", meta = (AllowPrivateAccess = "true"))
 	float DetectRange = 200.0f; // 임의의 값
 	UPROPERTY()
 	bool bIsInteracting = false;

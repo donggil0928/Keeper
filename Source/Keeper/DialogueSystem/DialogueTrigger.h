@@ -28,6 +28,12 @@ public:
 	UFUNCTION()
 	void OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActor);
 
+	// new
+	FORCEINLINE bool IsValidDialogue() { return (DialogueData && !SequenceName.IsNone()); }
+	UFUNCTION()
+	void BeginDialogue();
+	//
+
 	UPROPERTY(EditAnywhere, Category = "Trigger")
 	UClass* TargetBlueprintClass;
 

@@ -30,19 +30,34 @@ void ADialogueTrigger::OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActo
 		return;
 	}
 
-	if (DialogueData && !SequenceName.IsNone())
+	if (IsValidDialogue())
 	{
-		FDialogueSequence* Sequence = DialogueData->FindRow<FDialogueSequence>(SequenceName, TEXT(""));
-		if (Sequence)
-		{
-			DialogueManager->DialogueSequence = *Sequence;
-			DialogueManager->StartDialogue();
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to find dialogue sequence: %s"), *SequenceName.ToString());
-		}
+		//FDialogueSequence* Sequence = DialogueData->FindRow<FDialogueSequence>(SequenceName, TEXT(""));
+		//if (Sequence)
+		//{
+		//	DialogueManager->DialogueSequence = *Sequence;
+		//	DialogueManager->StartDialogue();
+		//}
+		//else
+		//{
+		//	UE_LOG(LogTemp, Error, TEXT("Failed to find dialogue sequence: %s"), *SequenceName.ToString());
+		//}
+		BeginDialogue();
 	}
 
 	bHasBeenTriggered = true;
+}
+
+void ADialogueTrigger::BeginDialogue()
+{
+	FDialogueSequence* Sequence = DialogueData->FindRow<FDialogueSequence>(SequenceName, TEXT(""));
+	if (Sequence)
+	{
+		DialogueManager->DialogueSequence = *Sequence;
+		DialogueManager->StartDialogue();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to find dialogue sequence: %s"), *SequenceName.ToString());
+	}
 }
